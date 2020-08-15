@@ -1,0 +1,62 @@
+/* custom style for login page */
+.card {    
+    padding: 15px;
+    max-width: 300px;
+    height: auto;
+    margin: 10px auto;
+    text-align: center;
+}
+/* /end custom style for login page */
+
+body {
+    background-color: rgb(224, 224, 224);
+}
+
+p {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+ h1, h3 {
+    margin-top: 30px;
+}
+.form-group {
+    height: auto;
+    max-width: 300px;
+}
+.create-account {
+    height: auto;
+    max-width: 300px;
+}
+
+#nombre-perfil{
+    font-size: x-large;
+    color: coral;
+}
+#titulo-edit-profile{
+    font-size:xx-large;
+    color: darkorange;
+}
+.li-edit-profile {
+    margin-top: 20px;
+}
+.li-edit-profile button:hover {
+   color:greenyellow;
+}
+.li-edit-profile button:active {
+    color: greenyellow;
+ }
+
+
+ .logout a:hover {
+    color:greenyellow;
+    background-color: blue;
+    border:3px;
+    border-color: black;
+ }
+ .logout a:active {
+     color: greenyellow;
+     background-color: blue;
+     border:3px;
+     border-color: black;
+  }
