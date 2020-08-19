@@ -1,2 +1,2 @@
 #directorios que no se suben todavia.
-/Login/*.*
+/Login
