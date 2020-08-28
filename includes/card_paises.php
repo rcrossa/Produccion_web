@@ -14,7 +14,6 @@
                   <div class="container d-flex justify-content-around">
                     <a href="#" class="btn btn-success">Comprar</a>
 
-                    
                     <?php echo '<a href="product_details.php?id=' . $value["id"] . '"class="btn btn-outline-primary">Ver mas</a>' ?>
                   </div>
                 </div>
