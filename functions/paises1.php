@@ -3,7 +3,7 @@
 $paisesArr = array(
   0 => array(
     'id' => 0,
-    'nombre' => 'España',
+    'pais' => 'España',
     "continente" => "Europa",
     'precio' => '$45010',
     'descripcion' => 'VISITANDO: España MADRID, SANTIAGO DE COMPOSTELA -RINLO - CABO VIDIO - LA MANJOYA - COVADONGA - CUEVAS DEL SOPLAO - SANTANDER - BILBAO - SAN SEBASTIAN.',
@@ -13,7 +13,7 @@ $paisesArr = array(
   ),
   1 => array(
     'id' => 1,
-    'nombre' => 'Francia',
+    'pais' => 'Francia',
     "continente" => "Europa",
     'precio' => '$45020',
     'descripcion' => 'VISITANDO: Francia MADRID, SANTIAGO DE COMPOSTELA -RINLO - CABO VIDIO - LA MANJOYA - COVADONGA - CUEVAS DEL SOPLAO - SANTANDER - BILBAO - SAN SEBASTIAN.',
@@ -23,7 +23,7 @@ $paisesArr = array(
   ),
   2 => array(
     'id' => 2,
-    'nombre' => 'Italia',
+    'pais' => 'Italia',
     "continente" => "Europa",
     'precio' => '$43000',
     'descripcion' => 'VISITANDO: Italia MADRID, SANTIAGO DE COMPOSTELA -RINLO - CABO VIDIO - LA MANJOYA - COVADONGA - CUEVAS DEL SOPLAO - SANTANDER - BILBAO - SAN SEBASTIAN.',
@@ -33,7 +33,7 @@ $paisesArr = array(
   ),
   3 => array(
     'id' => 3,
-    'nombre' => 'Alemania',
+    'pais' => 'Alemania',
     "continente" => "Europa",
     'precio' => '$44000',
     'descripcion' => 'VISITANDO: Alemania, SANTIAGO DE COMPOSTELA -RINLO - CABO VIDIO - LA MANJOYA - COVADONGA - CUEVAS DEL SOPLAO - SANTANDER - BILBAO - SAN SEBASTIAN.',
@@ -43,7 +43,7 @@ $paisesArr = array(
   ),
   4 => array(
     'id' => 4,
-    'nombre' => 'Estados Unidos',
+    'pais' => 'Estados Unidos',
     "continente" => "America del Norte",
     'precio' => '$20000',
     'descripcion' => 'Estados Unidos Visitando: Bsssoston / Quebec / Montreal / Ottawa / Toronto / Niagara Falls - Incluye: boleto por American Airlines. Desayunos Americanos. ALIMENTACIÓN: Desayuno diario incluidos. Opcional: asistencia CORIS con seguro de cancelación USD 36 por persona.',
@@ -53,7 +53,7 @@ $paisesArr = array(
   ),
   5 => array(
     'id' => 5,
-    'nombre' => 'Canada',
+    'pais' => 'Canada',
     "continente" => "America del Norte",
     'precio' => '$20000',
     'descripcion' => 'Canada Visitando: Bsssoston / Quebec / Montreal / Ottawa / Toronto / Niagara Falls - Incluye: boleto por American Airlines. Desayunos Americanos. ALIMENTACIÓN: Desayuno diario incluidos. Opcional: asistencia CORIS con seguro de cancelación USD 36 por persona.',
@@ -63,7 +63,7 @@ $paisesArr = array(
   ),
   6 => array(
     'id' => 6,
-    'nombre' => 'Mexico',
+    'pais' => 'Mexico',
     "continente" => "America del Norte",
     'precio' => '$20000',
     'descripcion' => 'Mexico Visitando: Bsssoston / Quebec / Montreal / Ottawa / Toronto / Niagara Falls - Incluye: boleto por American Airlines. Desayunos Americanos. ALIMENTACIÓN: Desayuno diario incluidos. Opcional: asistencia CORIS con seguro de cancelación USD 36 por persona.',
@@ -73,7 +73,7 @@ $paisesArr = array(
   ),
   7 => array(
     'id' => 7,
-    'nombre' => 'Brasil',
+    'pais' => 'Brasil',
     "continente" => "America del Sur",
     'precio' => '$60030',
     'descripcion' => 'INCLUYE: Brasil GUÍA: Operado con guía en español e inglés. Pasaje (Latam Airlines).   ALOJAMIENTO: 3 noches de alojamiento en Lima. 1 noche de alojamiento en Paracas. 2 noches de alojamiento en Cusco. 1 noche de alojamiento en Aguas Calientes. ALIMENTACIÓN: Desayuno diario incluidos. Opcional: asistencia CORIS con seguro de cancelación USD 36 por persona.',
@@ -83,7 +83,7 @@ $paisesArr = array(
   ),
   8 => array(
     'id' => 8,
-    'nombre' => 'Argentina',
+    'pais' => 'Argentina',
     "continente" => "America del Sur",
     'precio' => '$60030',
     'descripcion' => 'INCLUYE: Argentina GUÍA: Operado con guía en español e inglés. Pasaje (Latam Airlines).   ALOJAMIENTO: 3 noches de alojamiento en Lima. 1 noche de alojamiento en Paracas. 2 noches de alojamiento en Cusco. 1 noche de alojamiento en Aguas Calientes. ALIMENTACIÓN: Desayuno diario incluidos. Opcional: asistencia CORIS con seguro de cancelación USD 36 por persona.',
@@ -93,7 +93,7 @@ $paisesArr = array(
   ),
   9 => array(
     'id' => 9,
-    'nombre' => 'Japon',
+    'pais' => 'Japon',
     "continente" => "Asia",
     'precio' => '$36200',
     'descripcion' => 'VISITANDO: Japon Vancouver/ Hope / Kelowna / Revelstoke / Golden / Columbia Ice Field / Canmore /  Banff / Calgar. Incluye: vuelo por American Airlines (Clase turista).',

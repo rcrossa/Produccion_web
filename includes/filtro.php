@@ -1,9 +1,11 @@
 <?php
 $str_data_continentes = file_get_contents("./json/continentes.json");
 $str_data_paises = file_get_contents("./json/paises.json");
+$str_data_estadoprovincia = file_get_contents("./json/estadosprovincias.json");
 
 $dataContinentes = json_decode($str_data_continentes, true);
 $dataPaises = json_decode($str_data_paises, true);
+$dataEstadosProvincias = json_decode($str_data_estadoprovincia, true);
 ?>
 
 <div class="container pt-4 px-5">
@@ -17,15 +19,13 @@ $dataPaises = json_decode($str_data_paises, true);
                         <div class="filtrolugar">
                             <div class="row justify-content-center align-items-center">
                                 <div class="col-12 col-md-6 col-lg-4 py-2">
-
                                     <form action="" method="GET" class="">
-                                        <?php $opcion = 'Todo'; ?>
-                                        <?php !empty($_GET['continente']) ? $opcion = $_GET['continente'] : $opcion = "" ?>
-
+                                        <?php $opcionContinen = 'Todo'; ?>
+                                        <?php !empty($_GET['continente']) ? $opcionContinen = $_GET['continente'] : $opcionContinen = "" ?>
                                         <select name="continente" class="custom-select custom-select-lg" id="continente" onchange="this.form.submit()">
                                             <option value="" selected="selected">Seleccionar Continente</option>
                                             <?php foreach ($dataContinentes as $continentes) : ?>
-                                                <option <?php echo ($opcion == $continentes['nombre']) ? 'selected="selected"' : '' ?>>
+                                                <option <?php echo ($opcionContinen == $continentes['nombre']) ? 'selected="selected"' : '' ?>>
                                                     <?php echo $continentes['nombre'] ?>
                                                 </option>
                                             <?php endforeach ?>
@@ -34,30 +34,48 @@ $dataPaises = json_decode($str_data_paises, true);
 
                                 </div>
 
-                                <div class="col-12 col-md-6 col-lg-4">
+                                <div class="col-10 col-md-6 col-lg-4">
                                     <form action="" method="GET" class="">
-                                        <?php !empty($_GET['pais']) ? $opcion=$_GET['pais']: $opcion= "" ?>
-                                        <input type="hidden" name="continente" value="<?php echo isset($_GET['continente']) ? $_GET['continente'] : '' ?>">
+                                        <?php $opcionPais = 'Todo'; ?>
+                                        <?php !empty($_GET['pais']) ? $opcionPais=$_GET['pais']: $opcionPais= "Todo" ?>
+                                         <input type="hidden" name="continente" value="<?php echo isset($opcionContinen) ? $opcionContinen  : $_GET['continente']?>">
                                         <select name="pais" class="custom-select custom-select-lg" id="pais" onchange="this.form.submit()">
-                                            <option>Seleccionar Pais</option>
+                                            <option value="">Seleccionar Pais</option>
                                             <?php foreach ($dataPaises as $paises) : ?>
-                                                <?php if ($paises['continente'] == $_GET['continente']) : ?>
-                                                    <option <?php echo ($opcion == $paises['nombre']) ? 'selected="selected"' : ''?>>
-                                                    <?php echo $paises['nombre'];?> </option>
+                                                <?php if ($paises['continente'] == $opcionContinen) : ?>
+                                                    <option <?php echo ($opcionPais == $paises['pais']) ? 'selected="selected"' : ''?>>
+                                                    <?php echo $paises['pais'];?> </option>
                                                 <?php endif ?>
 
                                                 <?php if ($_GET['continente'] == null || $_GET['continente'] == 'Todo') : ?>
-                                                    <option <?php echo ($opcion == $paises['nombre']) ? 'selected="selected"' : ''?>>
-                                                    <?php echo $paises['nombre'];?> </option>
+                                                    <option <?php echo ($opcionPais == $paises['pais']) ? 'selected="selected"' : ''?>>
+                                                    <?php echo $paises['pais'];?> </option>
                                                 <?php endif ?>
 
                                             <?php endforeach ?>
                                         </select>
                                     </form>
                                 </div>
-                                <!-- <div class="col-sm-12 col-lg-2 py-2">
-                                    <button type="submit" class="btn btn-danger btn-md mx-3 px-4">Buscar</button>
-                                </div> -->
+                                <div  class="col-12 col-md-6 col-lg-4">
+                                <form action="" method="GET" class="">
+                                <?php $opcionEstado = 'Todo'; ?>
+
+                                <input type="hidden" name="continente" value="<?php echo isset($opcionContinen) ? $opcionContinen  : $_GET['continente']?>">
+                                <input type="hidden" name="pais" value="<?php echo isset($opcionPais) ? $opcionPais : $_GET['pais'] ?>">
+                                   
+
+                                    <?php !empty($_GET['estadoprovincia']) ? $opcionEstado=$_GET['estadoprovincia']: $opcionEstado = "Todo" ?>
+                                        <select name="estadoprovincia" class="custom-select custom-select-lg" id="estadoprovincia" onchange="this.form.submit()">
+                                            <option value="">Estados / Provincias</option>
+                                            <?php foreach ($dataEstadosProvincias as $estadosprovincias) : ?>
+                                                <?php if ($estadosprovincias["pais"] == $opcionPais) : ?>
+                                                    <option <?php echo ($opcionEstado == $estadosprovincias['estadoprovincia']) ? 'selected="selected"' : ''?>>
+                                                    <?php echo $estadosprovincias['estadoprovincia'];?> </option>
+                                                <?php endif ?>
+                                            <?php endforeach ?>
+                                        </select> 
+                                        </form>   
+                                </div>
                             </div>
                         </div>
                     </div>

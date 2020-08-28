@@ -9,8 +9,8 @@
 <body>
     <?php
     $page = 'catalogo';
-    $str_data = file_get_contents("./json/paises.json");
-    $paises = json_decode($str_data, true);
+    $str_data = file_get_contents("./json/estadosprovincias.json");
+    $estadosprovincias = json_decode($str_data, true);
 
     require_once "./includes/encabezado.php";
     $id = $_GET['id'];
@@ -37,7 +37,7 @@
 
 
     <div class="container text-center pt-5 pb-4">
-        <?php foreach ($paises as $key => $value) {
+        <?php foreach ($estadosprovincias as $key => $value) {
             if ($key == $id) break;
         }
         echo '<h1>' . $value['nombre'] . '</h1>';
@@ -96,7 +96,8 @@
                     <table class="table">
                         <tbody>
                             <?php
-                            echo '<tr><td>Pais: </td><td>' . $value['nombre'] . '</td></tr>';
+                            echo '<tr><td>Ciudad: </td><td>' . $value['nombre'] . '</td></tr>';
+                            echo '<tr><td>Pais: </td><td>' . $value['pais'] . '</td></tr>';
                             echo '<tr><td>Viaje: </td><td>' . $value['continente'] . '</td></tr>';
                             echo '<tr><td>Precio: </td><td> ' . $value['precio'] . '</td></tr>';
                             ?>
