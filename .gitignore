@@ -507,5 +507,5 @@ MigrationBackup/
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,visualstudio,sublimetext,eclipse
 
 #directorios que no se suben todavia.
-Login/
-RobertoRossa/productos/
+# Login/
+# RobertoRossa/productos/
