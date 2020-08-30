@@ -2,7 +2,7 @@
 	//incluye la clase Db
 	require_once ('conexion.php');
 	
-	class CrudUsuario{
+	class CrudProducto{
 		//constructor de la clase
 		public function __construct(){}
 
@@ -24,11 +24,11 @@
 			//metodo para mostrar todos los productos
 		public function mostrar(){
 			$db=DB::conectar();
-			$listarproductos=[];
+			$listarProductos=[];
 			$select=$db->query('SELECT * FROM productos');
 
 			foreach ($select->fetchAll() as $producto) {
-				$myProducto = new Usuario();
+				$myProducto = new Producto();
 				$myProducto->setId($producto['id']);
 				$myProducto->setContinente($producto['continente']);
 				$myProducto->setPais($producto['pais']);
@@ -38,10 +38,10 @@
 				$myProducto->setUrl($producto['url']);
 				$myProducto->setDestacado($producto['destacado']);
 				$myProducto->setActivo($producto['activo']);
-				$listarUsuarios[]=$myUsuario;
+				$listarProductos[]=$myProducto;
 				# code...
 			}
-			return $listarproductos;
+			return $listarProductos;
 		}
 		//metodo para eliminar un producto, recibe como parametro el id del producto
 		public function eliminar($id){

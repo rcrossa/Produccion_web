@@ -12,13 +12,14 @@ class producto {
     private $activo;
 
     function __construct(){}
-
+    public function getId(){ return $this->id ;}
+    public function setId($id){return $this->id = $id;}
     public function getContinente(){ return $this->continente ;}
     public function setContinente($continente){return $this->continente = $continente;}
     public function getPais(){return $this->pais ;}
-    public function setPais($pais){return $this->Pais = $pais;}
+    public function setPais($pais){return $this->pais = $pais;}
     public function getPrecio(){return $this->precio ;}
-    public function setPrecio($precio){return $this->Precio = $precio;}
+    public function setPrecio($precio){return $this->precio = $precio;}
     public function getDescripcion(){return $this->pais ;}
     public function setDescripcion($descripcion){return $this->$descripcion = $descripcion;}
     public function getDescripcion_details(){return $this->descripcion_details ;}

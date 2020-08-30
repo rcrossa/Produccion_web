@@ -4,8 +4,8 @@ require_once ('crud_producto.php');
 require_once ('producto.php');
 
 
-$crud= new CrudUsuario();
-$producto= new Usuario();
+$crud = new CrudProducto();
+$producto= new Producto();
 
 
   try {
@@ -15,8 +15,8 @@ $producto= new Usuario();
 			$producto->setContinente(  $_POST['continente']);
 			$producto->setPais($_POST['pais']);
 			$producto->setPrecio(    $_POST['precio']);
-			$producto->setDecripcion(   $_POST['decripcion']);
-			$producto->setDecripcion_details(    $_POST['decripcion_details']);
+			$producto->setDescripcion(   $_POST['descripcion']);
+			$producto->setDescripcion_details(    $_POST['descripcion_details']);
 			$producto->setUrl(    $_POST['url']);
 			$producto->setDestacado(  $_POST['destacado']);
 			$producto->setActivo(  $_POST['activo']);
@@ -29,8 +29,8 @@ $producto= new Usuario();
 			$producto->setContinente(  $_POST['nombre']);
 			$producto->setPais($_POST['pais']);
 			$producto->setPrecio(    $_POST['precio']);
-			$producto->setDecripcion(   $_POST['decripcion']);
-			$producto->setDecripcion_details(    $_POST['decripcion_details']);
+			$producto->setDescripcion(   $_POST['descripcion']);
+			$producto->setDescripcion_details(    $_POST['descripcion_details']);
 			$producto->setUrl(    $_POST['url']);
 			$producto->setDestacado(  $_POST['destacado']);
 			$producto->setActivo(  $_POST['activo']);
