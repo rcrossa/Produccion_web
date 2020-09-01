@@ -51,14 +51,14 @@
             </table>
         </div>
         <!-- <input type='submit' value='guardar'>
-        <a href="index.php">Volver</a> -->
-        <button class="botoningresar" onclick="window.location.href='index.php'" type="submit" value='guardar'
+        <a href="productos.php">Volver</a> -->
+        <button class="botoningresar" onclick="window.location.href='productos.php'" type="submit" value='guardar'
             class="btn btn-primary btn-sm">Crear</button></p>
-        <!-- <button href="index.php" type="submit" >volver</button> -->
+        <!-- <button href="productos.php" type="submit" >volver</button> -->
     </form>
-    <!-- <button onclick="window.location.href='index.php'"
+    <!-- <button onclick="window.location.href='productos.php'"
                         class="btn btn-primary btn-sm">Volver</button></p>
-                        <button onclick="window.location.href='index.php'" class="btn btn btn-outline-light btn-sm" >volver</button> -->
+                        <button onclick="window.location.href='productos.php'" class="btn btn btn-outline-light btn-sm" >volver</button> -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>

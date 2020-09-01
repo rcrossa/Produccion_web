@@ -52,7 +52,7 @@
 	</table>
 	</div>
 	<input type='submit' value='Guardar'>
-	<a href="index.php">Volver</a>
+	<a href="productos.php">Volver</a>
 </form>
 </body>
 </html>

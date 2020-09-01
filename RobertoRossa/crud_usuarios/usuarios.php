@@ -4,22 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <?php require_once "../includes/head.php" ;?>
     <title>Document</title>
 </head>
 
 <body>
+<?php 
+    $page = 'usuarios';
+    require_once "../includes/encabezado.php"; ?>
     <header>
-        <h1>Bienvenidos a la administracion de Productos</h1>
+        <h1>Bienvenidos a la administracion de usuarios</h1>
     </header>
     <div class="table-responsive">
     <table class="table table-bordered">
+    <th>Alta de usuarios</th>
         <tr>
-        <td><a> <?php  require_once "alta.php"?> </a></td>
+        <td><a> <?php  require_once "ingresar.php"?> </a></td>
             <!-- <td><a href="ingresar.php">Ingresar</a></td> -->
         </tr>
-        <th>Administrar Productos</th>
+        <th>Modificacion de usuarios</th>
         <tr>
         <td><a> <?  require_once "mostrar.php"?></a></td>
             <!-- <td><a href="mostrar.php">ver</a></td> -->

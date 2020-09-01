@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css ">
     <title>Listados de usuarios</title>
 </head>
 <body>
@@ -47,14 +47,14 @@
             </table>
         </div>
         <!-- <input type='submit' value='guardar'>
-        <a href="index.php">Volver</a> -->
-        <button class="botoningresar" onclick="window.location.href='index.php'" type="submit" value='guardar'
+        <a href="usuarios.php">Volver</a> -->
+        <button class="botoningresar" onclick="window.location.href='usuarios.php'" type="submit" value='guardar'
             class="btn btn-primary btn-sm">Crear</button></p>
-        <!-- <button href="index.php" type="submit" >volver</button> -->
+        <!-- <button href="usuarios.php" type="submit" >volver</button> -->
     </form>
-    <!-- <button onclick="window.location.href='index.php'"
+    <!-- <button onclick="window.location.href='usuarios.php'"
                         class="btn btn-primary btn-sm">Volver</button></p>
-                        <button onclick="window.location.href='index.php'" class="btn btn btn-outline-light btn-sm" >volver</button> -->
+                        <button onclick="window.location.href='usuarios.php'" class="btn btn btn-outline-light btn-sm" >volver</button> -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
