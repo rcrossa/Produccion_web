@@ -6,14 +6,17 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li <?php echo ($page == 'index') ? "class='nav-item active px-3 py-2'" : ""; ?> class="nav-item px-3 py-2">
+      <!-- <li <?php echo ($page == 'index') ? "class='nav-item active px-3 py-2'" : ""; ?> class="nav-item px-3 py-2"> -->
+      <li>
         <a class="nav-link" href="index.php">Home </span></a>
       </li>
-      <li <?php echo ($page == 'usuarios') ? "class='nav-item active px-3 py-2'" : ""; ?> class="nav-item px-3 py-2">
-        <a class="nav-link" href="./crud_usuarios/usuarios.php">Usuarios</a>
+      <!-- <li <?php echo ($page == 'usuarios') ? "class='nav-item active px-3 py-2'" : ""; ?> class="nav-item px-3 py-2"> -->
+      <li>
+        <a class="nav-link" href="crud_usuarios/usuarios.php">Usuarios</a>
       </li>
-      <li <?php echo ($page == 'productos') ? "class='nav-item active px-3 py-2'" : ""; ?> class="nav-item px-3 py-2">
-        <a class="nav-link" href="./crud_productos/productos.php">Catalogo de productos</a>
+      <!-- <li <?php echo ($page == 'productos') ? "class='nav-item active px-3 py-2'" : ""; ?> class="nav-item px-3 py-2"> -->
+      <li>
+        <a class="nav-link" href="crud_productos/productos.php">Catalogo de productos</a>
       </li>
     </ul>
   </div>
