@@ -216,7 +216,7 @@
                                         <div class="testmonial_author">
                                             <h3>- <?php echo $comentario['nombre']; ?> </h3>
                                         </div>
-
+                                        <!-- condicional para validar rankeo de usuarios con estrellas-->
                                         <h3 class="text-warning">
                                             <?php
                                             if ($comentario['estrellas'] == '1') {
