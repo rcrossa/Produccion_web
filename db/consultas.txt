@@ -2,7 +2,7 @@ SELECT nombreciudad,nombrepais,nombrecontinente FROM productos,paises,continente
 SELECT pr.idproducto, c.nombreciudad, pa.nombrepais, pr.precio, pr.descripcion, pr.detalle, pr.url, pr.destacado, pr.activo 
 				FROM productos pr, ciudades c, paises pa 
 				WHERE pr.idciudad=c.idciudad
-				AND c.idpais=pa.idpais
+				AND c.idpais=pa.idpais;
 
 
 INSERT INTO `comentarios` (`idproducto`, `ip`, `fecha`, `comentario`, `estrellas`, `activo`, `email`) VALUES ('6', '13131313', '2020-09-07', 'muy buenooooo!!!', '5', '1', 'roberto.rosa@gmail.com'), ('9', '10101010', '2020-09-02', 'no me gustó mucho!', '3', '1', 'david.spinozzi@gmail.com'), ('14', '12121212', '2020-09-02', 'muy buen destino!', '5', '1', 'nicolas.ceijas@gmail.com'), ('15', '111111', '2020-09-04', 'me gustó mucho!!', '4', '1', 'elisa.leiva@gmail.com'), ('15', '10101010', '2020-09-01', 'excelente destino!!', '5', '1', 'david.spinozzi@gmail.com')
