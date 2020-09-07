@@ -6,6 +6,13 @@ $str_data_estadoprovincia = file_get_contents("./json/estadosprovincias.json");
 $dataContinentes = json_decode($str_data_continentes, true);
 $dataPaises = json_decode($str_data_paises, true);
 $dataEstadosProvincias = json_decode($str_data_estadoprovincia, true);
+
+
+/incluye la clase Producto y CrudProducto
+require_once ('crud_producto.php');
+require_once ('producto.php');
+$crud = new CrudProducto();
+$producto= new Producto();
 ?>
 
 <div class="container pt-4 px-5">

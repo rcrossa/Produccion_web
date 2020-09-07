@@ -13,7 +13,7 @@
 				$select=$db->query('SELECT pr.idproducto, c.nombreciudad, pa.nombrepais, pr.precio, pr.descripcion, pr.detalle, pr.url, pr.destacado, pr.activo 
 				FROM productos pr, ciudades c, paises pa 
 				WHERE pr.idciudad=c.idciudad
-				AND c.idpais=pa.idpais');
+				AND c.idpais=pa.idpais AND pr.activo=1');
 
 			foreach ($select->fetchAll() as $producto) {
 				$myProducto = new Producto();
