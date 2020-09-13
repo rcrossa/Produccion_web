@@ -1,8 +1,39 @@
 {
+<<<<<<< Updated upstream
     "files.exclude": {
         "**/.classpath": true,
         "**/.project": true,
         "**/.settings": true,
         "**/.factorypath": true
     }
+=======
+    "sqltools.connections": [
+        {
+            "askForPassword": true,
+            "database": "produccion_web",
+            "driver": "MySQL",
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "name": "produccion_web",
+            "port": 3306,
+            "previewLimit": 50,
+            "server": "localhost",
+            "username": "root1"
+        },
+        {
+            "askForPassword": true,
+            "database": "produccion_web3",
+            "driver": "MySQL",
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "name": "test",
+            "port": 3306,
+            "previewLimit": 50,
+            "server": "localhost",
+            "username": "usuarioprueba"
+        }
+    ]
+>>>>>>> Stashed changes
 }
