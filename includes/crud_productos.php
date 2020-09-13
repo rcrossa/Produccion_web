@@ -10,25 +10,27 @@
 		public function mostrar(){
 			$db=DB::conectar();
 			$listarProductos=[];
-				$select=$db->query('SELECT pr.idproducto, c.nombreciudad, pa.nombrepais, pr.precio, pr.descripcion, pr.detalle, pr.url, pr.destacado, pr.activo 
-				FROM productos pr, ciudades c, paises pa 
-				WHERE pr.idciudad=c.idciudad
-				AND c.idpais=pa.idpais AND pr.activo=1');
+				$select=$db->query('SELECT pr.idproducto as idproducto, c.nombreciudad as nombreciudad, pa.nombrepais as pais, 
+											pr.precio as precio, pr.descripcion as descripcion, pr.detalle as detalle, 
+											pr.url as url, pr.destacado as destacado, pr.activo as activo 
+									FROM productos pr, ciudades c, paises pa 
+									WHERE pr.idciudad=c.idciudad
+									AND c.idpais=pa.idpais AND pr.activo=1');
 
 			foreach ($select->fetchAll() as $producto) {
 				$myProducto = new Producto();
-				$myProducto->setId($producto['pr.idproducto']);
-				$myProducto->setCiudad($producto['c.nombreciudad']);
-				$myProducto->setPais($producto['pa.nombrepais']);
-				$myProducto->setPrecio($producto['pr.precio']);
-				$myProducto->setDescripcion($producto['pr.descripcion']);
-				$myProducto->setDetalle($producto['pr.detalle']);
-				$myProducto->setUrl($producto['pr.url']);
-				$myProducto->setDestacado($producto['pr.destacado']);
-				$myProducto->setActivo($producto['pr.activo']);
+				$myProducto->setIdProducto($producto['idproducto']);
+				$myProducto->setCiudad($producto['nombreciudad']);
+				$myProducto->setPais($producto['pais']);
+				$myProducto->setPrecio($producto['precio']);
+				$myProducto->setDescripcion($producto['descripcion']);
+				$myProducto->setDetalle($producto['detalle']);
+				$myProducto->setUrl($producto['url']);
+				$myProducto->setDestacado($producto['destacado']);
+				$myProducto->setActivo($producto['activo']);
 				$listarProductos[]=$myProducto;
-				# code...
-			}
+			// 	# code...
+			 }
 			return $listarProductos;
 		}
 

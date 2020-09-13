@@ -9,6 +9,7 @@
         $pais = (isset($_GET["pais"]) ? $_GET['pais'] : null);
         $estadosprovincias = (isset($_GET["estadoprovincia"]) ? $_GET['estadoprovincia'] : null)
 
+
         ?>
         <?php foreach ( $productos as $key => $value) { ?>
          

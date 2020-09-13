@@ -7,20 +7,41 @@ $dataContinentes = json_decode($str_data_continentes, true);
 $dataPaises = json_decode($str_data_paises, true);
 $dataEstadosProvincias = json_decode($str_data_estadoprovincia, true);
 
-
-/incluye la clase Producto y CrudProducto
-require_once ('crud_producto.php');
+//incluye la clase Producto y CrudProducto
+require_once ('crud_productos.php');
 require_once ('producto.php');
 $crud = new CrudProducto();
 $producto= new Producto();
-?>
+$listarProductos=$crud->mostrar();
 
+?>
+<div>
+<table class="table table-bordered tablamostrar1 ">
+		<thead class="table-dark">
+            <th>Pais</th>
+		</thead>
+		<tbody>
+			<?php foreach ($listarProductos as $producto) {?>
+			<tr class="table-info">
+                <td><?php echo $producto->getIdProducto() ?></td>
+                <td><?php echo $producto->getPais() ?></td>
+                <td><?php echo $producto->getCiudad() ?></td>
+                <td><?php echo $producto->getPrecio() ?></td>
+                <td><?php echo $producto->getDescripcion() ?></td>
+                <td><?php echo $producto->getDetalle() ?></td>
+                <td><?php echo $producto->getUrl() ?></td>
+                <td><?php echo $producto->getDestacado() ?></td>
+                <td><?php echo $producto->getActivo() ?></td>
+			</tr>
+			<?php }?>
+		</tbody>
+	</table>
+</div>
 <div class="container pt-4 px-5">
     <div class="row justify-content-center">
-
         <div class="col-12">
             <div class="filter-wrap py-4">
-                <h3>Filtro</h3>
+                <h3>Filtrar</h3>
                 <div class="filter-border p-4 border border-secondary">
                     <div class="filter-inner">
                         <div class="filtrolugar">
@@ -38,9 +59,7 @@ $producto= new Producto();
                                             <?php endforeach ?>
                                         </select>
                                     </form>
-
                                 </div>
-
                                 <div class="col-10 col-md-6 col-lg-4">
                                     <form action="" method="GET" class="">
                                         <?php $opcionPais = 'Todo'; ?>
@@ -53,7 +72,6 @@ $producto= new Producto();
                                                     <option <?php echo ($opcionPais == $paises['pais']) ? 'selected="selected"' : ''?>>
                                                     <?php echo $paises['pais'];?> </option>
                                                 <?php endif ?>
-
                                                 <?php if ($_GET['continente'] == null || $_GET['continente'] == 'Todo') : ?>
                                                     <option <?php echo ($opcionPais == $paises['pais']) ? 'selected="selected"' : ''?>>
                                                     <?php echo $paises['pais'];?> </option>
