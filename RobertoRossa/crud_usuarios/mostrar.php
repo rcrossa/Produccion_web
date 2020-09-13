@@ -3,9 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <link rel="stylesheet" href="../css/style.css ">
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" href="style1.css ">
 	<title>Mostrar Usuarios</title>
 </head>
 <body>
@@ -25,7 +24,6 @@ $listarUsuarios=$crud->mostrar();
             <th>Apellido</th>
             <th>Edad</th>
             <th>Email</th>
-			<th>Usuario</th>
             <th>Password</th>
             <th>Perfil</th>
 			<th>Actualizar</th>
@@ -38,7 +36,6 @@ $listarUsuarios=$crud->mostrar();
                 <td><?php echo $usuario->getApellido() ?></td>
                 <td><?php echo $usuario->getEdad() ?></td>
                 <td><?php echo $usuario->getEmail() ?></td>
-                <td><?php echo $usuario->getUser_id() ?></td>
                 <td><?php echo $usuario->getPassword() ?></td>
                 <td><?php echo $usuario->getPerfil() ?></td>
 				<td><a href="actualizar.php?id=<?php echo $usuario->getId()?>&accion=a">Actualizar</a> </td>

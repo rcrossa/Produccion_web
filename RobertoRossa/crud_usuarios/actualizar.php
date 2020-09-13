@@ -33,10 +33,6 @@
 			<td><input type='text' name='email' value='<?php echo $usuario->getEmail() ?>'></td>
 		</tr>
 		<tr>
-			<td>Usuario:</td>
-			<td><input type='text' name='user_id' value='<?php echo $usuario->getUser_id()?>' ></td>
-		</tr>
-		<tr>
 			<td>Pass:</td>
 			<td><input type='text' name='password' value='<?php echo $usuario->getPassword()?>' ></td>
 		</tr>

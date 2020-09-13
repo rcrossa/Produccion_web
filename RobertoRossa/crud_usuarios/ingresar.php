@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css ">
+    <!-- <link rel="stylesheet" href="../css/style.css "> -->
     <title>Listados de usuarios</title>
 </head>
 <body>
@@ -29,10 +29,6 @@
                     <tr>
                         <th class="table-dark" scope="row">Email:</th>
                         <td class="bg-info"><input type="text" name="email"></td>
-                    </tr>
-                    <tr>
-                        <th class="table-dark" scope="row">Usuario:</th>
-                        <td class="bg-info"><input type="text" name="user_id"></td>
                     </tr>
                     <tr>
                         <th class="table-dark" scope="row">Passworh:</td>

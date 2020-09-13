@@ -16,7 +16,6 @@ $usuario= new Usuario();
 			$usuario->setApellido($_POST['apellido']);
 			$usuario->setEdad(    $_POST['edad']);
 			$usuario->setEmail(   $_POST['email']);
-			$usuario->setUser_id(    $_POST['user_id']);
 			$usuario->setPassword(    $_POST['password']);
 			$usuario->setPerfil(  $_POST['perfil']);
 			//llama a la función insertar definida en el crud
@@ -29,7 +28,6 @@ $usuario= new Usuario();
 			$usuario->setApellido($_POST['apellido']);
 			$usuario->setEdad(    $_POST['edad']);
 			$usuario->setEmail(   $_POST['email']);
-			$usuario->setUser_id(    $_POST['user_id']);
 			$usuario->setPassword(    $_POST['password']);
 			$usuario->setPerfil(  $_POST['perfil']);
 			$crud->actualizar($usuario);

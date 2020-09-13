@@ -10,12 +10,11 @@
 
 		public function insertar($usuario){
 			$db=DB::conectar();
-			$insert=$db->prepare('INSERT INTO users values(NULL,:nombre,:apellido,:edad,:email,:user_id,:password,:perfil)');
+			$insert=$db->prepare('INSERT INTO usuarios values(NULL,:nombre,:apellido,:edad,:email,:password,:perfil)');
 			$insert->bindValue('nombre',$usuario->getNombre());
 			$insert->bindValue('apellido',$usuario->getApellido());
 			$insert->bindValue('edad',$usuario->getEdad());
 			$insert->bindValue('email',$usuario->getEmail());
-			$insert->bindValue('user_id',$usuario->getUser_id());
 			$insert->bindValue('password',$usuario->getPassword());
 			$insert->bindValue('perfil',$usuario->getPerfil());
 			$insert->execute();
@@ -24,7 +23,7 @@
 		public function mostrar(){
 			$db=DB::conectar();
 			$listarUsuarios=[];
-			$select=$db->query('SELECT * FROM users');
+			$select=$db->query('SELECT * FROM usuarios');
 
 			foreach ($select->fetchAll() as $usuario) {
 				$myUsuario = new Usuario();
@@ -33,7 +32,6 @@
 				$myUsuario->setApellido($usuario['apellido']);
 				$myUsuario->setEdad($usuario['edad']);
 				$myUsuario->setEmail($usuario['email']);
-				$myUsuario->setUser_id($usuario['user_id']);
 				$myUsuario->setPassword($usuario['password']);
 				$myUsuario->setPerfil($usuario['perfil']);
 				$listarUsuarios[]=$myUsuario;
@@ -44,7 +42,7 @@
 		//metodo para eliminar un usuario, recibe como parametro el id del usuario
 		public function eliminar($id){
 			$db=DB::conectar();
-			$eliminar=$db->prepare('DELETE FROM users where ID=:id');
+			$eliminar=$db->prepare('DELETE FROM usuarios where ID=:id');
 			$eliminar->bindvalue('id',$id);
 			$eliminar->execute();
 		}
@@ -52,7 +50,7 @@
 		//metodo para buscar un usuario, recibe como parametro el id del usuario
 		public function obtenerUsuario($id){
 			$db=DB::conectar();
-			$select=$db->prepare('SELECT * FROM users WHERE ID=:id');
+			$select=$db->prepare('SELECT * FROM usuarios WHERE ID=:id');
 			$select->bindValue('id',$id);
 			$select->execute();
 			$usuario=$select->fetch();
@@ -62,7 +60,6 @@
 			$myUsuario->setApellido($usuario['apellido']);
 			$myUsuario->setEdad($usuario['edad']);
 			$myUsuario->setEmail($usuario['email']);
-			$myUsuario->setUser_id($usuario['user_id']);
 			$myUsuario->setPassword($usuario['password']);
 			$myUsuario->setPerfil($usuario['perfil']);
 			return $myUsuario;
@@ -71,13 +68,12 @@
 		//metodo para actualizar un usuario, recibe como parametro el usuario
 		public function actualizar($usuario){
 			$db=DB::conectar();
-			$actualizar=$db->prepare('UPDATE users set nombre=:nombre,apellido=:apellido,edad=:edad,email=:email,user_id=:user_id=:user_id,password=:password,perfil=:perfil WHERE ID=:id');
+			$actualizar=$db->prepare('UPDATE usuarios set nombre=:nombre,apellido=:apellido,edad=:edad,email=:email,password=:password,perfil=:perfil WHERE ID=:id');
 			$actualizar->bindValue('id'  ,$usuario->getId());
 			$actualizar->bindValue('nombre'  ,$usuario->getNombre());
 			$actualizar->bindValue('apellido',$usuario->getApellido());
 			$actualizar->bindValue('edad'    ,$usuario->getEdad());
 			$actualizar->bindValue('email'   ,$usuario->getEmail());
-			$actualizar->bindValue('user_id' ,$usuario->getUser_id());
 			$actualizar->bindValue('password',$usuario->getPassword());
 			$actualizar->bindValue('perfil'  ,$usuario->getPerfil());
 			$actualizar->execute();			

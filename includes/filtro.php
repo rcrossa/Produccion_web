@@ -8,7 +8,7 @@ $dataPaises = json_decode($str_data_paises, true);
 $dataEstadosProvincias = json_decode($str_data_estadoprovincia, true);
 
 
-/incluye la clase Producto y CrudProducto
+//incluye la clase Producto y CrudProducto
 require_once ('crud_producto.php');
 require_once ('producto.php');
 $crud = new CrudProducto();
