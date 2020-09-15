@@ -28,6 +28,10 @@ $dataPaises= $db->query('SELECT DISTINCT pa.nombrepais as pais
                             AND c.idpais=pa.idpais 
                             AND pa.activo=1');
 
+$dataContinentes= $db->query('SELECT nombrecontinente from continentes');
+
+$dataCiudades= $db->query('SELECT nombreciudad from ciudades');
+
 //incluye la clase Producto y CrudProducto
 require_once ('crud_productos.php');
 require_once ('producto.php');
@@ -50,7 +54,7 @@ $listarProductos=$crud->mostrar();
                                         <?php !empty($_GET['continente']) ? $opcionContinen = $_GET['continente'] : $opcionContinen = "" ?>
                                         <select name="continente" class="custom-select custom-select-lg" id="continente" onchange="this.form.submit()">
                                             <option value="" selected="selected">Seleccionar Continente</option>
-                                            <?php foreach ($dataDestinos as $continentes) :  ?>
+                                            <?php foreach ($dataContinentes as $continentes) :  ?>
                                                 <option <?php echo ($opcionContinen == $continentes['nombrecontinente']) ? 'selected="selected"' : '' ?>>
                                                     <?php echo $continentes['nombrecontinente'] ?>
                                                 </option>
@@ -65,7 +69,7 @@ $listarProductos=$crud->mostrar();
                                          <input type="hidden" name="continente" value="<?php echo isset($opcionContinen) ? $opcionContinen  : $_GET['continente']?>">
                                         <select name="pais" class="custom-select custom-select-lg" id="pais" onchange="this.form.submit()">
                                             <option value="">Seleccionar Pais</option>
-                                            <?php foreach ($dataDestinos as $paises) : ?>
+                                            <?php foreach ($dataPaises as $paises) : ?>
                                                 <?php if ($paises['nombrecontinente'] == $opcionContinen) : ?>
                                                     <option <?php echo ($opcionPais == $paises['pais']) ? 'selected="selected"' : ''?>>
                                                     <?php echo $paises['pais'];?> </option>
@@ -74,7 +78,6 @@ $listarProductos=$crud->mostrar();
                                                     <option <?php echo ($opcionPais == $paises['pais']) ? 'selected="selected"' : ''?>>
                                                     <?php echo $paises['pais'];?> </option>
                                                 <?php endif ?>
-
                                             <?php endforeach ?>
                                         </select>
                                     </form>
@@ -86,7 +89,7 @@ $listarProductos=$crud->mostrar();
                                     <?php !empty($_GET['ciudades']) ? $opcionEstado=$_GET['ciudades']: $opcionEstado = "Todo" ?>
                                         <select name="ciudades" class="custom-select custom-select-lg" id="ciudades" onchange="this.form.submit()">
                                             <option value="">Ciudades</option> 
-                                            <?php foreach ($dataDestinos as $ciudades) : ?>
+                                            <?php foreach ($dataCiudades as $ciudades) : ?>
                                                 <?php if ($ciudades["pais"] == $opcionPais) : ?>
                                                     <option <?php echo ($opcionEstado == $ciudades['ciudades']) ? 'selected="selected"' : ''?>>
                                                     <?php echo $ciudades['ciudades'];?> </option>
