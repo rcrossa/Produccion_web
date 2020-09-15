@@ -154,7 +154,7 @@
     {
         "id": 8,
         "nombre": "Los Angeles",
-        "continente": "America del Norte",
+        "continente": "América",
         "pais": "Estados Unidos",
         "estadoprovincia": "California",
         "precio": "$20000",
@@ -173,7 +173,7 @@
     {
         "id": 9,
         "nombre": "Miami",
-        "continente": "America del Norte",
+        "continente": "América",
         "pais": "Estados Unidos",
         "estadoprovincia": "Florida",
         "precio": "$20000",
@@ -192,7 +192,7 @@
     {
         "id": 10,
         "nombre": "Toronto",
-        "continente": "America del Norte",
+        "continente": "América",
         "pais": "Canada",
         "estadoprovincia": "Ontario",
         "precio": "$20000",
@@ -211,7 +211,7 @@
     {
         "id": 11,
         "nombre": "Montreal",
-        "continente": "America del Norte",
+        "continente": "América",
         "pais": "Canada",
         "estadoprovincia": "Quebec",
         "precio": "$20000",
@@ -231,7 +231,7 @@
     {
         "id": 12,
         "nombre": "Porto Alegre",
-        "continente": "America del Sur",
+        "continente": "América",
         "pais": "Brasil",
         "estadoprovincia": "Rio Grande Do Sul",
         "precio": "$60030",
@@ -250,7 +250,7 @@
     {
         "id": 13,
         "nombre": "Rio de Janeiro",
-        "continente": "America del Sur",
+        "continente": "América",
         "pais": "Brasil",
         "estadoprovincia": "Rio de Janeiro",
         "precio": "$60030",
@@ -269,7 +269,7 @@
     {
         "id": 14,
         "nombre": "Ciudad Autonoma",
-        "continente": "America del Sur",
+        "continente": "América",
         "pais": "Argentina",
         "estadoprovincia": "Buenos Aires",
         "precio": "$60030",
@@ -289,7 +289,7 @@
     {
         "id": 15,
         "nombre": "Bariloche",
-        "continente": "America del Sur",
+        "continente": "América",
         "pais": "Argentina",
         "estadoprovincia": "Rio Negro",
         "precio": "$60030",

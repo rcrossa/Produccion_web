@@ -13,7 +13,9 @@ $db=DB::conectar();
 // $dataEstadosProvincias = json_decode($str_data_estadoprovincia, true);
 // $select=$db->query('SELECT * FROM productos');
 
-$dataContinentes= $db->query('SELECT DISTINCT co.nombrecontinente as nombrecontinente
+$dataDestinos= $db->query('SELECT DISTINCT pa.nombrepais as pais, 
+                                           ci.nombreciudad as ciudades,
+                                           co.nombrecontinente as nombrecontinente
                                 FROM productos pr, ciudades ci, paises pa, continentes co
                                 WHERE pr.idciudad = ci.idciudad 
                                 AND ci.idpais = pa.idpais
@@ -48,7 +50,7 @@ $listarProductos=$crud->mostrar();
                                         <?php !empty($_GET['continente']) ? $opcionContinen = $_GET['continente'] : $opcionContinen = "" ?>
                                         <select name="continente" class="custom-select custom-select-lg" id="continente" onchange="this.form.submit()">
                                             <option value="" selected="selected">Seleccionar Continente</option>
-                                            <?php foreach ($dataContinentes as $continentes) :  ?>
+                                            <?php foreach ($dataDestinos as $continentes) :  ?>
                                                 <option <?php echo ($opcionContinen == $continentes['nombrecontinente']) ? 'selected="selected"' : '' ?>>
                                                     <?php echo $continentes['nombrecontinente'] ?>
                                                 </option>
@@ -58,38 +60,36 @@ $listarProductos=$crud->mostrar();
                                 </div>
                                 <div class="col-10 col-md-6 col-lg-4">
                                     <form action="" method="GET" class="">
+                                        <?php $opcionPais = 'Todo'; ?>
                                         <?php !empty($_GET['pais']) ? $opcionPais=$_GET['pais']: $opcionPais= "Todo" ?>
                                          <input type="hidden" name="continente" value="<?php echo isset($opcionContinen) ? $opcionContinen  : $_GET['continente']?>">
                                         <select name="pais" class="custom-select custom-select-lg" id="pais" onchange="this.form.submit()">
                                             <option value="">Seleccionar Pais</option>
-                                            <?php foreach ($dataPaises as $paises) : ?>
+                                            <?php foreach ($dataDestinos as $paises) : ?>
                                                 <?php if ($paises['nombrecontinente'] == $opcionContinen) : ?>
                                                     <option <?php echo ($opcionPais == $paises['pais']) ? 'selected="selected"' : ''?>>
                                                     <?php echo $paises['pais'];?> </option>
                                                 <?php endif ?>
-                                                <?php if ($_GET['nombrecontinente'] == null) : ?>
-                                                    <<?php echo ($opcionPais == $paises['pais']) ? 'selected="selected"' : ''?>>
+                                                <?php if ($_GET['nombrecontinente'] == null || $_GET['nombrecontinente'] == 'Todo') : ?>
+                                                    <option <?php echo ($opcionPais == $paises['pais']) ? 'selected="selected"' : ''?>>
                                                     <?php echo $paises['pais'];?> </option>
-                                                <?php endif ?> 
+                                                <?php endif ?>
+
                                             <?php endforeach ?>
                                         </select>
                                     </form>
                                 </div>
                                 <div  class="col-12 col-md-6 col-lg-4">
                                 <form action="" method="GET" class="">
-                                <?php $opcionEstado = 'Todo'; ?>
-
                                 <input type="hidden" name="continente" value="<?php echo isset($opcionContinen) ? $opcionContinen  : $_GET['continente']?>">
                                 <input type="hidden" name="pais" value="<?php echo isset($opcionPais) ? $opcionPais : $_GET['pais'] ?>">
-                                   
-
-                                    <?php !empty($_GET['estadoprovincia']) ? $opcionEstado=$_GET['estadoprovincia']: $opcionEstado = "Todo" ?>
-                                        <select name="estadoprovincia" class="custom-select custom-select-lg" id="estadoprovincia" onchange="this.form.submit()">
-                                            <option value="">Estados / Provincias</option>
-                                            <?php foreach ($dataEstadosProvincias as $estadosprovincias) : ?>
-                                                <?php if ($estadosprovincias["pais"] == $opcionPais) : ?>
-                                                    <option <?php echo ($opcionEstado == $estadosprovincias['estadoprovincia']) ? 'selected="selected"' : ''?>>
-                                                    <?php echo $estadosprovincias['estadoprovincia'];?> </option>
+                                    <?php !empty($_GET['ciudades']) ? $opcionEstado=$_GET['ciudades']: $opcionEstado = "Todo" ?>
+                                        <select name="ciudades" class="custom-select custom-select-lg" id="ciudades" onchange="this.form.submit()">
+                                            <option value="">Ciudades</option> 
+                                            <?php foreach ($dataDestinos as $ciudades) : ?>
+                                                <?php if ($ciudades["pais"] == $opcionPais) : ?>
+                                                    <option <?php echo ($opcionEstado == $ciudades['ciudades']) ? 'selected="selected"' : ''?>>
+                                                    <?php echo $ciudades['ciudades'];?> </option>
                                                 <?php endif ?>
                                             <?php endforeach ?>
                                         </select> 
@@ -104,71 +104,3 @@ $listarProductos=$crud->mostrar();
 
     </div>
 </div>
-
-<script>
-    // $(document).ready(function() {
-
-    //     load_json_data('continente');
-
-    //     function load_json_data(id, parent_id) {
-    //         var html_code = '';
-    //         $.getJSON('./json/ciudades.json', function(data) {
-
-    //             html_code += '<option value="">Select ' + id + '</option>';
-    //             $.each(data, function(key, value) {
-    //                 if (id == 'continente') {
-    //                     if (value.continente == '0') {
-    //                         html_code += '<option value="' + value.continente + '">' + value.continenteNombre + '</option>';
-    //                     } else {
-    //                         html_code += '<option value="' + value.continente + '">' + value.continenteNombre + '</option>';
-    //                     }
-    //                 } else if (id == 'pais') {
-
-    //                     if (value.continente == parent_id ) {
-    //                         html_code += '<option value="' + value.pais + '">' + value.paisNombre + '</option>';
-    //                     }
-
-    //                 } else {
-    //                     if (value.pais == parent_id) {
-    //                         html_code += '<option value="' + value.id + '">' + value.nombre + '</option>';
-    //                     }
-    //                 }
-    //             });
-    //             $('#' + id).html(html_code);
-    //             norepeat();
-    //         });
-
-    //     }
-
-    //     $(document).on('change', '#continente', function() {
-    //         var continente_id = $(this).val();
-    //         if (continente_id != '') {
-    //             load_json_data('pais', continente_id);
-    //         } else {
-    //             load_json_data('pais', continente_id);
-    //         }
-    //     });
-
-    //     $(document).on('change', '#pais', function() {
-    //         var pais_id = $(this).val();
-    //         if (pais_id != '') {
-    //             load_json_data('ciudad', pais_id);
-    //         } else {
-    //             load_json_data('ciudad', pais_id);
-    //         }
-    //     });
-
-    //     function norepeat() {
-    //         var seen = {};
-    //         $('option').each(function() {
-    //             var txt = $(this).text();
-    //             if (seen[txt]) {
-    //                 $(this).remove();
-    //             } else {
-    //                 seen[txt] = true;
-    //             }
-    //         });
-    //     }
-
-    // });
-</script>
