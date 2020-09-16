@@ -9,7 +9,7 @@
 </head>
 <body>
 <?php
-// $page = 'index';
+$page = 'index';
 // require_once "includes/encabezado.php" 
 
 ?>

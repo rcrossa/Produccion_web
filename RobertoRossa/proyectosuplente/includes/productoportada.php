@@ -14,7 +14,8 @@
         $productos=$db->query('SELECT  pr.idproducto as nombre,pr.precio as precio,pr.descripcion as descripcion,pr.url as url,
         pa.nombrepais as pais, ci.nombreciudad as ciudades,
                                                    co.nombrecontinente as nombrecontinente,
-                                                   co.idcontinente as idcontinente
+                                                   co.idcontinente as idcontinente,
+                                                   pr.destacado as destacado
                                         FROM productos pr, ciudades ci, paises pa, continentes co
                                         WHERE  pr.idciudad = ci.idciudad 
                                         AND ci.idpais = pa.idpais
@@ -23,8 +24,9 @@
         ?>
         <?php foreach ( $productos as $key => $value) { ?>
          
-          <?php if ($page == 'index' && $value['destacado']) { ?>
-
+         
+            <?php if ($page == 'index' && $value['destacado']) { ?>
+            
             <?php include('card_paises.php'); ?>
 
           <?php } elseif ($page == 'catalogo') { ?>
@@ -32,7 +34,7 @@
             <?php
             $condicionEstado = (($continente == $value['nombrecontinente'] || $continente == 'Todo') && $pais == $value['pais'] && $estadosprovincias == $value['estadoprovincia']);
             $condicionPais = ($pais == $value['pais'] && empty($estadosprovincias));
-            $condicionContinente = (($continente == $value['nombre'] || $continente == 'Todo') && empty($pais) && empty($estadosprovincias ));
+            $condicionContinente = (($continente == $value['nombrecontinente'] || $continente == 'Todo') && empty($pais) && empty($estadosprovincias ));
   
             if ($condicionEstado || $condicionPais || $condicionContinente) {
             ?>
