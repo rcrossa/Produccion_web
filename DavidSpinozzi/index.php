@@ -8,7 +8,7 @@
 
 <body>
 <?php
-    $str_data = file_get_contents("json/estadosprovincias.json");
+    $str_data = file_get_contents("json/ciudad.json");
     $productos = json_decode($str_data, true);
     require_once "./functions/cortar.php";
 
@@ -30,7 +30,7 @@
     
     <?php
     require_once "includes/productoportada.php";
-    // require_once "includes/newsletter.php";
+    require_once "includes/newsletter.php";
     require_once "includes/linkinteresesyherramientas.php";
     require_once "includes/footer.php";
     ?>

@@ -1,16 +1,15 @@
 <?php
 require_once ('conexion.php');
 $db=DB::conectar();
-// $query=$db->query('SELECT nombre from continentes');
 
 // $str_data_continentes = file_get_contents("./json/continentes.json");
 // $str_data_continentes= json_encode($userData);
 //$str_data_paises = file_get_contents("./json/paises.json");
-//$str_data_estadoprovincia = file_get_contents("./json/estadosprovincias.json");
+//$str_data_ciudad = file_get_contents("./json/ciudad.json");
 
 // $dataContinentes = json_decode($str_data_continentes, true);
 // $dataPaises = json_decode($str_data_paises, true);
-// $dataEstadosProvincias = json_decode($str_data_estadoprovincia, true);
+// $dataciudad = json_decode($str_data_ciudad, true);
 // $select=$db->query('SELECT * FROM productos');
 
 $dataDestinos= $db->query('SELECT DISTINCT pa.nombrepais as pais, 
@@ -32,12 +31,6 @@ $dataContinentes= $db->query('SELECT nombrecontinente from continentes');
 
 $dataCiudades= $db->query('SELECT nombreciudad from ciudades');
 
-//incluye la clase Producto y CrudProducto
-require_once ('crud_productos.php');
-require_once ('producto.php');
-$crud = new CrudProducto();
-$producto= new Producto();
-$listarProductos=$crud->mostrar();
 
 ?>
 <div class="container pt-4 px-5">

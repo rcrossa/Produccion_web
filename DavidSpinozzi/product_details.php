@@ -9,8 +9,8 @@
 <body>
     <?php
     $page = 'catalogo';
-    $str_data = file_get_contents("./json/estadosprovincias.json");
-    $estadosprovincias = json_decode($str_data, true);
+    $str_data = file_get_contents("./json/ciudad.json");
+    $ciudad = json_decode($str_data, true);
 
     require_once "./includes/encabezado.php";
     $id = $_GET['id'];
@@ -37,7 +37,7 @@
 
 
     <div class="container text-center pt-5 pb-4">
-        <?php foreach ($estadosprovincias as $key => $value) {
+        <?php foreach ($ciudad as $key => $value) {
             if ($key == $id) break;
         }
         echo '<h1>' . $value['nombre'] . '</h1>';

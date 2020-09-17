@@ -6,16 +6,25 @@
 		//constructor de la clase
 		public function __construct(){}
 
-			//metodo para mostrar todos los productos
+		//metodo para mostrar todos los productos
 		public function mostrar(){
 			$db=DB::conectar();
 			$listarProductos=[];
-				$select=$db->query('SELECT pr.idproducto as idproducto, c.nombreciudad as nombreciudad, pa.nombrepais as pais, 
-											pr.precio as precio, pr.descripcion as descripcion, pr.detalle as detalle, 
-											pr.url as url, pr.destacado as destacado, pr.activo as activo 
-									FROM productos pr, ciudades c, paises pa 
-									WHERE pr.idciudad=c.idciudad
-									AND c.idpais=pa.idpais AND pr.activo=1');
+				$select=$db->query('SELECT  pr.idproducto as idproducto, 
+											ci.nombreciudad as nombreciudad, 
+											pa.nombrepais as pais, 
+											co.nombrecontinente as nombrecontinente
+											pr.precio as precio, 
+											pr.descripcion as descripcion, 
+											pr.detalle as detalle, 
+											pr.url as url, 
+											pr.destacado as destacado, 
+											pr.activo as activo 
+									FROM productos pr, ciudades ci, paises pa 
+									WHERE pr.idciudad=ci.idciudad
+									AND ci.idpais=pa.idpais 
+									AND pa.idcontinente=co.idcontinente
+									AND pr.activo=1');
 
 			foreach ($select->fetchAll() as $producto) {
 				$myProducto = new Producto();
@@ -29,7 +38,7 @@
 				$myProducto->setDestacado($producto['destacado']);
 				$myProducto->setActivo($producto['activo']);
 				$listarProductos[]=$myProducto;
-			// 	# code...
+
 			 }
 			return $listarProductos;
 		}

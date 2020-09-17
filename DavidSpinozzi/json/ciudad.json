@@ -4,7 +4,7 @@
         "nombre": "Madrid",
         "continente": "Europa",
         "pais": "Espa\u00f1a",
-        "estadoprovincia": "Madrid",
+        "ciudad": "Madrid",
         "precio": "$45010",
         "descripcion": "VISITANDO: Espa\u00f1a MADRID, SANTIAGO DE COMPOSTELA -RINLO - CABO VIDIO - LA MANJOYA - COVADONGA - CUEVAS DEL SOPLAO - SANTANDER - BILBAO - SAN SEBASTIAN.",
         "descripcion_details": [
@@ -23,7 +23,7 @@
         "nombre": "Barcelona",
         "continente": "Europa",
         "pais": "Espa\u00f1a",
-        "estadoprovincia": "Catalunia",
+        "ciudad": "Catalunia",
         "precio": "$45010",
         "descripcion": "VISITANDO: Espa\u00f1a MADRID, SANTIAGO DE COMPOSTELA -RINLO - CABO VIDIO - LA MANJOYA - COVADONGA - CUEVAS DEL SOPLAO - SANTANDER - BILBAO - SAN SEBASTIAN.",
         "descripcion_details": [
@@ -42,7 +42,7 @@
         "nombre": "Paris",
         "continente": "Europa",
         "pais": "Francia",
-        "estadoprovincia": "Isla de Francia",
+        "ciudad": "Isla de Francia",
         "precio": "$45020",
         "descripcion": "VISITANDO: Francia MADRID, SANTIAGO DE COMPOSTELA -RINLO - CABO VIDIO - LA MANJOYA - COVADONGA - CUEVAS DEL SOPLAO - SANTANDER - BILBAO - SAN SEBASTIAN.",
         "descripcion_details": [
@@ -61,7 +61,7 @@
         "nombre": "Estrasburgo",
         "continente": "Europa",
         "pais": "Francia",
-        "estadoprovincia": "Gran Este",
+        "ciudad": "Gran Este",
         "precio": "$45020",
         "descripcion": "VISITANDO: Francia MADRID, SANTIAGO DE COMPOSTELA -RINLO - CABO VIDIO - LA MANJOYA - COVADONGA - CUEVAS DEL SOPLAO - SANTANDER - BILBAO - SAN SEBASTIAN.",
         "descripcion_details": [
@@ -80,7 +80,7 @@
         "nombre": "Roma",
         "continente": "Europa",
         "pais": "Italia",
-        "estadoprovincia": "Roma",
+        "ciudad": "Roma",
         "precio": "$43000",
         "descripcion": "VISITANDO: Italia MADRID, SANTIAGO DE COMPOSTELA -RINLO - CABO VIDIO - LA MANJOYA - COVADONGA - CUEVAS DEL SOPLAO - SANTANDER - BILBAO - SAN SEBASTIAN.",
         "descripcion_details": [
@@ -99,7 +99,7 @@
         "nombre": "Milan",
         "continente": "Europa",
         "pais": "Italia",
-        "estadoprovincia": "Lombardia",
+        "ciudad": "Lombardia",
         "precio": "$43000",
         "descripcion": "VISITANDO: Italia MADRID, SANTIAGO DE COMPOSTELA -RINLO - CABO VIDIO - LA MANJOYA - COVADONGA - CUEVAS DEL SOPLAO - SANTANDER - BILBAO - SAN SEBASTIAN.",
         "descripcion_details": [
@@ -118,7 +118,7 @@
         "nombre": "Berlin",
         "continente": "Europa",
         "pais": "Alemania",
-        "estadoprovincia": "Berlin",
+        "ciudad": "Berlin",
         "precio": "$44000",
         "descripcion": "VISITANDO: Alemania, SANTIAGO DE COMPOSTELA -RINLO - CABO VIDIO - LA MANJOYA - COVADONGA - CUEVAS DEL SOPLAO - SANTANDER - BILBAO - SAN SEBASTIAN.",
         "descripcion_details": [
@@ -137,7 +137,7 @@
         "nombre": "Hamburgo",
         "continente": "Europa",
         "pais": "Alemania",
-        "estadoprovincia": "Hamburgo",
+        "ciudad": "Hamburgo",
         "precio": "$44000",
         "descripcion": "VISITANDO: Alemania, SANTIAGO DE COMPOSTELA -RINLO - CABO VIDIO - LA MANJOYA - COVADONGA - CUEVAS DEL SOPLAO - SANTANDER - BILBAO - SAN SEBASTIAN.",
         "descripcion_details": [
@@ -155,8 +155,8 @@
         "id": 8,
         "nombre": "Los Angeles",
         "continente": "América",
-        "pais": "Estados Unidos",
-        "estadoprovincia": "California",
+        "pais": "EEUU",
+        "ciudad": "California",
         "precio": "$20000",
         "descripcion": "Estados Unidos Visitando: Boston \/ Quebec \/ Montreal \/ Ottawa \/ Toronto \/ Niagara Falls - Incluye: boleto por American Airlines. Desayunos Americanos. ALIMENTACI\u00d3N: Desayuno diario incluidos. Opcional: asistencia CORIS con seguro de cancelaci\u00f3n USD 36 por persona.",
         "descripcion_details": [
@@ -174,8 +174,8 @@
         "id": 9,
         "nombre": "Miami",
         "continente": "América",
-        "pais": "Estados Unidos",
-        "estadoprovincia": "Florida",
+        "pais": "EEUU",
+        "ciudad": "Florida",
         "precio": "$20000",
         "descripcion": "Estados Unidos Visitando: Boston \/ Quebec \/ Montreal \/ Ottawa \/ Toronto \/ Niagara Falls - Incluye: boleto por American Airlines. Desayunos Americanos. ALIMENTACI\u00d3N: Desayuno diario incluidos. Opcional: asistencia CORIS con seguro de cancelaci\u00f3n USD 36 por persona.",
         "descripcion_details": [
@@ -194,7 +194,7 @@
         "nombre": "Toronto",
         "continente": "América",
         "pais": "Canada",
-        "estadoprovincia": "Ontario",
+        "ciudad": "Ontario",
         "precio": "$20000",
         "descripcion": "Canada Visitando: Quebec \/ Montreal \/ Ottawa \/ Toronto \/ Niagara Falls - Incluye: boleto por American Airlines. Desayunos Americanos. ALIMENTACI\u00d3N: Desayuno diario incluidos. Opcional: asistencia CORIS con seguro de cancelaci\u00f3n USD 36 por persona.",
         "descripcion_details": [
@@ -213,7 +213,7 @@
         "nombre": "Montreal",
         "continente": "América",
         "pais": "Canada",
-        "estadoprovincia": "Quebec",
+        "ciudad": "Quebec",
         "precio": "$20000",
         "descripcion": "Canada Visitando: Quebec \/ Montreal \/ Ottawa \/ Toronto \/ Niagara Falls - Incluye: boleto por American Airlines. Desayunos Americanos. ALIMENTACI\u00d3N: Desayuno diario incluidos. Opcional: asistencia CORIS con seguro de cancelaci\u00f3n USD 36 por persona.",
         "descripcion_details": [
@@ -233,7 +233,7 @@
         "nombre": "Porto Alegre",
         "continente": "América",
         "pais": "Brasil",
-        "estadoprovincia": "Rio Grande Do Sul",
+        "ciudad": "Rio Grande Do Sul",
         "precio": "$60030",
         "descripcion": "INCLUYE: Brasil GU\u00cdA: Operado con gu\u00eda en espa\u00f1ol e ingl\u00e9s. Pasaje (Latam Airlines).   ALOJAMIENTO: 3 noches de alojamiento en Lima. 1 noche de alojamiento en Paracas. 2 noches de alojamiento en Cusco. 1 noche de alojamiento en Aguas Calientes. ALIMENTACI\u00d3N: Desayuno diario incluidos. Opcional: asistencia CORIS con seguro de cancelaci\u00f3n USD 36 por persona.",
         "descripcion_details": [
@@ -252,7 +252,7 @@
         "nombre": "Rio de Janeiro",
         "continente": "América",
         "pais": "Brasil",
-        "estadoprovincia": "Rio de Janeiro",
+        "ciudad": "Rio de Janeiro",
         "precio": "$60030",
         "descripcion": "INCLUYE: Brasil GU\u00cdA: Operado con gu\u00eda en espa\u00f1ol e ingl\u00e9s. Pasaje (Latam Airlines).   ALOJAMIENTO: 3 noches de alojamiento en Lima. 1 noche de alojamiento en Paracas. 2 noches de alojamiento en Cusco. 1 noche de alojamiento en Aguas Calientes. ALIMENTACI\u00d3N: Desayuno diario incluidos. Opcional: asistencia CORIS con seguro de cancelaci\u00f3n USD 36 por persona.",
         "descripcion_details": [
@@ -271,7 +271,7 @@
         "nombre": "Ciudad Autonoma",
         "continente": "América",
         "pais": "Argentina",
-        "estadoprovincia": "Buenos Aires",
+        "ciudad": "Buenos Aires",
         "precio": "$60030",
         "descripcion": "INCLUYE: Argentina GU\u00cdA: Operado con gu\u00eda en espa\u00f1ol e ingl\u00e9s. Pasaje (Latam Airlines).   ALOJAMIENTO: 3 noches de alojamiento en Lima. 1 noche de alojamiento en Paracas. 2 noches de alojamiento en Cusco. 1 noche de alojamiento en Aguas Calientes. ALIMENTACI\u00d3N: Desayuno diario incluidos. Opcional: asistencia CORIS con seguro de cancelaci\u00f3n USD 36 por persona.",
         "descripcion_details": [
@@ -291,7 +291,7 @@
         "nombre": "Bariloche",
         "continente": "América",
         "pais": "Argentina",
-        "estadoprovincia": "Rio Negro",
+        "ciudad": "Rio Negro",
         "precio": "$60030",
         "descripcion": "INCLUYE: Argentina GU\u00cdA: Operado con gu\u00eda en espa\u00f1ol e ingl\u00e9s. Pasaje (Latam Airlines).   ALOJAMIENTO: 3 noches de alojamiento en Lima. 1 noche de alojamiento en Paracas. 2 noches de alojamiento en Cusco. 1 noche de alojamiento en Aguas Calientes. ALIMENTACI\u00d3N: Desayuno diario incluidos. Opcional: asistencia CORIS con seguro de cancelaci\u00f3n USD 36 por persona.",
         "descripcion_details": [

@@ -7,8 +7,10 @@
         <?php
         $continente = (isset($_GET["continente"]) ? $_GET['continente'] : null);
         $pais = (isset($_GET["pais"]) ? $_GET['pais'] : null);
-        $estadosprovincias = (isset($_GET["estadoprovincia"]) ? $_GET['estadoprovincia'] : null)
-
+        $ciudad = (isset($_GET["ciudad"]) ? $_GET['ciudad'] : null)
+        
+        //incluye la clase Producto y CrudProducto
+       
 
         ?>
         <?php foreach ( $productos as $key => $value) { ?>
@@ -20,9 +22,9 @@
           <?php } elseif ($page == 'catalogo') { ?>
 
             <?php
-            $condicionEstado = (($continente == $value['continente'] || $continente == 'Todo') && $pais == $value['pais'] && $estadosprovincias == $value['estadoprovincia']);
-            $condicionPais = ($pais == $value['pais'] && empty($estadosprovincias));
-            $condicionContinente = (($continente == $value['continente'] || $continente == 'Todo') && empty($pais) && empty($estadosprovincias ));
+            $condicionEstado = (($continente == $value['continente'] || $continente == 'Todo') && $pais == $value['pais'] && $ciudad == $value['ciudad']);
+            $condicionPais = ($pais == $value['pais'] && empty($ciudad));
+            $condicionContinente = (($continente == $value['continente'] || $continente == 'Todo') && empty($pais) && empty($ciudad ));
   
             if ($condicionEstado || $condicionPais || $condicionContinente) {
             ?>
