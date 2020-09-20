@@ -17,7 +17,7 @@
                                                    co.idcontinente as idcontinente,
                                                    pr.destacado as destacado
                                         FROM productos pr, ciudades ci, paises pa, continentes co
-                                        WHERE  pr.idciudad = ci.idciudad 
+                                        WHERE  pr.idciudad = ci.id_ciudad 
                                         AND ci.idpais = pa.idpais
                                         AND pa.idcontinente = co.idcontinente 
                                         AND co.activo = 1');
