@@ -15,7 +15,7 @@
     // archivos html
     $page = 'catalogo';
     require_once "./includes/encabezado.php";
-    require_once "./includes/filtro.php";
+    require_once "./includes/filtrocopy.php";
     require_once "./includes/productoportada.php";
     require_once "./includes/linkinteresesyherramientas.php";
     require_once "./includes/footer.php";

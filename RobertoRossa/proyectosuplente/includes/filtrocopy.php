@@ -17,7 +17,7 @@ $dataDestinos= $db->query('SELECT DISTINCT pa.nombrepais as pais,
                                            ci.nombreciudad as ciudades,
                                            co.nombrecontinente as nombrecontinente
                                 FROM productos pr, ciudades ci, paises pa, continentes co
-                                WHERE pr.idciudad = ci.idciudad 
+                                WHERE pr.idciudad = ci.id_ciudad 
                                 AND ci.idpais = pa.idpais
                                 AND pa.idcontinente = co.idcontinente 
                                 AND co.activo = 1');
@@ -36,14 +36,14 @@ co.nombrecontinente as nombrecontinente,
 pa.idcontinente as paidcontinente,
 co.idcontinente as contid
 FROM productos pr, ciudades ci, paises pa, continentes co
-WHERE pr.idciudad = ci.idciudad 
+WHERE pr.idciudad = ci.id_ciudad 
 AND ci.idpais = pa.idpais
 AND pa.idcontinente = co.idcontinente 
 AND co.activo = 1');
 
 $dataContinentes= $db->query('SELECT *  from continentes');
 
-$dataCiudades= $db->query('SELECT ci.idciudad as ciudades ,pa.idpais as paises, co.nombrecontinente as nombrecontinente,
+$dataCiudades= $db->query('SELECT ci.id_ciudad as ciudades ,pa.idpais as paises, co.nombrecontinente as nombrecontinente,
 pa.idcontinente as pidcontinente, co.idcontinente as contid from continentes co,paises pa, ciudades ci where 
 ci.idpais = pa.idpais AND pa.idcontinente = co.idcontinente');
 $todos= $db->query('SELECT * FROM productos');
@@ -66,7 +66,7 @@ $todos= $db->query('SELECT * FROM productos');
                             <div class="row justify-content-center align-items-center">
                                 <div class="col-12 col-md-6 col-lg-4 py-2">
                                     <form action="" method="GET" class="">
-                                    <?php $opcionContinen = 'contid' ?>
+                                    <!-- <?php $opcionContinen = 'contid' ?> -->
                                         <?php !empty($_GET['continente']) ? $opcionContinen = $_GET['continente'] : $opcionContinen = "" ?>
                                         <select name="continente" class="custom-select custom-select-lg" id="continente" onchange="this.form.submit()">
                                             <option value="" selected="selected">Seleccionar Continente</option>
