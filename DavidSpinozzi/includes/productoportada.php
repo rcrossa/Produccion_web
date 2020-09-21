@@ -5,7 +5,7 @@
       <div class="row">
 
         <?php
-
+      //API conversión MySQL a JSON
         require_once ('conexion.php');
         $db=DB::conectar();
 
@@ -33,7 +33,8 @@
         while($row=$stmt4->fetch(PDO::FETCH_ASSOC)){
             $dataProductos[] = $row;
         }
-        
+        //Fin del código
+
         $continente = (isset($_GET["continente"]) ? $_GET['continente'] : null);
         $pais = (isset($_GET["pais"]) ? $_GET['pais'] : null);
         $estadosprovincias = (isset($_GET["estadoprovincia"]) ? $_GET['estadoprovincia'] : null)
