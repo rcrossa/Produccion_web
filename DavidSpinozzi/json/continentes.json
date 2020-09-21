@@ -9,10 +9,20 @@
     },
     {
         "id": 2,
-        "nombre": "America del Norte"
+        "nombre": "America"
     },
     {
         "id": 3,
-        "nombre": "America del Sur"
+        "nombre": "África"
+    },
+    {
+        "id": 4,
+        "nombre": "Asia"
+    },
+    {
+        "id": 5,
+        "nombre": "Oceania"
     }
+
 ]
+

@@ -23,21 +23,21 @@
     {
         "id": 4,
         "pais": "Estados Unidos",
-        "continente": "America del Norte"
+        "continente": "America"
     },
     {
         "id": 5,
         "pais": "Canada",
-        "continente": "America del Norte"
+        "continente": "America"
     },
     {
         "id": 7,
         "pais": "Brasil",
-        "continente": "America del Sur"
+        "continente": "America"
     },
     {
         "id": 8,
         "pais": "Argentina",
-        "continente": "America del Sur"
+        "continente": "America"
     }
 ]
