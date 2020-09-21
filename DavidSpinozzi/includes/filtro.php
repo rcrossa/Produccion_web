@@ -4,7 +4,7 @@ require_once ('conexion.php');
     $db=DB::conectar();
     
     $queryContinente = "SELECT idcontinente as id, nombrecontinente as nombre FROM continentes WHERE activo=1";
-    $queryPais = "SELECT pa.idpais as id, pa.nombrepais as pais, co.nombrecontinente as continente  
+    $queryPais = "SELECT DISTINCT pa.idpais as id, pa.nombrepais as pais, co.nombrecontinente as continente  
                     FROM productos pr, ciudades ci, paises pa, continentes co
                     WHERE pr.idciudad = ci.idciudad 
                     AND ci.idpais = pa.idpais
