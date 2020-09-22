@@ -5,13 +5,13 @@ require_once ('conexion.php');
     
     $queryContinente = "SELECT idcontinente as id, nombrecontinente as nombre FROM continentes WHERE activo=1";
     $queryPais = "SELECT DISTINCT pa.idpais as id, pa.nombrepais as pais, co.nombrecontinente as continente  
-                    FROM productos pr, ciudades ci, paises pa, continentes co
-                    WHERE pr.idciudad = ci.idciudad 
-                    AND ci.idpais = pa.idpais
-                    AND pa.idcontinente = co.idcontinente 
-                    AND pa.activo=1";
+    FROM productos pr, ciudades ci, paises pa, continentes co
+    WHERE pr.idciudad = ci.idciudad 
+    AND ci.idpais = pa.idpais
+    AND pa.idcontinente = co.idcontinente 
+    AND pa.activo=1";
 
-    $dataCiudad = "SELECT ci.nombreciudad as estadoprovincia, pa.nombrepais as pais, co.nombrecontinente as continente
+    $dataCiudad = "SELECT ci.nombreciudad as ciudades, pa.nombrepais as pais, co.nombrecontinente as continente
     FROM productos pr, ciudades ci, paises pa, continentes co
     WHERE pr.idciudad = ci.idciudad 
     AND ci.idpais = pa.idpais
@@ -32,8 +32,6 @@ require_once ('conexion.php');
          $dataContinentes[] = $row;
     }
 
-    //json_encode($dataContinentes,JSON_UNESCAPED_UNICODE);
-
     while($row=$stmt2->fetch(PDO::FETCH_ASSOC)){
         $dataPaises[] = $row;
         }
@@ -42,19 +40,16 @@ require_once ('conexion.php');
         $dataCiudades[] = $row;
     }
     
-    //json_encode($dataPaises,JSON_UNESCAPED_UNICODE);
     
- //Fin del código
-
-
+ //Fin de API
 
 //$str_data_continentes = file_get_contents("./json/continentes.json");
 //$str_data_paises = file_get_contents("./json/paises.json");
-//$str_data_estadosprovincias = file_get_contents("./json/estadosprovincias.json");
+//$str_data_ciudades = file_get_contents("./json/ciudades.json");
 
 //$dataContinentes = json_decode($str_data_continentes, true);
 //$dataPaises = json_decode($str_data_paises, true);
-//$dataEstadosProvincias = json_decode($str_data_estadosprovincias, true);
+//$dataciudades = json_decode($str_data_ciudades, true);
 
 
 ?>
@@ -98,27 +93,26 @@ require_once ('conexion.php');
                                                     <option <?php echo ($opcionPais == $paises['pais']) ? 'selected="selected"' : ''?>>
                                                     <?php echo $paises['pais'];?> </option>
                                                 <?php endif ?>
-
                                             <?php endforeach ?>
                                         </select>
                                     </form>
                                 </div>
                                 <div  class="col-12 col-md-6 col-lg-4">
                                 <form action="" method="GET" class="">
-                                <?php $opcionEstado = 'Todo'; ?>
-                                <input type="hidden" name="continente" value="<?php echo isset($opcionContinen) ? $opcionContinen  : $_GET['continente']?>">
-                                <input type="hidden" name="pais" value="<?php echo isset($opcionPais) ? $opcionPais : $_GET['pais'] ?>">
-                                    <?php !empty($_GET['estadoprovincia']) ? $opcionEstado=$_GET['estadoprovincia']: $opcionEstado = "Todo" ?>
-                                        <select name="estadoprovincia" class="custom-select custom-select-lg" id="estadoprovincia" onchange="this.form.submit()">
+                                     <?php $opcionCiudad = 'Todo'; ?>
+                                     <input type="hidden" name="continente" value="<?php echo isset($opcionContinen) ? $opcionContinen  : $_GET['continente']?>">
+                                     <input type="hidden" name="pais" value="<?php echo isset($opcionPais) ? $opcionPais : $_GET['pais'] ?>">
+                                        <?php !empty($_GET['ciudades']) ? $opcionCiudad=$_GET['ciudades']: $opcionCiudad = "Todo" ?>
+                                        <select name="ciudades" class="custom-select custom-select-lg" id="ciudades" onchange="this.form.submit()">
                                             <option value="">Seleccionar Ciudad</option>
-                                            <?php foreach ($dataCiudades as $estadosprovincias) : ?>
-                                                <?php if ($estadosprovincias["pais"] == $opcionPais) : ?>
-                                                    <option <?php echo ($opcionEstado == $estadosprovincias['estadoprovincia']) ? 'selected="selected"' : ''?>>
-                                                    <?php echo $estadosprovincias['estadoprovincia'];?> </option>
+                                            <?php foreach ($dataCiudades as $ciudades) : ?>
+                                                <?php if ($ciudades["pais"] == $opcionPais) : ?>
+                                                    <option <?php echo ($opcionCiudad == $ciudades['ciudades']) ? 'selected="selected"' : ''?>>
+                                                    <?php echo $ciudades['ciudades'];?> </option>
                                                 <?php endif ?>
                                             <?php endforeach ?>
                                         </select> 
-                                        </form>   
+                                    </form>   
                                 </div>
                             </div>
                         </div>

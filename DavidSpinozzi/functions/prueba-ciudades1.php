@@ -485,7 +485,3 @@ $ciudadesArr = array(
   ),
 );
 
-
-$ciudadesJSON = json_encode($ciudadesArr, true);
-$file = '../json/ciudades.json';
-file_put_contents($file, $ciudadesJSON);
