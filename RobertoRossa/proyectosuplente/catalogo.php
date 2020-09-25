@@ -8,18 +8,21 @@
 
 <body>
     <?php
-    // $str_data = file_get_contents("./json/estadosprovincias.json");
-    //  $productos = json_decode($str_data, true);
+    
+    //$str_data = file_get_contents("./json/estadosprovincias.json");
+    //$productos = json_decode($str_data, true);
     require_once "./functions/cortar.php";
+
 
     // archivos html
     $page = 'catalogo';
     require_once "./includes/encabezado.php";
-    require_once "./includes/filtrocopy.php";
+    require_once "./includes/filtro.php";
     require_once "./includes/productoportada.php";
     require_once "./includes/linkinteresesyherramientas.php";
     require_once "./includes/footer.php";
     ?>
+
 </body>
 
 </html>
