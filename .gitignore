@@ -509,3 +509,11 @@ MigrationBackup/
 #directorios que no se suben todavia.
 # Login/
 # RobertoRossa/productos/
+RobertoRossa/*
+csscopy/*
+DavidSpinozzi/*
+Elisaleiva/*
+grupo1/*
+grupo2/*
+Login/*
+secure/*
