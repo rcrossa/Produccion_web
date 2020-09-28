@@ -29,8 +29,7 @@
                             AND pa.idcontinente = co.idcontinente 
                             AND pr.activo=1
                             $ORDERBY $campo $orden";
-        
-
+      
 
         $stmt4 = $db->prepare($queryProductos);
         $stmt4->execute();
@@ -40,6 +39,7 @@
         while($row=$stmt4->fetch(PDO::FETCH_ASSOC)){
             $dataProductos[] = $row;
         }
+
         //Fin del código
 
         $continente = (isset($_GET["continente"]) ? $_GET['continente'] : null);
