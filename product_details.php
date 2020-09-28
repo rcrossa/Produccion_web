@@ -8,9 +8,38 @@
 
 <body>
     <?php
+    require_once ('includes/conexion.php');
+    $db=DB::conectar();
+
     $page = 'catalogo';
-    $str_data = file_get_contents("./json/estadosprovincias.json");
-    $estadosprovincias = json_decode($str_data, true);
+    //$str_data = file_get_contents("./json/estadosprovincias.json");
+    //$estadosprovincias = json_decode($str_data, true);
+    $queryProductos = "SELECT pr.idproducto as id, 
+    ci.nombreciudad as nombre, 
+    pa.nombrepais as pais, 
+    co.nombrecontinente as continente,
+    ci.nombreciudad as ciudades,
+    pr.precio as precio,
+    pr.descripcion as descripcion,
+    pr.detalle as descripcion_details,
+    pr.url as url,
+    pr.destacado as destacado
+    FROM productos pr, ciudades ci, paises pa, continentes co
+    WHERE pr.idciudad = ci.idciudad 
+    AND ci.idpais = pa.idpais
+    AND pa.idcontinente = co.idcontinente 
+    AND pr.activo=1";
+
+
+    $stmt4 = $db->prepare($queryProductos);
+    $stmt4->execute();
+    $dataProductos = array();
+
+
+    while($row=$stmt4->fetch(PDO::FETCH_ASSOC)){
+    $dataProductos[] = $row;
+    }
+
 
     require_once "./includes/encabezado.php";
     $id = $_GET['id'];
@@ -37,7 +66,7 @@
 
 
     <div class="container text-center pt-5 pb-4">
-        <?php foreach ($estadosprovincias as $key => $value) {
+        <?php foreach ($dataProductos as $key => $value) {
             if ($key == $id) break;
         }
         echo '<h1>' . $value['nombre'] . '</h1>';
