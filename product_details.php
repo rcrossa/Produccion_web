@@ -118,6 +118,8 @@
                         <?php foreach ($value['descripcion_details'] as $k => $v) : ?>
                             <li><?php echo $v; ?></li>
                         <?php endforeach ?>
+                        <!--Se debe corregir. imprime sin foreach. Ejemplo  -->
+                        <?php echo '<p class="col-9 pt-4">' . $value['descripcion_details'] . '</p>' ?>
                     </ul>
                 </div>
                 <div class="col-10 pt-3">
