@@ -118,6 +118,10 @@
             // $condicionCiudad = (($continente == $value['continente'] || $continente == 'Todo') && $pais == $value['pais'] && $ciudades == $value['ciudades']);
             // $condicionPais = ($pais == $value['pais'] && empty($ciudades));
             $condicionContinente = (($continente == $value['continente'] || $continente == 'Todo') && empty($pais) && empty($ciudades ));
+            //------------------------------------------------------------------------------
+            // if ($condicionCiudad || $condicionPais ||$condicionContinente) {
+
+            //--------ATENCION----------------------ATENCION----------ATENCION------------------------
             if ($condicionContinente) {
             ?>
               <?php include('card_paises.php'); ?>
