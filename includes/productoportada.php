@@ -96,19 +96,29 @@
                    $dataProductos1[] = $row;
                }
                //Fin del código
-               
+               //codigo original 
+              //  $continente = (isset($_GET["continente"]) ? $_GET['continente'] : null);
+              //  $pais = (isset($_GET["pais"]) ? $_GET['pais'] : null);
+              //  $ciudades = (isset($_GET["ciudades"]) ? $_GET['ciudades'] : null)
+              //--------ATENCION----------------------ATENCION----------ATENCION------------------------
+                             //codigo de prueba 
                $continente = (isset($_GET["continente"]) ? $_GET['continente'] : null);
-               $pais = (isset($_GET["pais"]) ? $_GET['pais'] : null);
-               $ciudades = (isset($_GET["ciudades"]) ? $_GET['ciudades'] : null)
+              //  $pais = (isset($_GET["pais"]) ? $_GET['pais'] : null);
+              //  $ciudades = (isset($_GET["ciudades"]) ? $_GET['ciudades'] : null)
             ?>
             <?php foreach ( $dataProductos1 as $key => $value) { ?>
           
             <?php
-            $condicionCiudad = (($continente == $value['continente'] || $continente == 'Todo') && $pais == $value['pais'] && $ciudades == $value['ciudades']);
-            $condicionPais = ($pais == $value['pais'] && empty($ciudades));
+            //filtro original
+            // $condicionCiudad = (($continente == $value['continente'] || $continente == 'Todo') && $pais == $value['pais'] && $ciudades == $value['ciudades']);
+            // $condicionPais = ($pais == $value['pais'] && empty($ciudades));
+            // $condicionContinente = (($continente == $value['continente'] || $continente == 'Todo') && empty($pais) && empty($ciudades ));
+ //--------ATENCION----------------------ATENCION----------ATENCION------------------------
+            // filtro de prueba
+            // $condicionCiudad = (($continente == $value['continente'] || $continente == 'Todo') && $pais == $value['pais'] && $ciudades == $value['ciudades']);
+            // $condicionPais = ($pais == $value['pais'] && empty($ciudades));
             $condicionContinente = (($continente == $value['continente'] || $continente == 'Todo') && empty($pais) && empty($ciudades ));
-  
-            if ($condicionCiudad || $condicionPais || $condicionContinente) {
+            if ($condicionContinente) {
             ?>
               <?php include('card_paises.php'); ?>
 

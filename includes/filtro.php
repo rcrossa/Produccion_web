@@ -53,7 +53,7 @@ require_once ('conexion.php');
 
 
 ?>
-
+<!-- filtro que funciona -->
 <div class="container pt-4 px-5">
     <div class="row justify-content-center">
         <div class="col-12">
@@ -67,11 +67,11 @@ require_once ('conexion.php');
                                     <form action="" method="GET" class="">
 
                                         <select class="custom-select custom-select-sm" name="orden">
-                                        <option value="" selected></option>
+                                            <option value="" selected></option>
                                             <option value="asc">Ordenar Ascendente</option>
                                             <option value="desc">Ordenar Descendente</option>
                                         </select>
-                              
+
                                         <?php $opcionContinen = 'Todo'; ?>
                                         <?php !empty($_GET['continente']) ? $opcionContinen = $_GET['continente'] : $opcionContinen = "" ?>
                                         <select name="continente" class="custom-select custom-select-lg" id="continente"
@@ -88,8 +88,8 @@ require_once ('conexion.php');
                                 </div>
                                 <div class="col-10 col-md-6 col-lg-4">
                                     <form action="" method="GET" class="">
-                                    <select class="custom-select custom-select-sm" name="orden">
-                                        <option value="" selected></option>
+                                        <select class="custom-select custom-select-sm" name="orden">
+                                            <option value="" selected></option>
                                             <option value="asc">Ordenar Ascendente</option>
                                             <option value="desc">Ordenar Descendente</option>
                                         </select>
@@ -136,6 +136,75 @@ require_once ('conexion.php');
                                         </select>
                                     </form>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- filtro de prueba -->
+<div class="container pt-4 px-5">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div class="filter-wrap py-4">
+                <h3>Filtro</h3>
+                <div class="filter-border p-4 border border-secondary">
+                    <div class="filter-inner">
+                        <div class="filtrolugar">
+                            <div class="row justify-content-center align-items-center">
+                                <div class="col-12 col-md-6 col-lg-4 py-2">
+                                    <form action="" method="GET" class="">
+                                        <?php $opcionContinen = 'Todo'; ?>
+                                        <?php !empty($_GET['continente']) ? $opcionContinen = $_GET['continente'] : $opcionContinen = "" ?>
+                                        <select name="continente" class="custom-select custom-select-lg"
+                                            id="continente">
+                                            <option value="" selected="selected">Seleccionar Continente</option>
+                                            <?php foreach ($dataContinentes as $continentes) : ?>
+                                            <option
+                                                <?php echo ($opcionContinen == $continentes['nombre']) ?>>
+                                                <?php echo $continentes['nombre'] ?>
+                                            </option>
+                                            <?php endforeach ?>
+                                        </select>
+                                </div>
+                                <!-- <div class="col-12 col-md-6 col-lg-4 py-2">
+                                 <input type="hidden" name="continente"
+                                        value="<?php echo isset($opcionContinen) ? $opcionContinen  : $_GET['continente']?>">
+                                    <?php $opcionPais = 'Todo'; ?>
+                                    <?php !empty($_GET['pais']) ? $opcionPais=$_GET['pais']: $opcionPais= "Todo" ?>
+
+                                    <select name="pais" class="custom-select custom-select-lg" id="pais">
+                                        <option value="">Seleccionar Pais</option>
+                                        <?php foreach ($dataPaises as $paises) : ?>
+                                        <?php if ($paises['continente'] == $opcionContinen) : ?>
+                                        <option
+                                            <?php echo ($opcionPais == $paises['pais']) ? 'selected="selected"' : ''?>>
+                                            <?php echo $paises['pais'];?> </option>
+                                        <?php endif ?>
+                                        <?php if ($_GET['continente'] == null || $_GET['continente'] == 'Todo') : ?>
+                                        <option
+                                            <?php echo ($opcionPais == $paises['pais']) ? 'selected="selected"' : ''?>>
+                                            <?php echo $paises['pais'];?> 
+                                            </option>
+                                        <?php endif ?>
+                                        <?php endforeach ?>
+                                    </select>
+                                </div> -->
+                                <div class="col-4 col-md-4 col-lg-4 py-2">
+                                    <select class="custom-select custom-select-lg" name="orden">
+                                        <option value="" selected='selected'></option>
+                                        <option value="asc">Ordenar Ascendente</option>
+                                        <option value="desc">Ordenar Descendente</option>
+                                    </select>
+                                </div>
+                                <?php $orden=isset($_GET["orden"]);?>
+                                <div class="col-12 col-md-6 col-lg-4 py-2">
+                                    <p><input type="submit" value="Buscar"></p>
+                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
