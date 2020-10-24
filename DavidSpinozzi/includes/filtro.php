@@ -32,7 +32,6 @@ require_once ('conexion.php');
          $dataContinentes[] = $row;
     }
 
-    var_dump($dataContinentes);
 
     while($row=$stmt2->fetch(PDO::FETCH_ASSOC)){
         $dataPaises[] = $row;
