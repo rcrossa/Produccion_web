@@ -40,7 +40,7 @@
         while($row=$stmt4->fetch(PDO::FETCH_ASSOC)){
             $dataProductos[] = $row;
         }
-        //Fin del código
+        //Fin de la API
 
         $continente = (isset($_GET["continente"]) ? $_GET['continente'] : null);
         $pais = (isset($_GET["pais"]) ? $_GET['pais'] : null);
