@@ -52,12 +52,11 @@
     while($row=$stmt1->fetch(PDO::FETCH_ASSOC)){
         $dataProductos[] = $row;
     }
+
     while($row=$stmt2->fetch(PDO::FETCH_ASSOC)){
         $dataComentarios[] = $row;
     }
 
- //   $str_data = file_get_contents("./json/estadosprovincias.json");
- //   $estadosprovincias = json_decode($str_data, true);
 
     require_once "./includes/encabezado.php";
     $id = (isset($_GET["id"]) ? $_GET['id'] : null);
