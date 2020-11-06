@@ -8,9 +8,8 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php require_once "../includes/head.php" ;?>
-    <title>Document</title>
+ <title>Document</title>
 </head>
-
 <body>
 <?php
  $page = 'productos';
@@ -49,8 +48,6 @@ if ($now > $_SESSION['expire']) {
   // Ejecuta consulta
   $miConsulta->execute();
 
-
-$page = 'productos';
 // require_once "includes/encabezado.php" 
 
  ?>
@@ -73,12 +70,9 @@ $page = 'productos';
     </ul>
   </div>
 </nav>
-<?php 
-    // $page = 'productos';
-    // require_once "../includes/encabezado.php"; ?>
-    <header>
+
+    
         <h1>Bienvenidos a la administracion de Productos</h1>
-    </header>
     <div class="table-responsive">
     <table class="table table-bordered">
     <th>Alta de producto</th>
@@ -91,16 +85,12 @@ $page = 'productos';
         <td><a> <?php  require_once "mostrar.php"?></a></td>
             <!-- <td><a href="mostrar.php">ver</a></td> -->
         </tr>
-        <!-- <th>Alta de Productos</th>
-        <tr>
-        <td> -->
-            <!-- <td><a href="mostrar.php">ver</a></td> -->
-        <!-- </tr> -->
     </table>
     </div>
     <!-- <footer>
     administrar usuario
     </footer> -->
+    
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
         </script>

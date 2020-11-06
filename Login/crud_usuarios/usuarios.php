@@ -94,8 +94,7 @@ $page = 'usuarios';
       <tr>
           <td> <?php  require_once "ingresar.php"?> </a>
           </td>
-       </tr>
-       <tr><td>
+       <td>
        <?php  require_once "ingresarpermisos.php"?> </a>
        </td>
        
