@@ -9,11 +9,58 @@
 <body>
     <?php
     $page = 'catalogo';
-    $str_data = file_get_contents("./json/estadosprovincias.json");
-    $estadosprovincias = json_decode($str_data, true);
+    //API conversión MySQL a JSON
+    require_once ('includes/conexion.php');
+    $db=DB::conectar();
+
+    $queryProductos = "SELECT pr.idproducto as id, 
+                                ci.nombreciudad as nombre, 
+                                pa.nombrepais as pais, 
+                                co.nombrecontinente as continente,
+                                ci.nombreciudad as ciudades,
+                                pr.precio as precio,
+                                pr.descripcion as descripcion,
+                                pr.detalle as descripcion_details,
+                                pr.url as url,
+                                pr.destacado as destacado
+                                FROM productos pr, ciudades ci, paises pa, continentes co
+                                WHERE pr.idciudad = ci.idciudad 
+                                AND ci.idpais = pa.idpais
+                                AND pa.idcontinente = co.idcontinente 
+                                AND pr.activo=1";
+
+    $queryComentarios = "SELECT u.nombre as nombre, 
+                                c.email as email, 
+                                c.comentario as comentario, 
+                                c.estrellas as estrellas, 
+                                c.idproducto as producto_id, 
+                                c.fecha as fecha 
+                                FROM comentarios c, usuarios u
+                                WHERE c.email = u.email
+                                AND activo=1
+                                ORDER BY fecha DESC ";
+
+    $stmt1 = $db->prepare($queryProductos);
+    $stmt1->execute();
+    $dataProductos = array();
+
+    $stmt2 = $db->prepare($queryComentarios);
+    $stmt2->execute();
+    $dataComentarios = array();
+
+
+    while($row=$stmt1->fetch(PDO::FETCH_ASSOC)){
+        $dataProductos[] = $row;
+    }
+    while($row=$stmt2->fetch(PDO::FETCH_ASSOC)){
+        $dataComentarios[] = $row;
+    }
+
+ //   $str_data = file_get_contents("./json/estadosprovincias.json");
+ //   $estadosprovincias = json_decode($str_data, true);
 
     require_once "./includes/encabezado.php";
-    $id = $_GET['id'];
+    $id = (isset($_GET["id"]) ? $_GET['id'] : null);
 
     // Si $_POST submit esta setteado, guarda los datos del comentario en comentarios.json
     if (isset($_POST['submit'])) {
@@ -35,11 +82,13 @@
     }
     ?>
 
-
+     
     <div class="container text-center pt-5 pb-4">
-        <?php foreach ($estadosprovincias as $key => $value) {
+        <?php foreach ($dataProductos as $key => $value) {
             if ($key == $id) break;
         }
+        
+
         echo '<h1>' . $value['nombre'] . '</h1>';
         ?>
     </div>
@@ -86,9 +135,8 @@
                 </div>
                 <div class="col-10">
                     <ul class="descripcion_detalles">
-                        <?php foreach ($value['descripcion_details'] as $k => $v) : ?>
-                            <li><?php echo $v; ?></li>
-                        <?php endforeach ?>
+                        <?php echo '<p class="col-9 pt-4">' . $value['descripcion_details'] . '</p>' ?>
+
                     </ul>
                 </div>
                 <div class="col-10 pt-3">
@@ -199,12 +247,12 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12 text-center">
                     <?php
-                    if (file_exists('./json/comentarios.json')) {
-                        $comentarioJson = file_get_contents('./json/comentarios.json');
-                        $comentarioArray = json_decode($comentarioJson, true);
-                        krsort($comentarioArray);
+                    //if (file_exists('./json/comentarios.json')) {
+                     //   $comentarioJson = file_get_contents('./json/comentarios.json');
+                        //$comentarioArray = json_decode($comentarioJson, true);
+                       // krsort($comentarioArray);
                         $cantidad = 0;
-                        foreach ($comentarioArray as $comentario) {
+                        foreach ($dataComentarios as $comentario) {
                             if ($comentario['producto_id'] == $_GET['id']) {
                                 $cantidad++;
                                 if ($cantidad == 11) break;
@@ -243,7 +291,7 @@
                     <?php
                             }
                         }
-                    }
+                   // }
                     ?>
                 </div>
             </div>

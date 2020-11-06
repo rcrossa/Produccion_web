@@ -32,7 +32,6 @@ require_once ('conexion.php');
          $dataContinentes[] = $row;
     }
 
-
     while($row=$stmt2->fetch(PDO::FETCH_ASSOC)){
         $dataPaises[] = $row;
         }
@@ -40,18 +39,8 @@ require_once ('conexion.php');
     while($row=$stmt3->fetch(PDO::FETCH_ASSOC)){
         $dataCiudades[] = $row;
     }
-    
-    
+
  //Fin de API
-
-//$str_data_continentes = file_get_contents("./json/continentes.json");
-//$str_data_paises = file_get_contents("./json/paises.json");
-//$str_data_ciudades = file_get_contents("./json/ciudades.json");
-
-//$dataContinentes = json_decode($str_data_continentes, true);
-//$dataPaises = json_decode($str_data_paises, true);
-//$dataciudades = json_decode($str_data_ciudades, true);
-
 
 ?>
 
@@ -112,6 +101,30 @@ require_once ('conexion.php');
                                                     <?php echo $ciudades['ciudades'];?> </option>
                                                 <?php endif ?>
                                             <?php endforeach ?>
+                                        </select> 
+                                    </form>   
+                                </div>
+                                <div  class="col-12 col-md-6 col-lg-4">
+                                <form action="" method="GET" class="">
+                                     <?php $order = null; ?>
+                                     <input type="hidden" name="continente" value="<?php echo isset($opcionContinen) ? $opcionContinen  : $_GET['continente']?>">
+                                     <input type="hidden" name="pais" value="<?php echo isset($opcionPais) ? $opcionPais : $_GET['pais'] ?>">
+                                     <input type="hidden" name="ciudades" value="<?php echo isset($opcionCiudad) ? $opcionCiudad : $_GET['ciudades'] ?>">
+                                        <?php !empty($_GET['orden']) ? $order=$_GET['orden']: $order = "TODO" ?>
+                                        <select name="orden" class="custom-select custom-select-lg" id="orden" onchange="this.form.submit()">
+                                        <option value="">Ordenar</option>
+                                            <option 
+                                             <?php echo ("ORDER BY precio DESC" == $order) ? 'selected="selected"' : ''?>
+                                            value="ORDER BY precio ASC">Precio Menor</option>
+                                            <option 
+                                             <?php echo ("ORDER BY precio ASC" == $order ) ? 'selected="selected"' : ''?>
+                                            value="ORDER BY precio DESC">Precio Mayor</option>
+                                            <option 
+                                             <?php echo ("ORDER BY nombre ASC" == $order) ? 'selected="selected"' : ''?>
+                                            value="ORDER BY nombre ASC">Ciudad A-Z</option>
+                                            <option 
+                                             <?php echo ("ORDER BY nombre DESC" == $order ) ? 'selected="selected"' : ''?>
+                                            value="ORDER BY nombre DESC">Ciudad Z-A</option>
                                         </select> 
                                     </form>   
                                 </div>

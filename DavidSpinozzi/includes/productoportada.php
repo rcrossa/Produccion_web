@@ -8,10 +8,7 @@
       //API conversión MySQL a JSON
         require_once ('conexion.php');
         $db=DB::conectar();
-       
-        $campo="nombre";
-        $orden="ASC";
-        $ORDERBY = "ORDER BY";
+        $order = (isset($_GET["orden"]) ? $_GET['orden'] : null);
 
         $queryProductos = "SELECT pr.idproducto as id, 
                             ci.nombreciudad as nombre, 
@@ -28,9 +25,7 @@
                             AND ci.idpais = pa.idpais
                             AND pa.idcontinente = co.idcontinente 
                             AND pr.activo=1
-                            $ORDERBY $campo $orden";
-        
-
+                            $order";
 
         $stmt4 = $db->prepare($queryProductos);
         $stmt4->execute();
@@ -57,19 +52,18 @@
 
             <?php
             $condicionCiudad = (($continente == $value['continente'] || $continente == 'Todo') && $pais == $value['pais'] && $ciudades == $value['ciudades']);
-            $condicionPais = ($pais == $value['pais'] && empty($ciudades));
-            $condicionContinente = (($continente == $value['continente'] || $continente == 'Todo') && empty($pais) && empty($ciudades ));
-  
-            if ($condicionCiudad || $condicionPais || $condicionContinente) {
+            $condicionPais = ($pais == $value['pais'] && (empty($ciudades) ||$ciudades== 'Todo'));
+            $condicionContinente = (($continente == $value['continente'] || $continente == 'Todo') && (empty($pais)|| $pais == 'Todo') && (empty($ciudades )||$ciudades== 'Todo'));
+            $condicionTodo = ($continente == 'Todo' && $pais == 'Todo' && $ciudades == 'Todo');
+
+            if ($condicionCiudad || $condicionPais || $condicionContinente || $condicionTodo) {
             ?>
               <?php include('card_paises.php'); ?>
 
             <?php } ?>
           <?php } ?>
         <?php } ?>
-
       </div>
     </div>
-
   </div>
 </div>
