@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-10-2020 a las 16:41:23
+-- Tiempo de generación: 06-11-2020 a las 04:17:53
 -- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.4.10
+-- Versión de PHP: 7.2.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -726,9 +726,12 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`email`, `tipo_rol`, `accion`) VALUES
-('david.spinozzi@gmail.com', 'productos', 'borrar'),
-('david.spinozzi@gmail.com', 'productos', 'editar'),
-('david.spinozzi@gmail.com', 'productos', 'ver');
+('coco@gmail.com', 'admin', 'editar'),
+('david.spinozzi@gmail.com', 'admin', 'borrar'),
+('david.spinozzi@gmail.com', 'admin', 'editar'),
+('david.spinozzi@gmail.com', 'productos', 'ver'),
+('raul.g@gmail.com', 'productos', 'ver'),
+('rodo1@gmail.com', 'productos', 'ver');
 
 -- --------------------------------------------------------
 
@@ -746,6 +749,7 @@ CREATE TABLE `tipo_rol` (
 
 INSERT INTO `tipo_rol` (`idrol`) VALUES
 ('acciones'),
+('admin'),
 ('ciudades'),
 ('comentarios'),
 ('continentes'),
@@ -763,7 +767,7 @@ INSERT INTO `tipo_rol` (`idrol`) VALUES
 
 CREATE TABLE `usuarios` (
   `email` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
+  `password` varchar(1000) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `apellido` varchar(100) NOT NULL,
   `edad` int(3) NOT NULL
@@ -774,10 +778,16 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`email`, `password`, `nombre`, `apellido`, `edad`) VALUES
-('david.spinozzi@gmail.com', '123456', 'David', 'Spinozzi', 31),
-('elisa.leiva@gmail.com', '123456', 'Elisa', 'Leiva', 25),
-('nicolas.ceijas@gmail.com', '123456', 'Nicolas', 'Ceijas', 25),
-('roberto.rosa@gmail.com', '123456', 'Roberto', 'Rosa', 30);
+('coco@gmail.com', '$2y$10$4tmOW6qEdWEbr.tSaM0MeeZHdlGQlTDAy08BLzZoOjB9N5C36Lvya', 'coco', 'loco', 33),
+('david.spinozzi@gmail.com', '$2y$10$RyZaTb5.fnZ.x26zTCmZWuZbI8y79TgpH65GUoJKraDY5JbKXNE/u', 'David', 'Spinozzi', 32),
+('elisa.leiva@gmail.com', '$2y$10$UhvzxWe9JajJvSF2VyAkQu19AvXoTTlV8dB0/55VQ9N5FmQUD31Ya', 'Elisa', 'Leiva', 25),
+('nicolas.ceijas@gmail.com', '$2y$10$w4kY7w6zMaZ.3SyefyOMxOzSJutkHpO8jXJ.el29DbOoJPqfMgJCW', 'Nicolas', 'Ceijas', 25),
+('prueba@gmail.com', '$2y$10$7nizKjcmVWvk3AGmb08S2eLVrzk6QY4K8BV43WonHDCFLTNwLh3PW', 'prueba', 'test', 33),
+('ramon@gmail.com', '1234', 'Ramon', 'gutierrez', 32),
+('raul.g@gmail.com', '99b983892094b5c6d2fc3736e15da7d1', 'Raul', 'Gomez', 32),
+('rc@gmail.com', '*0', 'aaaa', 'bbb', 32),
+('roberto.rosa@gmail.com', '123456', 'Roberto', 'Rosa', 30),
+('rodo1@gmail.com', '$2y$10$6.S.WPhqemcnNXFcjrn9xeol4zJUjrUczfGpg8jkxMgGJLH18m1I.', 'rodo1', 'rodo1', 33);
 
 --
 -- Índices para tablas volcadas
