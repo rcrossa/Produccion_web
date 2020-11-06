@@ -9,8 +9,6 @@
 <body>
     <?php
     
-    //$str_data = file_get_contents("./json/estadosprovincias.json");
-    //$productos = json_decode($str_data, true);
     require_once "./functions/cortar.php";
 
 
