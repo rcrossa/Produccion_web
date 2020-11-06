@@ -44,7 +44,7 @@ if ($now > $_SESSION['expire']) {
   $miPDO = new PDO($hostPDO, $usuarioDB, $contrasenyaDB);
 
   // Prepara SELECT
-  $miConsulta = $miPDO->prepare('SELECT  idproducto,idciudad,precio, descripcion, detalle, url, destacado, activo FROM productos;');
+  $miConsulta = $miPDO->prepare('SELECT  idciudad,precio, descripcion, detalle, url, destacado, activo FROM productos;');
   // Ejecuta consulta
   $miConsulta->execute();
 

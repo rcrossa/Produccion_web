@@ -19,7 +19,7 @@ class producto {
     public function setPrecio($precio){ $this->precio = $precio;}
 
     public function getDescripcion(){return $this->descripcion ;}
-    public function setDescripcion($descripcion){ $this->$descripcion = $descripcion;}
+    public function setDescripcion($descripcion){ $this->descripcion = $descripcion;}
     public function getDetalle(){return $this->detalle ;}
     public function setDetalle($detalle){ $this->detalle = $detalle;}
     public function getUrl(){return $this->url ;}

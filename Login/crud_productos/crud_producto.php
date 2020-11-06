@@ -10,7 +10,7 @@
 
 		public function insertar($producto){
 			$db=DB::conectar();
-			$insert=$db->prepare('INSERT INTO productos values(NULL,:idciudad,:precio,:descripcion,:detalle,:url,:destacado,:activo)');
+			$insert=$db->prepare('INSERT INTO productos values(:idciudad,:precio,:descripcion,:detalle,:url,:destacado,:activo)');
 			$insert->bindValue('idciudad',   $producto->getIdciudad());
 			$insert->bindValue('precio',   $producto->getPrecio());
 			$insert->bindValue('descripcion',     $producto->getDescripcion());
