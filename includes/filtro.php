@@ -114,10 +114,10 @@ require_once ('conexion.php');
                                         <select name="orden" class="custom-select custom-select-lg" id="orden" onchange="this.form.submit()">
                                         <option value="">Ordenar</option>
                                             <option 
-                                             <?php echo ("ORDER BY precio DESC" == $order) ? 'selected="selected"' : ''?>
+                                             <?php echo ("ORDER BY precio ASC" == $order) ? 'selected="selected"' : ''?>
                                             value="ORDER BY precio ASC">Precio Menor</option>
                                             <option 
-                                             <?php echo ("ORDER BY precio ASC" == $order ) ? 'selected="selected"' : ''?>
+                                             <?php echo ("ORDER BY precio DESC" == $order ) ? 'selected="selected"' : ''?>
                                             value="ORDER BY precio DESC">Precio Mayor</option>
                                             <option 
                                              <?php echo ("ORDER BY nombre ASC" == $order) ? 'selected="selected"' : ''?>
