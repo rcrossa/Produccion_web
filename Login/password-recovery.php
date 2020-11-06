@@ -27,7 +27,7 @@
 				die("Connection failed: " . mysqli_connect_error());
 			}
 				
-			$sql = "SELECT Email, Password FROM users WHERE Email='$email'";				
+			$sql = "SELECT Email, Password FROM usuarios WHERE email='$email'";				
 			$result = mysqli_query($conn, $sql);
 				
 			if (mysqli_num_rows($result) > 0) {				
@@ -37,7 +37,7 @@
 				$body = "Su contraseña es:" . $row['Password'];
 				
 				$headers = 'From: youremail@mail.com' . "\r\n" .
-				'Reply-To: youremail@mail.com' . "\r\n" .
+				'Reply-To: roberto.rossa@davinci.edu.ar' . "\r\n" .
 				'X-Mailer: PHP/' . phpversion();
 				
 				mail($email, $subject, $body, $headers);				

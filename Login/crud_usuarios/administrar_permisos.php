@@ -5,28 +5,28 @@ require_once ('permiso.php');
 
 
 $crud= new CrudPermiso();
-$usuario= new Permiso();
+$permiso= new Permiso();
 
 
   try {
-		// si el elemento insertar no viene nulo llama al crud e inserta un usuario
+		// si el elemento insertar no viene nulo llama al crud e inserta un permiso
 		
 		if (isset($_POST['insertar'])) {
 			$permiso->setEmail(   $_POST['email']);
 			$permiso->setTipo_rol(    $_POST['tipo_rol']);
-			$permiso->setAccion(  $_POST['Accion']);
+			$permiso->setAccion(  $_POST['accion']);
 			//llama a la función insertar definida en el crud
 			$crud->insertar($permiso);
 			header('Location: usuarios.php');
-		// si el elemento de la vista con nombre actualizar no viene nulo, llama al crud y actualiza el usuario
+			echo '<script language="javascript">alert("Usuario agregado");</script>';
+		// si el elemento de la vista con nombre actualizar no viene nulo, llama al crud y actualiza el permiso
 		}elseif(isset($_POST['actualizar'])){
-			// password_hash($_POST['password'], PASSWORD_BCRYPT),$usuario->getPassword()
 			$permiso->setEmail(   $_POST['email']);
 			$permiso->setTipo_rol(    $_POST['tipo_rol']);
 			$permiso->setAccion(  $_POST['Accion']);			
 			$crud->actualizar($permiso);
 			header('Location: usuarios.php');
-		// si la variable accion enviada por GET es == 'e' llama al crud y elimina un usuario
+		// si la variable accion enviada por GET es == 'e' llama al crud y elimina un permiso
 		}elseif ($_GET['accion']=='e') {
 			$crud->eliminar($_GET['email']);
 			header('Location: usuarios.php');		
@@ -35,12 +35,6 @@ $usuario= new Permiso();
 			header('Location: actualizarpermisos.php');
 		}
   } catch (\Throwable $th) {
-	// $message = "wrong answer";
-	// 	// echo "<script type='text/javascript'>alert('$message');</script>";
-	// 	$url ="usuarios.php"; // aqui pones la url
-	// 	$tiempo_espera = 0.1; // Aquí se configura cuántos segundos hasta la actualización.
-	// 	// Declaramos la funcion apra la redirección
-	// 	header("echo '$message'; refresh: $tiempo_espera; url=$url");
 	header("refresh:1;url=usuarios.php"); 
 	echo 'Debes completar todos los campos. Intentalo de nuevo.</a>.'; 
   }

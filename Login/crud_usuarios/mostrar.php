@@ -17,7 +17,7 @@ require_once ('permiso.php');
 $crud=new CrudUsuario();
 $usuario= new Usuario();
 
-$crud1= new CrudPermisos();
+$crud1= new CrudPermiso();
 $permiso= new Permiso();
 //obtiene todos los usuarios con el método mostrar de la clase crud
 $listarUsuarios=$crud->mostrar();

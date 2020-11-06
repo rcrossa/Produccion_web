@@ -1,6 +1,6 @@
 <?php
 require_once ('conexion.php');
-class CrudPermisos{
+class CrudPermiso{
     public function __construct(){}
 
     public function insertar($permiso){

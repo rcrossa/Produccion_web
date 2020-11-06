@@ -37,11 +37,7 @@ session_start();
             // data sent from form login.php
             $password = $_POST['password'];
         }
-                // else{
-                //         // data sent from form login.php
-                //         $email = $_POST['email']; 
-                //         $password = $_POST['password'];
-                //      }
+                
                         // Query sent to database
                         $result = mysqli_query($conn, "SELECT user.nombre as nombre, 
                         user.apellido as apellido, user.email as email, user.password as password, rol.tipo_rol as tipo_rol,
@@ -59,7 +55,7 @@ session_start();
                             if (password_verify($password, $hash)){
                                 // if (isset($row['password'], $hash)){
                                 //valido que tipo de perfil, usuario o administrador. asigno datos.
-                                                if(isset($row['accion'], $row['password'])){
+                                                if($row['password']){
                                                     $_SESSION['loggedin'] = true;
                                                     $_SESSION['nombre'] = $row['nombre'];
                                                     $_SESSION['email'] = $row['email'];
@@ -68,7 +64,7 @@ session_start();
                                                     $_SESSION['accion'] = $row['accion'];
                                                     $_SESSION['start'] = time();
                                                     $_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;						
-                                                            if($_SESSION['accion']=="ver" || $_SESSION['tipo_rol']=="productos"){
+                                                            if($_SESSION['accion']=="borrar" || $_SESSION['tipo_rol']=="productos"){
                                                                 echo "<div class='alert alert-success mt-4' role='alert'><strong>Bienvenido $row[tipo_rol] $row[apellido]</strong>			
                                                                 <p><a href='Panelusuario/index.php'>Ir al panel de usuarios</a></p>
                                                                 <p><a href='logout.php'>Logout</a></p></div>";

@@ -16,6 +16,7 @@ $usuario= new Usuario();
 			$usuario->setNombre(  $_POST['nombre']);
 			$usuario->setApellido($_POST['apellido']);
 			$usuario->setEdad(    $_POST['edad']);
+			
 			//llama a la función insertar definida en el crud
 			$crud->insertar($usuario);
 			header('Location: usuarios.php');
