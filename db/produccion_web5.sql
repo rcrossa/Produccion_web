@@ -775,10 +775,11 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`email`, `password`, `nombre`, `apellido`, `edad`) VALUES
-('david.spinozzi@gmail.com', '123456', 'David', 'Spinozzi', 31),
-('elisa.leiva@gmail.com', '123456', 'Elisa', 'Leiva', 25),
-('nicolas.ceijas@gmail.com', '123456', 'Nicolas', 'Ceijas', 25),
-('roberto.rosa@gmail.com', '123456', 'Roberto', 'Rosa', 30);
+('admin@gmail.com', '$2y$10$AMYX8Nye/v0cI76TvPleKu9JIyZMC4WUGqCL6i052GgbsNV0Z7v/i', 'admin', 'admin', 33),
+('david.spinozzi@gmail.com', '$2y$10$PJjcMtrzQlsdhNMgBhbGV.P59wru9lNvQ/ZR2000WnKf8Sdhg3dou', 'David', 'Spinozzi', 31),
+('elisa.leiva@gmail.com', '$2y$10$bgWq3ZOhdSEY37gy7T4Q2OX8hH5zMfa3qtIHCNZ68cQQfBtsSMeJS', 'Elisa', 'Leiva', 25),
+('nicolas.ceijas@gmail.com', '$2y$10$OoF9u06gRuWt3EjHWhPCFeCQHdDQWRoGfeb0OkvgBfAthGDjH2/9.', 'Nicolas', 'Ceijas', 25),
+('roberto.rosa@gmail.com', '$2y$10$iB8I5xTpn1dBoEiSdpskNuT8vf8m58WWCCcM7lTBoZyDMR3vXIUKi', 'Roberto', 'Rosa', 30);
 
 --
 -- Índices para tablas volcadas
