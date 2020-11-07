@@ -77,7 +77,7 @@ if ($now > $_SESSION['expire']) {
     <table class="table table-bordered">
     <th>Alta de producto</th>
         <tr>
-        <td> <button type="button" class="btn btn-primary" data-toggle="modal"
+        <td> <button type="button" class="btn btn-primary botoningresar" data-toggle="modal"
                             data-target="#modalproductos">Nuevo Producto</button></a>
         
             <!-- <td><a href="ingresar.php">Ingresar</a></td> -->

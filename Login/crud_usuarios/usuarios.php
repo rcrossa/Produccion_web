@@ -97,11 +97,11 @@ $page = 'usuarios';
             </thead>
             <tbody>
                 <tr>
-                    <td> <button type="button" class="btn btn-primary" data-toggle="modal"
+                    <td> <button type="button" class="btn btn-primary botoningresar" data-toggle="modal"
                             data-target="#modalusuarios">Nuevo Usuario</button></a>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                        <button type="button" class="btn btn-primary botoningresar" data-toggle="modal"
                             data-target="#modalpermisos">Nuevo permiso</button></a>
                     </td>
 
