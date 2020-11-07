@@ -93,6 +93,7 @@ $page = 'usuarios';
                 <tr>
                     <th scope="col">Alta de usuarios</th>
                     <th scope="col">Alta de Permisos</th>
+                    <th scope="col">Alta de Roles</th>
                 </tr>
             </thead>
             <tbody>
@@ -103,6 +104,10 @@ $page = 'usuarios';
                     <td>
                         <button type="button" class="btn btn-primary botoningresar" data-toggle="modal"
                             data-target="#modalpermisos">Nuevo permiso</button></a>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary botoningresar" data-toggle="modal"
+                            data-target="#modalroles">Nuevo Rol</button></a>
                     </td>
 
                 </tr>
@@ -204,6 +209,43 @@ $page = 'usuarios';
                                 value='insertar' class="btn btn-primary btn-sm">Crear Permiso</button></p> -->
                                 <button class="botoningresar" onclick="window.location.href='usuarios.php'" type="submit"
                                 value='insertar' class="btn btn-primary btn-sm">Crear Permiso</button></p>
+                            <button class="botoningresar" onclick="window.location.href='usuarios.php'"
+                                class="btn btn-primary btn-sm" data-dismiss="modal">Volver</button></p>
+                            <!-- <button href="usuarios.php" type="submit" >volver</button> -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                <!-- Modal de alta de Tiporol -->
+                <div class="modal fade" id="modalroles" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method='post' action='administrar_permisos.php'>
+                            <div class="table-responsive">
+                                <table class="table tablaingresar ">
+                                    <tbody>
+                                        <tr>
+                                            <th class="table-dark" scope="row">Tipo Rol:</th>
+                                            <td class="bg-info"><input type="text" name="idrol"></td>
+                                        </tr>
+                                        <input type="hidden" name="insertar" value='insertar'>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- <button class="botoningresar" onclick="window.location.href='usuarios.php'" type="submit"
+                                value='insertar' class="btn btn-primary btn-sm">Crear Permiso</button></p> -->
+                                <button class="botoningresar" onclick="window.location.href='usuarios.php'" type="submit"
+                                value='insertar' class="btn btn-primary btn-sm">Crear Rol</button></p>
                             <button class="botoningresar" onclick="window.location.href='usuarios.php'"
                                 class="btn btn-primary btn-sm" data-dismiss="modal">Volver</button></p>
                             <!-- <button href="usuarios.php" type="submit" >volver</button> -->
