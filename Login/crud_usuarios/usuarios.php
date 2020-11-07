@@ -78,7 +78,7 @@ $page = 'usuarios';
                 </li>
                 <form class="form-inline my-2 my-lg-0">
                     <button onclick="window.location.href='../../index.php'" type="button"
-                        class="btn btn-dark my-2 my-sm-0" type="submit" value="session_unset();">Logout</button>
+                        class="btn btn-dark my-2 my-sm-0" type="submit" value="unset();">Logout</button>
                 </form>
             </ul>
         </div>

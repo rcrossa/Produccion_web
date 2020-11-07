@@ -52,7 +52,7 @@ class CrudPermiso{
     //metodo para actualizar un permiso, recibe como parametro el permiso
     public function actualizar($permiso){
         $db=DB::conectar();
-        $actualizar=$db->prepare('UPDATE roles set email=:email,tipo_rol=:tipo_rol,accion=:accion WHERE EMAIL=:email');
+        $actualizar=$db->prepare('UPDATE roles set email=:email,tipo_rol=:tipo_rol,accion=:accion WHERE email=:email');
         $actualizar->bindValue('email'   ,$permiso->getEmail());
         $actualizar->bindValue('tipo_rol',$permiso->getTipo_rol());
         $actualizar->bindValue('accion'  ,$permiso->getaccion());

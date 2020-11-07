@@ -6,7 +6,7 @@ class Usuario{
     private $apellido ;
     private $edad     ;
     private $email    ;
-    private $password     ; 
+    private $password  ; 
     private $accion   ;
     private $tipo_rol;
 

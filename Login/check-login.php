@@ -43,8 +43,8 @@ session_start();
                         user.apellido as apellido, user.email as email, user.password as password, rol.tipo_rol as tipo_rol,
                         rol.accion as accion 
                         from usuarios user, roles rol 
-                        where user.email = '$email' 
-                        GROUP by 1,2");
+                        where user.email = '$email'
+                        GROUP by 1");
                         // Variable $row hold the result of the query
                         $row = mysqli_fetch_assoc($result);                        
                         // Variable $hash hold the password hash on database
@@ -64,11 +64,16 @@ session_start();
                                                     $_SESSION['accion'] = $row['accion'];
                                                     $_SESSION['start'] = time();
                                                     $_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;						
-                                                            if($row['accion']=="ver" || $row['tipo_rol']=="productos"){
+                                                            if($_SESSION['accion']=="ver" || $_SESSION['tipo_rol']=="productos"){
                                                                 echo "<div class='alert alert-success mt-4' role='alert'><strong>Bienvenido $row[tipo_rol] $row[apellido]</strong>			
                                                                 <p><a href='Panelusuario/index.php'>Ir al panel de usuarios</a></p>
                                                                 <p><a href='logout.php'>Logout</a></p></div>";
                                                                 }elseif($_SESSION['tipo_rol']=="admin" || $_SESSION['accion']== "editar"){
+                                                                    var_dump( $row['nombre'],
+                                                                    $row['email'] ,
+                                                                    $row['password'] ,
+                                                                    $row['tipo_rol']  );
+                                                                    
                                                                 $_SESSION['loggedin'] = true;
                                                                 $_SESSION['nombre'] = $row['nombre'];
                                                                 $_SESSION['start'] = time();
@@ -91,7 +96,10 @@ session_start();
                                                     echo "<div class='alert alert-danger mt-4' role='alert'>Email or Password are incorrects!
                                                     <p><a href='login.php'><strong>Please try again!</strong> </a></p></div>
                                                     
-                                                    ";		
+                                                    ";	
+                                                   
+                                                        session_destroy();
+                                                      	
                                                     }	
 
                             

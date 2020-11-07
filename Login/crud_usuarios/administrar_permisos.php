@@ -23,7 +23,7 @@ $permiso= new Permiso();
 		}elseif(isset($_POST['actualizar'])){
 			$permiso->setEmail(   $_POST['email']);
 			$permiso->setTipo_rol(    $_POST['tipo_rol']);
-			$permiso->setAccion(  $_POST['Accion']);			
+			$permiso->setAccion(  $_POST['accion']);			
 			$crud->actualizar($permiso);
 			header('Location: usuarios.php');
 		// si la variable accion enviada por GET es == 'e' llama al crud y elimina un permiso
@@ -32,7 +32,7 @@ $permiso= new Permiso();
 			header('Location: usuarios.php');		
 		// si la variable accion enviada por GET es == 'a', envía a la página actualizar.php 
 		}elseif($_GET['accion']=='a'){
-			header('Location: actualizarpermisos.php');
+			header('Location: actualizar_permisos.php');
 		}
   } catch (\Throwable $th) {
 	header("refresh:1;url=usuarios.php"); 

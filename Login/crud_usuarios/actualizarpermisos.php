@@ -2,7 +2,7 @@
 //incluye la clase Usuario y CrudUsuario
 	require_once ('crud_permisos.php');
 	require_once ('permiso.php');
-	$crud= new CrudPermisos();
+	$crud= new CrudPermiso();
 	$permiso=new Permiso();
 	//busca el usuario utilizando el id, que es enviado por GET desde la vista mostrar.php
 	$permiso=$crud->obtenerPermiso($_GET['email']);
@@ -11,10 +11,10 @@
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-	<title>Actualizar Usuario</title>
+	<title>Actualizar Permisos</title>
 </head>
 <body>
-		<form method='post' action='administrarpermisos.php' >
+		<form method='post' action='administrar_permisos.php' >
 			<div class="table-responsive">
 				<table class="table tablaingresar ">
 					<tr>
