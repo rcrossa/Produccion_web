@@ -16,15 +16,15 @@ class CrudTiporol{
         $select=$db->query('SELECT * FROM tipo_rol');
 
         foreach ($select->fetchAll() as $tiporol) {
-            $myTiporol = new Tiporol();
-            $myTiporol->setEmail($tiporol['idrol']);
+            $myTiporol = new Roles;
+            $myTiporol->setIdrol($tiporol['idrol']);
             $listarTiporol[]=$myTiporol;
             # code...
         }
         return $listarTiporol;
     }
     //metodo para eliminar un rol, recibe como parametro el id del rol
-    public function eliminar($email){
+    public function eliminar($idrol){
         $db=DB::conectar();
         $eliminar=$db->prepare('DELETE FROM tipo_rol where idrol=:idrol');
         $eliminar->bindvalue('idrol',$idrol);
@@ -39,15 +39,15 @@ class CrudTiporol{
         $select->execute();
         $tiporol=$select->fetch();
         $myTiporol= new Tiporol();
-        $myTiporol->setEmail($tiporol['idrol']);
+        $myTiporol->setIdrol($tiporol['idrol']);
         return $myTiporol;
     }
 
     //metodo para actualizar un tiporol, recibe como parametro el tiporol
-    public function actualizar($tiporol){
+    public function actualizar($roles){
         $db=DB::conectar();
-        $actualizar=$db->prepare('UPDATE tipo_rol set idrol=:idrol WHERE idrol=:idrol');
-        $actualizar->bindValue('idrol'   ,$tiporol->getIdrol());
+        $actualizar=$db->prepare('UPDATE roles set idrol=:idrol WHERE idrol=:idrol');
+        $actualizar->bindValue('idrol' ,$roles->getIdrol());
         $actualizar->execute();			
     }
 }

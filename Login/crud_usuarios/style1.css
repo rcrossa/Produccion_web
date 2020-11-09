@@ -72,5 +72,10 @@
     box-shadow: 0 3px 0 #62ff00;
     top: 3px;
   }
+/*tablas con scrool*/
 
-  
+
+.table2{
+  position: relative;
+  margin-left: 50px;
+}

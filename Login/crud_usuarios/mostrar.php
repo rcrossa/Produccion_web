@@ -14,17 +14,24 @@ require_once ('crud_usuario.php');
 require_once ('usuario.php');
 require_once ('crud_permisos.php');
 require_once ('permiso.php');
-$crud=new CrudUsuario();
+require_once ('crud_tiporoles.php');
+require_once ('roles.php');
+
+$crud = new CrudUsuario();
 $usuario= new Usuario();
 
 $crud1= new CrudPermiso();
 $permiso= new Permiso();
+
+$crud2= new CrudTiporol();
+$roles= new Roles();
 //obtiene todos los usuarios con el método mostrar de la clase crud
 $listarUsuarios=$crud->mostrar();
 $listarPermisos=$crud1->mostrar();
+$listarTiporol =$crud2->mostrar();
 ?>
-<div class="table-responsive ">
-<table class="table table-bordered tablamostrar1 ">
+<div class="table1" style="width:auto; height:220px; overflow:auto;">
+<table class="table table-bordered tablamostrar1 "  cellspacing="0" cellpadding="1">
 		<thead class="table-dark">
 			<th>Nombre</th>
             <th>Apellido</th>
@@ -49,8 +56,8 @@ $listarPermisos=$crud1->mostrar();
 		</tbody>
 	</table>
 </div>
-<div class="table-responsive ">
-    <table class="table table-bordered tablamostrar1 ">
+<div class="table1" style="width:auto; height:220px; overflow:auto;">
+    <table class="table table-bordered tablamostrar1 " cellspacing="0" cellpadding="1">
 		<thead class="table-dark">
 			<th>Email</th>
             <th>Rol</th>
@@ -71,10 +78,24 @@ $listarPermisos=$crud1->mostrar();
 		</tbody>
 	</table>
 </div>
-
-
-	<!-- <button onclick="window.location.href='index.php'" type="button"
-                        class="btn btn-primary btn-sm">Volver</button></p> -->
+<div class="table1" style="width:auto; height:220px; overflow:auto;">
+    <table class="table table-bordered tablamostrar1 "  cellspacing="0" cellpadding="1">
+		<thead class="table-dark fixed">
+			<th>Roles</th>
+			<th>Actualizar</th>
+			<th>Eliminar</th>
+		</thead>
+		<tbody>
+			<?php foreach ($listarTiporol as $roles) {?>
+			<tr class="table-info">
+                <td><?php echo $roles->getIdrol() ?></td>
+				<td><a href="actualizarroles.php?idrol=<?php echo $roles->getIdrol()?>&accion=a">Actualizar</a> </td>
+				<td><a href="administrar_roles.php?idrol=<?php echo $roles->getIdrol()?>&accion=e">Eliminar</a>   </td>
+			</tr>
+			<?php }?>
+		</tbody>
+	</table>
+</div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
         </script>

@@ -31,6 +31,8 @@
     width: 30px;
     height: auto;
     color: #000082;
+    border:1;
+    width:300;
     
 }
   .tablamostrar1 td a {

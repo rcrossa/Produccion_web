@@ -18,8 +18,8 @@ $producto= new Producto();
 //obtiene todos los productos con el método mostrar de la clase crud
 $listarProductos=$crud->mostrar();
 ?>
-<div class="table-responsive">
-<table class="table table-bordered tablamostrar1 ">
+<div class="table1" style="width:auto; height:220px; overflow:auto;">
+<table class="table table-bordered tablamostrar1 " cellspacing="0" cellpadding="1">
 		<thead class="table-dark">
 			<th>Id Ciudad</th>
             <th>Precio</th>
