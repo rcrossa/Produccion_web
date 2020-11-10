@@ -30,6 +30,7 @@ $listarUsuarios=$crud->mostrar();
 $listarPermisos=$crud1->mostrar();
 $listarTiporol =$crud2->mostrar();
 ?>
+<div class="container-fluid">
 <div class="table-responsive">
 <div class="table1" style="width:auto; height:220px; overflow:auto;">
 <table class="table table-bordered tablamostrar1 "  cellspacing="0" cellpadding="1">
@@ -58,6 +59,8 @@ $listarTiporol =$crud2->mostrar();
 	</table>
 </div>
 </div>
+</div>
+<div class="container-fluid">
 <div class="table1" style="width:auto; height:220px; overflow:auto;">
     <table class="table table-bordered tablamostrar1 " cellspacing="0" cellpadding="1">
 		<thead class="table-dark">
@@ -80,6 +83,8 @@ $listarTiporol =$crud2->mostrar();
 		</tbody>
 	</table>
 </div>
+</div>
+<div class="container-fluid">
 <div class="table1" style="width:300px; height:220px; overflow:auto;">
     <table class="table table-bordered tablamostrar1 "  cellspacing="0" cellpadding="1">
 		<thead class="table-dark fixed">
@@ -97,6 +102,7 @@ $listarTiporol =$crud2->mostrar();
 			<?php }?>
 		</tbody>
 	</table>
+</div>
 </div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
