@@ -37,9 +37,9 @@ class CrudTiporol{
         $select=$db->prepare('SELECT * FROM tipo_rol WHERE idrol=:idrol');
         $select->bindValue('idrol',$idrol);
         $select->execute();
-        $tiporol=$select->fetch();
-        $myTiporol= new Tiporol();
-        $myTiporol->setIdrol($tiporol['idrol']);
+        $roles=$select->fetch();
+        $myTiporol= new Roles();
+        $myTiporol->setIdrol($roles['idrol']);
         return $myTiporol;
     }
 

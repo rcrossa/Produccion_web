@@ -5,7 +5,7 @@
 	$crud= new CrudTiporol();
 	$roles=new Roles();
 	//busca el usuario utilizando el id, que es enviado por GET desde la vista mostrar.php
-	$roles=$crud->obternerTiporol($_GET['idrol']);
+	$roles=$crud->obtenerTiporol($_GET['idrol']);
 ?>
 <html>
 <head>

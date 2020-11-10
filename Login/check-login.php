@@ -70,7 +70,7 @@ session_start();
                                                                 <p><a href='Panelusuario/index.php'>Ir al panel de usuarios</a></p>
                                                                 <p><a href='logout.php'>Logout</a></p></div>";
                                                                 }elseif($_SESSION['tipo_rol']=="admin" || $_SESSION['accion']== "editar"){
-                                                                    var_dump( $_SESSION );
+                                                                   
                                                                     
                                                                 $_SESSION['loggedin'] = true;
                                                                 $_SESSION['nombre'] = $row['nombre'];
