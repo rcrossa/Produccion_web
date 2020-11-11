@@ -1,6 +1,6 @@
 
 <?php
-//incluye la clase Usuario y CrudUsuario
+//incluye la clase producto y CrudProducto
 	require_once ('crud_producto.php');
 	require_once ('producto.php');
 	$crud= new CrudProducto();

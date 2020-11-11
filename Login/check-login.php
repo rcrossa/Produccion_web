@@ -56,7 +56,7 @@ session_start();
                             if (password_verify($password, $hash)){
                                 // if (isset($row['password'], $hash)){
                                 //valido que tipo de perfil, usuario o administrador. asigno datos.
-                                                if($row['password']){
+                                                if(isset($row['password'])){
                                                     $_SESSION['loggedin'] = true;
                                                     $_SESSION['nombre'] = $row['nombre'];
                                                     $_SESSION['email'] = $row['email'];

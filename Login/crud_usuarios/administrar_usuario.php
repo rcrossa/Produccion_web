@@ -39,12 +39,6 @@ $usuario= new Usuario();
 			header('Location: actualizar.php');
 		}
   } catch (\Throwable $th) {
-	// $message = "wrong answer";
-	// 	// echo "<script type='text/javascript'>alert('$message');</script>";
-	// 	$url ="usuarios.php"; // aqui pones la url
-	// 	$tiempo_espera = 0.1; // Aquí se configura cuántos segundos hasta la actualización.
-	// 	// Declaramos la funcion apra la redirección
-	// 	header("echo '$message'; refresh: $tiempo_espera; url=$url");
 	header("refresh:1;url=usuarios.php"); 
 	echo 'Debes completar todos los campos. Intentalo de nuevo.</a>.'; 
   }

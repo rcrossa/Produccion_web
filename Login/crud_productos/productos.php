@@ -48,7 +48,6 @@ if ($now > $_SESSION['expire']) {
   // Ejecuta consulta
   $miConsulta->execute();
 
-// require_once "includes/encabezado.php" 
 
  ?>
 <?php 
@@ -63,13 +62,11 @@ if ($now > $_SESSION['expire']) {
         <tr>
         <td> <button type="button" class="btn btn-primary botoningresar" data-toggle="modal"
                             data-target="#modalproductos">Nuevo Producto</button></a>
-        
-            <!-- <td><a href="ingresar.php">Ingresar</a></td> -->
+        >
         </tr>
         <th>Administrar Productos</th>
         <tr>
         <td><a> <?php  require_once "mostrar.php"?></a></td>
-            <!-- <td><a href="mostrar.php">ver</a></td> -->
         </tr>
     </table>
     </div>
@@ -131,9 +128,6 @@ if ($now > $_SESSION['expire']) {
                 </div>
             </div>
         </div>
-    <!-- <footer>
-    administrar usuario
-    </footer> -->
     <script>
     $('#modalusuarios').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget) // Button that triggered the modal
