@@ -62,7 +62,7 @@ if ($now > $_SESSION['expire']) {
         <tr>
         <td> <button type="button" class="btn btn-primary botoningresar" data-toggle="modal"
                             data-target="#modalproductos">Nuevo Producto</button></a>
-        >
+        
         </tr>
         <th>Administrar Productos</th>
         <tr>

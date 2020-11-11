@@ -48,8 +48,6 @@ $listarProductos=$crud->mostrar();
 		</tbody>
 	</table>
 </div>
-	<!-- <button onclick="window.location.href='index.php'" type="button"
-                        class="btn btn-primary btn-sm">Volver</button></p> -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
         </script>
