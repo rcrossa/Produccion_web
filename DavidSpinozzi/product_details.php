@@ -254,7 +254,6 @@
                      //   $comentarioJson = file_get_contents('./json/comentarios.json');
                         //$comentarioArray = json_decode($comentarioJson, true);
                        // krsort($comentarioArray);
-                       var_dump($dataComentarios);
                         $cantidad = 0;
                         foreach ($dataComentarios as $comentario) {
                             if ($comentario['producto_id'] == $_GET['id']) {
