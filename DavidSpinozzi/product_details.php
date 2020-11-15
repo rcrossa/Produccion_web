@@ -32,7 +32,6 @@
                                 WHERE pr.idciudad = ci.idciudad 
                                 AND ci.idpais = pa.idpais
                                 AND pa.idcontinente = co.idcontinente 
-                                AND pr.activo=1
                                 AND pr.idproducto=$id";
 
     $queryComentarios = "SELECT c.email as email, 

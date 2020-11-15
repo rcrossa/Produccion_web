@@ -25,6 +25,9 @@
                             AND ci.idpais = pa.idpais
                             AND pa.idcontinente = co.idcontinente 
                             AND pr.activo=1
+                            AND ci.activo=1
+                            AND pa.activo=1
+                            AND co.activo=1
                             $order";
 
         $stmt4 = $db->prepare($queryProductos);

@@ -15,7 +15,8 @@ require_once ('conexion.php');
     FROM productos pr, ciudades ci, paises pa, continentes co
     WHERE pr.idciudad = ci.idciudad 
     AND ci.idpais = pa.idpais
-    AND pa.idcontinente = co.idcontinente";
+    AND pa.idcontinente = co.idcontinente
+    AND ci.activo=1";
 
     $stmt = $db->prepare($queryContinente);
     $stmt2 = $db->prepare($queryPais);
