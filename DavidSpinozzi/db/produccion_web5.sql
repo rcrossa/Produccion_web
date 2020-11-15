@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2020 a las 04:23:24
+-- Tiempo de generación: 15-11-2020 a las 22:39:10
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.10
 
@@ -416,7 +416,7 @@ INSERT INTO `ciudades` (`idciudad`, `nombreciudad`, `idpais`) VALUES
 
 CREATE TABLE `comentarios` (
   `idproducto` int(11) NOT NULL,
-  `ip` int(16) NOT NULL,
+  `ip` varchar(16) NOT NULL,
   `fecha` date NOT NULL,
   `comentario` varchar(160) NOT NULL,
   `estrellas` tinyint(1) NOT NULL,
@@ -429,11 +429,16 @@ CREATE TABLE `comentarios` (
 --
 
 INSERT INTO `comentarios` (`idproducto`, `ip`, `fecha`, `comentario`, `estrellas`, `activo`, `email`) VALUES
-(6, 13131313, '2020-09-07', 'muy buenooooo!!!', 5, 1, 'roberto.rosa@gmail.com'),
-(9, 10101010, '2020-09-02', 'no me gustó mucho!', 3, 1, 'david.spinozzi@gmail.com'),
-(14, 12121212, '2020-09-02', 'muy buen destino!', 5, 1, 'nicolas.ceijas@gmail.com'),
-(15, 111111, '2020-09-04', 'me gustó mucho!!', 4, 1, 'elisa.leiva@gmail.com'),
-(15, 10101010, '2020-09-01', 'excelente destino!!', 5, 1, 'david.spinozzi@gmail.com');
+(1, '10101020', '2020-11-15', 'asdasdasdasd', 4, 1, 'd.spinozzi@gmail.com'),
+(4, '192.168.1.19', '2020-11-15', 'akjsdnkjadskj', 2, 1, 'david.spinozzi.ext@bunge.com'),
+(6, '13131313', '2020-09-07', 'muy buenooooo!!!', 5, 1, 'roberto.rosa@gmail.com'),
+(8, '101', '2020-11-15', 'Mas o menos', 3, 1, 'd.spinozzi@gmail.com'),
+(9, '10101010', '2020-09-02', 'no me gustó mucho!', 3, 1, 'davidspinozzi@gmail.com'),
+(9, '192168', '2020-11-15', 'mas o menos!!', 4, 1, 'davidspinozzi@gmail.com'),
+(10, '10201005', '2020-11-15', 'excelentee!!', 5, 0, 'davidspinozzi@gmail.com'),
+(14, '12121212', '2020-09-02', 'muy buen destino!', 5, 1, 'nicolas.ceijas@gmail.com'),
+(15, '10101010', '2020-09-01', 'excelente destino!!', 5, 1, 'davidspinozzi@gmail.com'),
+(15, '111111', '2020-09-04', 'me gustó mucho!!', 4, 1, 'elisa.leiva@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -727,9 +732,12 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`email`, `tipo_rol`, `accion`) VALUES
-('david.spinozzi@gmail.com', 'productos', 'borrar'),
-('david.spinozzi@gmail.com', 'productos', 'editar'),
-('david.spinozzi@gmail.com', 'productos', 'ver');
+('admin@gmail.com', 'admin', 'editar'),
+('davidspinozzi@gmail.com', 'productos', 'borrar'),
+('davidspinozzi@gmail.com', 'productos', 'editar'),
+('davidspinozzi@gmail.com', 'productos', 'ver'),
+('dspinozzi@gmail.com', 'comentarios', 'ver'),
+('prueba23@gmail.com', 'productos', 'editar');
 
 -- --------------------------------------------------------
 
@@ -747,13 +755,12 @@ CREATE TABLE `tipo_rol` (
 
 INSERT INTO `tipo_rol` (`idrol`) VALUES
 ('acciones'),
+('admin'),
 ('ciudades'),
 ('comentarios'),
 ('continentes'),
 ('paises'),
 ('productos'),
-('roles'),
-('tiporole'),
 ('usuarios');
 
 -- --------------------------------------------------------
@@ -775,10 +782,15 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`email`, `password`, `nombre`, `apellido`, `edad`) VALUES
-('david.spinozzi@gmail.com', '123456', 'David', 'Spinozzi', 31),
-('elisa.leiva@gmail.com', '123456', 'Elisa', 'Leiva', 25),
-('nicolas.ceijas@gmail.com', '123456', 'Nicolas', 'Ceijas', 25),
-('roberto.rosa@gmail.com', '123456', 'Roberto', 'Rosa', 30);
+('admin@gmail.com', '$2y$10$4boIyFdO4FWr3D5RRs5tCeVPBc1668HYTmOAoYib.O0OcIprOkcHy', 'admin', 'admin', 33),
+('coco@gmail.com', '$2y$10$68XhGHyutOYi3QPU.JQHFuk6d0PAca.FP2D22L2fPamMzIoNELio.', 'coco', 'loco', 33),
+('davidspinozzi@gmail.com', '$2y$10$PJjcMtrzQlsdhNMgBhbGV.P59wru9lNvQ/ZR2000WnKf8Sdhg3dou', 'David', 'Spinozzi', 31),
+('dspinozzi@gmail.com', '$2y$10$nUzX8RrTUG6naifAzTjxOuVFlq0oxvgNGaIqfME6A8j5iWdpc2fx2', 'David', 'Spinozzi', 31),
+('elisa.leiva@gmail.com', '$2y$10$bgWq3ZOhdSEY37gy7T4Q2OX8hH5zMfa3qtIHCNZ68cQQfBtsSMeJS', 'Elisa', 'Leiva', 25),
+('nicolas.ceijas@gmail.com', '$2y$10$OoF9u06gRuWt3EjHWhPCFeCQHdDQWRoGfeb0OkvgBfAthGDjH2/9.', 'Nicolas', 'Ceijas', 25),
+('pepelopez@gmail.com', '$2y$10$68XhGHyutOYi3QPU.JQHFuk6d0PAca.FP2D22L2fPamMzIoNELio.', 'pepe', 'lopez', 25),
+('prueba23@gmail.com', '$2y$10$gK2o0v3wsZ/kpi7555HKa.x9aluljWimlfj2lTZwHozKXfnjicqWi', 'prueba', 'test1', 26),
+('roberto.rosa@gmail.com', '$2y$10$iB8I5xTpn1dBoEiSdpskNuT8vf8m58WWCCcM7lTBoZyDMR3vXIUKi', 'Roberto', 'Rosa', 30);
 
 --
 -- Índices para tablas volcadas
@@ -870,8 +882,7 @@ ALTER TABLE `ciudades`
 -- Filtros para la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  ADD CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`idproducto`) REFERENCES `productos` (`idproducto`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `comentarios_ibfk_2` FOREIGN KEY (`email`) REFERENCES `usuarios` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`idproducto`) REFERENCES `productos` (`idproducto`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `paises`
