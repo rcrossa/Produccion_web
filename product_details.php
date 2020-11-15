@@ -11,9 +11,13 @@
     $page = 'catalogo';
     //API conversión MySQL a JSON
     require_once ('includes/conexion.php');
+
     $db=DB::conectar();
+
     require_once "./includes/encabezado.php";
+
     $id = (isset($_GET["id"]) ? $_GET['id'] : null);
+
     $queryProductos = "SELECT pr.idproducto as id, 
                                 ci.nombreciudad as nombre, 
                                 pa.nombrepais as pais, 
@@ -29,19 +33,17 @@
                                 AND ci.idpais = pa.idpais
                                 AND pa.idcontinente = co.idcontinente 
                                 AND pr.activo=1
-                                AND pr.idproducto =$id";
+                                AND pr.idproducto=$id";
 
-    $queryComentarios = "SELECT u.nombre as nombre, 
-                                c.email as email, 
+    $queryComentarios = "SELECT c.email as email, 
                                 c.comentario as comentario, 
                                 c.estrellas as estrellas, 
                                 c.idproducto as producto_id, 
                                 c.fecha as fecha 
-                                FROM comentarios c, usuarios u
-                                WHERE c.email = u.email
-                                AND activo=1
-                                AND c.idproducto=$id
-                                ORDER BY fecha DESC ";
+                                FROM comentarios c
+                                WHERE activo=1
+                                AND c.idproducto =$id
+                                ORDER BY fecha DESC";
 
     $stmt1 = $db->prepare($queryProductos);
     $stmt1->execute();
@@ -55,14 +57,13 @@
     while($row=$stmt1->fetch(PDO::FETCH_ASSOC)){
         $dataProductos[] = $row;
     }
+
     while($row=$stmt2->fetch(PDO::FETCH_ASSOC)){
         $dataComentarios[] = $row;
     }
 
- //   $str_data = file_get_contents("./json/estadosprovincias.json");
- //   $estadosprovincias = json_decode($str_data, true);
 
-    
+
 
     // Si $_POST submit esta setteado, guarda los datos del comentario en comentarios.json
     if (isset($_POST['submit'])) {
@@ -264,7 +265,7 @@
                                         <p> <?php echo $comentario['comentario']; ?> </p>
 
                                         <div class="testmonial_author">
-                                            <h3>- <?php echo $comentario['nombre']; ?> </h3>
+                                            <h3><?php echo $comentario['email']; ?> </h3>
                                         </div>
 
                                         <h3 class="text-warning">
