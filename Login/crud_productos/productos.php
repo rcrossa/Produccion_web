@@ -55,7 +55,7 @@ if ($now > $_SESSION['expire']) {
 ?>
 
     
-        <h1>Bienvenidos a la administracion de Productos</h1>
+    <h1>Bienvenidos a la administracion de Productos</h1>
     <div class="table-responsive">
     <table class="table table-bordered">
     <th>Alta de producto</th>

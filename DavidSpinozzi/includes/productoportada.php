@@ -25,7 +25,7 @@
                             AND ci.idpais = pa.idpais
                             AND pa.idcontinente = co.idcontinente 
                             AND pr.activo=1
-                            $order";
+                            $order AND RAND() LIMIT 9";
 
         $stmt4 = $db->prepare($queryProductos);
         $stmt4->execute();
