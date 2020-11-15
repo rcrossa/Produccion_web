@@ -35,16 +35,12 @@ session_start();
         $email = $_SESSION['email'];
 
         // Prepara SELEC
-        $result = mysqli_query($conn, "SELECT fecha,comentario,estrellas,email  FROM comentarios WHERE email='$email'");
-        // $result = mysqli_query($conn,'SELECT idproducto,ip,fecha,comentario,estrellas,activo,email FROM comentarios WHERE email=$email');
-        // Variable $row hold the result of the query
-        // $row = mysqli_fetch_assoc($result);                    
-        // Variable $hash hold the password hash on database
-        
-         
+        $result = mysqli_query($conn, "SELECT ci.nombreciudad as nombreciudad, fecha,comentario,estrellas,email  FROM comentarios co, productos p, ciudades ci 
+        WHERE co.idproducto = p.idproducto 
+        AND p.idciudad = ci.idciudad 
+        AND email='$email'");
 
-$page = 'index';
-// require_once "includes/encabezado.php" 
+        $page = 'index';
 
 ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -75,6 +71,7 @@ $page = 'index';
             <div class="table1" style="width:auto; height:220px; overflow:auto;">
                 <table class="table table-bordered tablamostrar1 " cellspacing="0" cellpadding="1">
                     <thead class="table-dark">
+                        <th>Ciudad</th>
                         <th>Fecha</th>
                         <th>Comentario</th>
                         <th>Estrellas</th>
@@ -83,24 +80,13 @@ $page = 'index';
                     <tbody>
                         <?php foreach($result as $row):?>
                          <tr class="table-info">
+                            <td><?php echo $row['nombreciudad'] ?></td>
                             <td><?php echo $row['fecha'] ?></td>
                             <td><?php echo $row['comentario'] ?></td>
                             <td><?php echo $row['estrellas'] ?></td>
                             <td><?php echo $row['email'] ?></td>
                             </tr>                       
                         <?php endforeach?>
-                        <!-- <?php $logitud=count($row); ?>
-                        <?php for($i=0;$i<$logitud;$i++):?>
-                         <tr class="table-info">
-                            <td><?php echo $row['fecha'] ?></td>
-                            <td><?php echo $row['comentario'] ?></td>
-                            <td><?php echo $row['estrellas'] ?></td>
-                            <td><?php echo $row['email'] ?></td>
-                            <?php  $logitud[$i];?>
-                            </tr>                       
-                        <?php endfor?> -->
-
-
                     </tbody>
                 </table>
             </div>

@@ -62,46 +62,57 @@
         $dataComentarios[] = $row;
     }
 
+    $client = @$_SERVER['HTTP_CLIENT_IP']; 
+    $forward = @$_SERVER['HTTP_X_FORWARDED_FOR']; 
+    $remote = $_SERVER['REMOTE_ADDR']; 
 
-
+    if(filter_var($client, FILTER_VALIDATE_IP)) 
+    { 
+    $ip = $client; 
+    } 
+    elseif(filter_var($forward, FILTER_VALIDATE_IP)) 
+    { 
+    $ip = $forward; 
+    } 
+    else 
+    { 
+    $ip = $remote; 
+    } 
+  
 
     // Si $_POST submit esta setteado, guarda los datos del comentario en comentarios.json
+    
     if (isset($_POST['submit'])) {
-        $data = $_POST;
-        unset($data['submit']);
-        $data['fecha'] = date('d/m/Y H:i:s');
-        $fecha = new DateTime();
-        $indexComentario = $fecha->format('YmdHisu');
-        if (file_exists('./json/comentarios.json')) {
-            $comentarioJson = file_get_contents('./json/comentarios.json');
-            $comentarioArray = json_decode($comentarioJson, true);
-        } else {
-            $comentarioArray = array();
-        }
-        $comentarioArray[$indexComentario] = $data;
-        $fp = fopen('./json/comentarios.json', 'w');
-        fwrite($fp, json_encode($comentarioArray));
-        fclose($fp);
-    }
-    ?>
+        try {
+            $comentario1 = $_POST['comentario'];
+            $estrellas = $_POST['estrellas'];
+            $email = $_POST['email'];
+            $activo = "0";
+            $fecha= date('Y-m-d');
+            $sql = "INSERT INTO comentarios(idproducto, ip, fecha, comentario, estrellas, activo, email)
+            VALUES ('$id','$ip','$fecha','$comentario1','$estrellas','$activo','$email')";
+        
+            $db->exec($sql);
 
-     
+            echo '<script language="javascript">alert("Se ha registrado el comentario");</script>';
+
+        } catch (\Throwable $th) {
+            echo '<script language="javascript">alert("Usted ya ha emitido un comentario para este producto");</script>';            
+        }
+        }
+    ?>
     <div class="container text-center pt-5 pb-4">
         <?php foreach ($dataProductos as $key => $value) {
             if ($key == $id) break;
         }
-        
-
         echo '<h1>' . $value['nombre'] . '</h1>';
         ?>
     </div>
-
     <div class="pb-5 text-center">
         <svg width="20%" height="2">
             <rect width="100%" height="100" style="fill:rgb(255,165,0);stroke-width:0;stroke:rgb(0,0,0)" />
         </svg>
     </div>
-
     <section>
         <div class="container shadow justify-content-around p-4">
             <div class="row justify-content-center align-items-center">
@@ -125,7 +136,6 @@
             </div>
         </div>
     </section>
-
     <section class="descripcion py-5">
         <div class="container py-5 shadow">
             <div class="row justify-content-center align-items-center" id="home">
@@ -139,7 +149,6 @@
                 <div class="col-10">
                     <ul class="descripcion_detalles">
                         <?php echo '<p class="col-9 pt-4">' . $value['descripcion_details'] . '</p>' ?>
-
                     </ul>
                 </div>
                 <div class="col-10 pt-3">
@@ -165,29 +174,21 @@
             </div>
         </div>
     </section>
-
     <section class="py-5">
         <div class="container">
-
             <div class="text-center pb-3">
                 <h2>Danos Tu Opinión Del Producto</h2>
             </div>
-
             <div class="pb-4 text-center">
                 <svg width="20%" height="2">
                     <rect width="100%" height="100" style="fill:#F78014;stroke-width:0;stroke:rgb(0,0,0)" />
                 </svg>
             </div>
-
             <div class="container">
                 <form action="#" method="post">
                     <div class="row justify-content-center">
                         <div class="col-8">
                             <div class="row">
-                                <div class="col-sm-12 col-md-6">
-                                    <label>Nombre *</label>
-                                    <input type="text" name="nombre" required class="form-control">
-                                </div>
                                 <div class="col-sm-12 col-md-6">
                                     <label for="email">Email *</label>
                                     <input type="email" id="email" name="email" required class="form-control">
@@ -229,7 +230,6 @@
             </div>
         </div>
     </section>
-
     <section class="py-5">
         <div class="container">
 
@@ -250,10 +250,6 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12 text-center">
                     <?php
-                    //if (file_exists('./json/comentarios.json')) {
-                     //   $comentarioJson = file_get_contents('./json/comentarios.json');
-                        //$comentarioArray = json_decode($comentarioJson, true);
-                       // krsort($comentarioArray);
                         $cantidad = 0;
                         foreach ($dataComentarios as $comentario) {
                             if ($comentario['producto_id'] == $_GET['id']) {
@@ -281,17 +277,15 @@
                                             } elseif ($comentario['estrellas'] == '5') {
                                                 echo '★★★★★';
                                             }
-                                            //echo $comentario['estrellas']; 
+                                            
                                             ?>
                                         </h3>
-
                                         <small>
                                             <i> <?php echo $comentario['fecha']; ?> </i>
                                         </small>
                                     </div>
                                 </div>
-
-                    <?php
+                             <?php
                             }
                         }
                    // }
