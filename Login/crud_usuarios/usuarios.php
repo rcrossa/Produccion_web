@@ -61,7 +61,7 @@ $page = 'usuarios';
         header("location:../login.php");
         $conn->close();
         
-}
+    }
   ?>
     <h1>Bienvenidos a la administracion de usuarios</h1>
     <div class="table">

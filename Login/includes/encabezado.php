@@ -21,7 +21,6 @@
                 <form name="cerrar-sesion" class="form-inline my-2 my-lg-0">
                     <button onclick="window.location.href='../login.php'" type="button"
                         class="btn btn-dark my-2 my-sm-0" type="submit" value="cerrar_sesion">Logout</button>
-                        <input type="submit" value="cerrar_sesion"/>
                 </form>
             </ul>
         </div>
