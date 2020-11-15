@@ -48,10 +48,10 @@ session_start();
               user.apellido as apellido, user.email as email, rol.tipo_rol as tipo_rol,
               rol.accion as accion 
               from usuarios user, roles rol 
-              where rol.email = user.email and user.email= '$_SESSION[$email]'");
+              where rol.email = user.email and user.email= ''");
               // Variable $row hold the result of the query
               $row = mysqli_fetch_assoc($result);                        
-              var_dump($row);
+
 
 $page = 'index';
 // require_once "includes/encabezado.php" 
