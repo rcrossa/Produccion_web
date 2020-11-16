@@ -53,11 +53,11 @@ session_start();
             <ul class="navbar-nav">
                 <li <?php echo ($page == 'index') ? "class='nav-item active px-3 py-2'" : ""; ?>
                     class="nav-item px-3 py-2">
-                    <a class="nav-link" href="../../index.php">Home </span></a>
+                    <a class="nav-link" href="../../index.php">Ir la home </span></a>
                 </li>
-                <li <?php echo ($page == 'usuarios') ? "class='nav-item active px-3 py-2'" : ""; ?>
+                <li <?php echo ($page == 'index') ? "class='nav-item active px-3 py-2'" : ""; ?>
                     class="nav-item px-3 py-2">
-                    <a class="nav-link" href="crud_usuarios/usuarios.php">Usuarios</a>
+                    <a class="nav-link" href="index.php">Comentarios</a>
                 </li>
                 <form class="form-inline my-2 my-lg-0" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                     <button onclick="window.location.href='../login.php'" type="button"
@@ -68,7 +68,7 @@ session_start();
     </nav>
     <div class="container-fluid">
         <div class="table-responsive">
-            <div class="table1" style="width:auto; height:220px; overflow:auto;">
+            <div class="table1" style="width:auto; height:220px; overflow:fixed;">
                 <table class="table table-bordered tablamostrar1 " cellspacing="0" cellpadding="1">
                     <thead class="table-dark">
                         <th>Ciudad</th>
