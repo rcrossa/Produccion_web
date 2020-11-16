@@ -4,7 +4,7 @@
 	require_once ('crud_ciudad.php');
 	require_once ('ciudad.php');
 	$crud= new CrudCiudad();
-	$ciudad=new ciudad();
+	$ciudad=new Ciudad();
 	//busca el producto utilizando el id, que es enviado por GET desde la vista mostrar.php
 	$ciudad=$crud->obtenerCiudad($_GET['idciudad']);
 ?>
@@ -20,21 +20,21 @@
 	<div class="table-responsive">
 	<table class="table tablaingresar ">
 		<tr>
-			<input type='hidden' name='idpais' value='<?php echo $pais->getIdciudad()?>'>
-			<td class="table-dark" scope="row">Id ciudad:</td>
+			<input type='hidden' name='idciudad' value='<?php echo $ciudad->getIdciudad()?>'>
+			<td class="table-dark" scope="row">ciudad:</td>
 			<td class="bg-info"> <input type='text' name='idciudad' value='<?php echo $ciudad->getIdciudad()?>'></td>
 		</tr>
 		<tr>
 			<td class="table-dark" scope="row">Nombre:</td>
-			<td class="bg-info"><input type='number' name='nombreciudad' value='<?php echo $ciudad->getNombreciudad()?>' ></td>
+			<td class="bg-info"><input type='text' name='nombreciudad' value='<?php echo $ciudad->getNombreciudad()?>' ></td>
 		</tr>
 		<tr>
 			<td class="table-dark" scope="row">Pais:</td>
-			<td class="bg-info"><input type='text' name='idpais' value='<?php echo $ciudad->getPais() ?>'></td>
+			<td class="bg-info"><input type='text' name='idpais' value='<?php echo $ciudad->getIdpais() ?>'></td>
 		</tr>
 		<tr>
 			<td class="table-dark" scope="row">Activo:</td>
-			<td class="bg-info"><input type='text' name='activo' value='<?php echo $ciudad->getActivo() ?>'></td>
+			<td class="bg-info"><input type='number' name='activo' value='<?php echo $ciudad->getActivo() ?>'></td>
 		</tr>
 		<input type='hidden' name='actualizar' value='actualizar'>
 	</table>

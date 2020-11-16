@@ -10,7 +10,7 @@
 
 		public function insertar($ciudad){
 			$db=DB::conectar();
-			$insert=$db->prepare('INSERT INTO ciudades values(:idciudad,:nombreciudad,:idpais,:activo)');
+			$insert=$db->prepare('INSERT INTO ciudades values(:idciudad,:nombreciudad,:idciudad,:activo)');
 			$insert->bindValue('idciudad',   $ciudad->getIdciudad());
 			$insert->bindValue('nombreciudad',   $ciudad->getNombreciudad());
 			$insert->bindValue('idpais',   $ciudad->getIdpais());
@@ -24,12 +24,12 @@
 				$select=$db->query('SELECT * FROM ciudades');
 	
 				foreach ($select->fetchAll() as $ciudad) {
-					$myCiudad = new Ciudad();
-					$myCiudad->setIdciudad($ciudad['idciudad']);
-					$myCiudad->setNombreciudad($ciudad['nombreciudad']);
-					$myCiudad->setIdpais($ciudad['idpais']);
-					$myCiudad->setActivo($ciudad['activo']);
-					$listarCiudades[]=$myCiudad;
+					$myciudad = new Ciudad();
+					$myciudad->setIdciudad($ciudad['idciudad']);
+					$myciudad->setNombreciudad($ciudad['nombreciudad']);
+					$myciudad->setIdpais($ciudad['idpais']);
+					$myciudad->setActivo($ciudad['activo']);
+					$listarCiudades[]=$myciudad;
 					# code...
 				}
 				return $listarCiudades;
@@ -45,25 +45,25 @@
 		//metodo para buscar un pais, recibe como parametro el id del pais
 		public function obtenerCiudad($idciudad){
 			$db=DB::conectar();
-			$select=$db->prepare('SELECT * FROM ciudad WHERE IDCIUDAD=:idciudad');
-			$select->bindValue('idpais',$idpais);
+			$select=$db->prepare('SELECT * FROM ciudades WHERE IDCIUDAD=:idciudad');
+			$select->bindValue('idciudad',$idciudad);
 			$select->execute();
-			$producto=$select->fetch();
+			$ciudad=$select->fetch();
 			$myciudad= new ciudad();
-			$myCiudad->setIdciudad($ciudad['idciudad']);
-			$myCiudad->setNombreciudad($ciudad['nombreciudad']);
-			$myCiudad->setIdpais($ciudad['idpais']);
-			$myCiudad->setActivo($ciudad['activo']);
-			return $myCiudad;
+			$myciudad->setIdciudad($ciudad['idciudad']);
+			$myciudad->setNombreciudad($ciudad['nombreciudad']);
+			$myciudad->setIdpais($ciudad['idpais']);;
+			$myciudad->setActivo($ciudad['activo']);
+			return $myciudad;
 		}
 
 		//metodo para actualizar un pais, recibe como parametro el pais
 		public function actualizar($ciudad){
 			$db=DB::conectar();
-			$actualizar=$db->prepare('UPDATE paiss set idciudad=:idciudad,nombreciudad=:nombreciudad,idpais=:idpais,activo=:activo WHERE IDCIUDAD=:idciudad');
+			$actualizar=$db->prepare('UPDATE ciudades set idciudad=:idciudad,nombreciudad=:nombreciudad,idpais=:idpais,activo=:activo WHERE IDCIUDAD=:idciudad');
 			$actualizar->bindValue('idciudad'  ,$ciudad->getIdciudad());
 			$actualizar->bindValue('nombreciudad',$ciudad->getNombreciudad());
-			$actualizar->bindValue('idciudad',$ciudad->getIdciudad());
+			$actualizar->bindValue('idpais',$ciudad->getidpais());
 			$actualizar->bindValue('activo',$ciudad->getActivo());
 			$actualizar->execute();			
 		}

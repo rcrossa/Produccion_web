@@ -21,16 +21,16 @@
 	<table class="table tablaingresar ">
 		<tr>
 			<input type='hidden' name='idpais' value='<?php echo $pais->getIdpais()?>'>
-			<td class="table-dark" scope="row">Id pais:</td>
+			<td class="table-dark" scope="row">Pais:</td>
 			<td class="bg-info"> <input type='text' name='idpais' value='<?php echo $pais->getIdpais()?>'></td>
 		</tr>
 		<tr>
 			<td class="table-dark" scope="row">Nombre:</td>
-			<td class="bg-info"><input type='number' name='nombrepais' value='<?php echo $pais->getNombrepais()?>' ></td>
+			<td class="bg-info"><input type='text' name='nombrepais' value='<?php echo $pais->getNombrepais()?>' ></td>
 		</tr>
 		<tr>
 			<td class="table-dark" scope="row">Continente:</td>
-			<td class="bg-info"><input type='text' name='idcontinente' value='<?php echo $pais->getContinente() ?>'></td>
+			<td class="bg-info"><input type='text' name='idcontinente' value='<?php echo $pais->getIdcontinente() ?>'></td>
 		</tr>
 		<tr>
 			<td class="table-dark" scope="row">Activo:</td>

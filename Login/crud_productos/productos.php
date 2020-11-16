@@ -207,7 +207,7 @@ if ($now > $_SESSION['expire']) {
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form method='post' action='administrar_paise.php'>
+                        <form method='post' action='administrar_pais.php'>
                             <div class="table-responsive">
                                 <table class="table tablaingresar ">
                                     <tbody>
@@ -220,7 +220,7 @@ if ($now > $_SESSION['expire']) {
                                             <td class="bg-info"><input type="text" name="nombrepais"></td>
                                         </tr>
                                         <tr>
-                                            <th class="table-dark" scope="row">continente :</th>
+                                            <th class="table-dark" scope="row">continente:</th>
                                             <td class="bg-info"><input type="text" name="idcontinente"></td>
                                         </tr>
                                         <tr>
@@ -232,7 +232,7 @@ if ($now > $_SESSION['expire']) {
                                 </table>
                             </div>
                             <button class="botoningresar" onclick="alert('Pais agregado')" type="submit"
-                                value='insertar' class="btn btn-primary btn-sm">Crear Continente</button></p>
+                                value='insertar' class="btn btn-primary btn-sm">Crear Pais</button></p>
                             <button class="botoningresar" onclick="window.location.href='productos.php'"
                                 class="btn btn-primary btn-sm" data-dismiss="modal">Volver</button></p>
                             <!-- <button href="usuarios.php" type="submit" >volver</button> -->

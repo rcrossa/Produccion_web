@@ -41,7 +41,7 @@ $producto= new Producto();
 			$crud->eliminar($_GET['idproducto']);
 			header('Location: productos.php');		
 		// si la variable accion enviada por GET es == 'a', envía a la página actualizar.php 
-		}else($_GET['accion']=='a'){
+		}elseif($_GET['accion']=='a'){
 			header('Location: actualizar.php');
 		}
   } catch (\Throwable $th) {

@@ -45,7 +45,7 @@
 			$select=$db->prepare('SELECT * FROM continentes WHERE IDCONTINENTE=:idcontinente');
 			$select->bindValue('idcontinente',$idcontinente);
 			$select->execute();
-			$producto=$select->fetch();
+			$continente=$select->fetch();
 			$myContinente= new Continente();
 			$myContinente->setIdcontinente($continente['idcontinente']);
 			$myContinente->setNombrecontinente($continente['nombrecontinente']);

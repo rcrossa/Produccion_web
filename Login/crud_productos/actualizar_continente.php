@@ -4,7 +4,7 @@
 	require_once ('crud_continente.php');
 	require_once ('continente.php');
 	$crud= new CrudContinente();
-	$continente=new continente();
+	$continente=new Continente();
 	//busca el producto utilizando el id, que es enviado por GET desde la vista mostrar.php
 	$continente=$crud->obtenerContinente($_GET['idcontinente']);
 ?>
@@ -26,11 +26,11 @@
 		</tr>
 		<tr>
 			<td class="table-dark" scope="row">Nombre:</td>
-			<td class="bg-info"><input type='number' name='nombrecontinente' value='<?php echo $continente->getNombrecontinente()?>' ></td>
+			<td class="bg-info"><input type='text' name='nombrecontinente' value='<?php echo $continente->getNombrecontinente()?>' ></td>
 		</tr>
 		<tr>
 			<td class="table-dark" scope="row">Activo:</td>
-			<td class="bg-info"><input type='text' name='activo' value='<?php echo $continente->getActivo() ?>'></td>
+			<td class="bg-info"><input type='number' name='activo' value='<?php echo $continente->getActivo() ?>'></td>
 		</tr>
 		<input type='hidden' name='actualizar' value='actualizar'>
 	</table>

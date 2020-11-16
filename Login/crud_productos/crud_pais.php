@@ -48,7 +48,7 @@
 			$select=$db->prepare('SELECT * FROM paises WHERE IDPAIS=:idpais');
 			$select->bindValue('idpais',$idpais);
 			$select->execute();
-			$producto=$select->fetch();
+			$pais=$select->fetch();
 			$myPais= new Pais();
 			$myPais->setIdpais($pais['idpais']);
 			$myPais->setNombrepais($pais['nombrepais']);
@@ -60,7 +60,7 @@
 		//metodo para actualizar un pais, recibe como parametro el pais
 		public function actualizar($pais){
 			$db=DB::conectar();
-			$actualizar=$db->prepare('UPDATE paiss set idpais=:idpais,nombrepais=:nombrepais,idcontinente=:idcontinente,activo=:activo WHERE IDPAIS=:idpais');
+			$actualizar=$db->prepare('UPDATE paises set idpais=:idpais,nombrepais=:nombrepais,idcontinente=:idcontinente,activo=:activo WHERE IDPAIS=:idpais');
 			$actualizar->bindValue('idpais'  ,$pais->getIdpais());
 			$actualizar->bindValue('nombrepais',$pais->getNombrepais());
 			$actualizar->bindValue('idcontinente',$pais->getIdcontinente());
