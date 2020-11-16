@@ -35,7 +35,7 @@ $listarPaises=$crud2->mostrar();
 $listarCiudades=$crud3->mostrar();
 ?>
 <div class="table1" style="width:auto; height:220px; overflow:auto;">
-<table class="table table-bordered tablamostrar1 " cellspacing="0" cellpadding="1">
+<table class="table table-bordered tablamostrar1" >
 		<thead class="table-dark">
 			<th>Id Ciudad</th>
             <th>Precio</th>
@@ -67,7 +67,7 @@ $listarCiudades=$crud3->mostrar();
 <h2> Continentes</h2>
 <div class="container-fluid">
 <div class="table1" style="width:auto; height:220px; overflow:auto; margin-top:20px">
-    <table class="table table-bordered tablamostrar1 " cellspacing="0" cellpadding="1">
+    <table class="table table-bordered tablamostrar1 ">
 		<thead class="table-dark">
 				<th>id</th>
 				<th>nombre</th>
@@ -95,7 +95,7 @@ $listarCiudades=$crud3->mostrar();
 
 <h2> Paises</h2>
 		<div class="table1" style="width:auto; height:220px; overflow:auto; margin-top:20px;position:left;">
-			<table class="table table-bordered tablamostrar1 "  cellspacing="0" cellpadding="1">
+			<table class="table table-bordered tablamostrar1 ">
 				<thead class="table-dark fixed">
 					<th>idpais</th>
 					<th>pais</th>
@@ -124,7 +124,7 @@ $listarCiudades=$crud3->mostrar();
     
 <h2> Ciudades</h2>
         <div class="table1" style="width:auto; height:220px; overflow:auto;  margin-top:20px">
-            <table class="table table-bordered tablamostrar1 " cellspacing="0" cellpadding="1">
+            <table class="table table-bordered tablamostrar1 ">
                 <thead class="table-dark">
                         <th>idciudad</th>
                         <th>nombreciudad</th>
