@@ -24,36 +24,33 @@ $listarComentarios=$crud->mostrar();
 	<div class="table1" style="width:auto; height:220px; overflow:auto;">
 		<table class="table table-bordered tablamostrar1 "  cellspacing="0" cellpadding="1">
 			<thead class="table-dark">
-				<th>Fecha</th>
-				<th>Comentario</th>
-				<th>Estrellas</th>
-				<th>Email</th>
+				<th>idproducto</th>
+				<th>ip</th>
+				<th>fecha</th>
+				<th>comentario</th>
+				<th>estrellas</th>
+				<th>activo</th>
+				<th>email</th>
 			</thead>
-			<tbody>			
-				<?php foreach ($listarComentarios as $comentario) {?>	
-					<?php var_dump($comentario);?>
-					<?php  if($comentario==$_SESSION['email']){?>
-						
+			<tbody>
+				<?php foreach ($listarComentarios as $comentario) {?>
 						<tr class="table-info">
-							<td><?php echo $comentario->getFecha() ?></td>
-							<td><?php echo $comentario->getComentario() ?></td>
-							<td><?php echo $comentario->getEstrellas() ?></td>
-							<!-- <td><a href="actualizar.php?email=<?php echo $usuario->getEmail()?>&accion=a">Actualizar</a> </td>
-							<td><a href="administrar_usuario.php?email=<?php echo $usuario->getEmail()?>&accion=e">Eliminar</a>   </td> -->
-						</tr>
-						<?php }else {?>
-					<?php echo "no hay datos"  ?>
+							<td><?php echo $comentario->getIdproducto()?></td>
+							<td><?php echo $comentario->getIp()?></td>
+							<td><?php echo $comentario->getFecha()?></td>
+							<td><?php echo $comentario->getComentario()?></td>
+							<td><?php echo $comentario->getEstrellas()?></td>
+							<td><?php echo $comentario->getActivo()?></td>
+							<td><?php echo $comentario->getEmail()?></td>
+							<td><a href="actualizar_comentarios.php?idproducto=<?php echo $usuario->getIdproducto()?>&accion=a">Actualizar</a> </td>
+							<td><a href="administrar_comentarios.php?idproducto=<?php echo $usuario->getIdproducto()?>&accion=e">Eliminar</a>   </td>
+						</tr>					
 				<?php }?>
-					<?php }?>
-										
-				
 			</tbody>
 		</table>
 	</div>
 	</div>
 </div>
-
-
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
         </script>

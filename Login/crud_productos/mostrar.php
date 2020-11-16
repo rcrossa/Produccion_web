@@ -13,10 +13,26 @@
 //incluye la clase Producto y CrudProducto
 require_once ('crud_producto.php');
 require_once ('producto.php');
+require_once ('crud_continente.php');
+require_once ('continente.php');
+require_once ('crud_pais.php');
+require_once ('pais.php');
+require_once ('crud_ciudad.php');
+require_once ('ciudad.php');
+
 $crud = new CrudProducto();
 $producto= new Producto();
+$crud1 = new CrudContinente();
+$continente= new Continente();
+$crud2 = new CrudPais();
+$pais= new Pais();
+$crud3 = new CrudCiudad();
+$ciudad= new Ciudad();
 //obtiene todos los productos con el método mostrar de la clase crud
 $listarProductos=$crud->mostrar();
+$listarContinentes=$crud1->mostrar();
+$listarPaises=$crud2->mostrar();
+$listarCiudades=$crud3->mostrar();
 ?>
 <div class="table1" style="width:auto; height:220px; overflow:auto;">
 <table class="table table-bordered tablamostrar1 " cellspacing="0" cellpadding="1">
@@ -48,6 +64,90 @@ $listarProductos=$crud->mostrar();
 		</tbody>
 	</table>
 </div>
+<h2> Continentes</h2>
+<div class="container-fluid">
+<div class="table1" style="width:auto; height:220px; overflow:auto; margin-top:20px">
+    <table class="table table-bordered tablamostrar1 " cellspacing="0" cellpadding="1">
+		<thead class="table-dark">
+				<th>id</th>
+				<th>nombre</th>
+				<th>activo</th>
+                <th>Actualizar</th>
+                <th>Elimnar</th>
+		</thead>
+		<tbody>
+			<?php foreach ($listarContinentes as $continente) {?>
+			<tr class="table-info">
+                <td><?php echo $continente->getIdcontinente()?></td>
+                <td><?php echo $continente->getNombrecontinente() ?></td>
+                <td><?php echo $continente->getActivo() ?></td>
+				<td><a href="actualizar_continente.php?idcontinente=<?php echo $continente->getIdcontinente()?>&accion=a">Actualizar</a> </td>
+				<td><a href="administrar_continente.php?idcontinente=<?php echo $continente->getIdcontinente()?>&accion=e">Eliminar</a>   </td>
+			</tr>
+			<?php }?>
+		</tbody>
+	</table>
+</div>
+</div>
+
+
+<div class="container-fluid">
+
+<h2> Paises</h2>
+		<div class="table1" style="width:auto; height:220px; overflow:auto; margin-top:20px;position:left;">
+			<table class="table table-bordered tablamostrar1 "  cellspacing="0" cellpadding="1">
+				<thead class="table-dark fixed">
+					<th>idpais</th>
+					<th>pais</th>
+					<th>continente</th>
+					<th>activo</th>                   
+                    <th>Actualizar</th>
+                    <th>Elimnar</th>
+				</thead>
+				<tbody>
+                <?php foreach ($listarPaises as $pais) {?>
+                    <tr class="table-info">
+                        <td><?php echo $pais->getIdpais()?></td>
+                        <td><?php echo $pais->getNombrepais() ?></td>
+                        <td><?php echo $pais->getIdcontinente() ?></td>
+                        <td><?php echo $pais->getActivo() ?></td>
+                        <td><a href="actualizar_pais.php?idpais=<?php echo $pais->getIdpais()?>&accion=a">Actualizar</a> </td>
+                        <td><a href="administrar_pais.php?idpais=<?php echo $pais->getIdpais()?>&accion=e">Eliminar</a>   </td>
+                    </tr>
+					<?php }?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+    <div class="container-fluid">
+    
+<h2> Ciudades</h2>
+        <div class="table1" style="width:auto; height:220px; overflow:auto;  margin-top:20px">
+            <table class="table table-bordered tablamostrar1 " cellspacing="0" cellpadding="1">
+                <thead class="table-dark">
+                        <th>idciudad</th>
+                        <th>nombreciudad</th>
+                        <th>idpais</th>                                           
+                        <th>Actualizar</th>
+                        <th>Elimnar</th>
+                </thead>
+                <tbody>
+                    <?php foreach ($listarCiudades as $ciudad) {?>
+                    <tr class="table-info">
+                        <td><?php echo $ciudad->getIdciudad() ?></td>
+                        <td><?php echo $ciudad->getNombreciudad() ?></td>
+                        <td><?php echo $ciudad->getIdpais() ?></td>
+                        <td><a href="actualizar_ciudades.php?idciudad=<?php echo $ciudad->getIdciudad()?>&accion=a">Actualizar</a> </td>
+                        <td><a href="administrar_ciudades.php?idciudad=<?php echo $ciudad->getIdciudad()?>&accion=e">Eliminar</a>   </td>
+                    </tr>
+                    <?php }?>
+                </tbody>
+            </table>
+        </div>
+        </div>
+
+	
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
         </script>

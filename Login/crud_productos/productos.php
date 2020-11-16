@@ -58,31 +58,50 @@ if ($now > $_SESSION['expire']) {
     <h1>Bienvenidos a la administracion de Productos</h1>
     <div class="table-responsive">
     <table class="table table-bordered">
-    <th>Alta de producto</th>
-        <tr>
+    <th>Alta de producto</th>    
+    <th>Alta Continentes</th>
+    <th>Alta Paises</th>
+    <th>Alta Ciudades</th>
+    <tbody>
+    <tr>
         <td> <button type="button" class="btn btn-primary botoningresar" data-toggle="modal"
                             data-target="#modalproductos">Nuevo Producto</button></a>
-        
-        </tr>
-        <th>Administrar Productos</th>
-        <tr>
+                            </td>
+        <td> <button type="button" class="btn btn-primary botoningresar" data-toggle="modal"
+                            data-target="#modalcontinentes">Nuevo Continente</button></a>
+                            </td>
+        <td> <button type="button" class="btn btn-primary botoningresar" data-toggle="modal"
+                            data-target="#modalpaises">Nuevo Pais</button></a>
+                            </td>
+        <td> <button type="button" class="btn btn-primary botoningresar" data-toggle="modal"
+                            data-target="#modalciudades">Nueva Ciudad</button></a>
+                            </td>
+    </tr>
+    </tbody>
+    </table>
+    <div class="table-responsive">
+    <table class="table table-bordered">
+    <th>Administrar Producto</th>
+    <tbody>
+       <tr>
         <td><a> <?php  require_once "mostrar.php"?></a></td>
         </tr>
+    </tbody>
     </table>
     </div>
-            <!-- Modal alta de usuario -->
+            <!-- Modal alta de Productos -->
             <div class="modal fade" id="modalproductos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Nuevo Producto</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form method='post' action='administrar_usuario.php'>
+                        <form method='post' action='administrar_producto.php'>
                             <div class="table-responsive">
                                 <table class="table tablaingresar ">
                                     <tbody>
@@ -118,7 +137,7 @@ if ($now > $_SESSION['expire']) {
                                     </tbody>
                                 </table>
                             </div>
-                            <button class="botoningresar" onclick="alert('Usuario agregado')" type="submit"
+                            <button class="botoningresar" onclick="alert('Producto agregado')" type="submit"
                                 value='insertar' class="btn btn-primary btn-sm">Crear Producto</button></p>
                             <button class="botoningresar" onclick="window.location.href='productos.php'"
                                 class="btn btn-primary btn-sm" data-dismiss="modal">Volver</button></p>
@@ -128,6 +147,148 @@ if ($now > $_SESSION['expire']) {
                 </div>
             </div>
         </div>
+                    <!-- Modal Continentes de Productos -->
+                    <div class="modal fade" id="modalcontinentes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Nuevo Continente</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form method='post' action='administrar_continente.php'>
+                                        <div class="table-responsive">
+                                            <table class="table tablaingresar ">
+                                                <tbody>
+                                                    <tr>
+                                                        <th class="table-dark" scope="row">id :</th>
+                                                        <td class="bg-info"><input type="text" name="idcontinente"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="table-dark" scope="row">nombre:</th>
+                                                        <td class="bg-info"><input type="text" name="nombrecontinente"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="table-dark" scope="row">Activo:</td>
+                                                        <td class="bg-info"><input type="number" name="activo"></td>
+                                                    </tr>
+                                                    <input type="hidden" name="insertar" value='insertar'>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <button class="botoningresar" onclick="alert('Continente agregado')" type="submit"
+                                            value='insertar' class="btn btn-primary btn-sm">Crear Continente</button></p>
+                                        <button class="botoningresar" onclick="window.location.href='productos.php'"
+                                            class="btn btn-primary btn-sm" data-dismiss="modal">Volver</button></p>
+                                        <!-- <button href="usuarios.php" type="submit" >volver</button> -->
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+  
+                      <!-- Modal Paises de Productos -->
+                      <div class="modal fade" id="modalpaises" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Nuevo Pais</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form method='post' action='administrar_paise.php'>
+                                        <div class="table-responsive">
+                                            <table class="table tablaingresar ">
+                                                <tbody>
+                                                    <tr>
+                                                        <th class="table-dark" scope="row">id :</th>
+                                                        <td class="bg-info"><input type="text" name="idpais"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="table-dark" scope="row">nombre:</th>
+                                                        <td class="bg-info"><input type="text" name="nombrepais"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="table-dark" scope="row">continente :</th>
+                                                        <td class="bg-info"><input type="text" name="idcontinente"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="table-dark" scope="row">Activo:</td>
+                                                        <td class="bg-info"><input type="number" name="activo"></td>
+                                                    </tr>
+                                                    <input type="hidden" name="insertar" value='insertar'>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <button class="botoningresar" onclick="alert('Pais agregado')" type="submit"
+                                            value='insertar' class="btn btn-primary btn-sm">Crear Continente</button></p>
+                                        <button class="botoningresar" onclick="window.location.href='productos.php'"
+                                            class="btn btn-primary btn-sm" data-dismiss="modal">Volver</button></p>
+                                        <!-- <button href="usuarios.php" type="submit" >volver</button> -->
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+  
+    <!-- Modal Ciudades de Productos -->
+    <div class="modal fade" id="modalciudades" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Nueva Ciudad</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form method='post' action='administrar_ciudad.php'>
+                                        <div class="table-responsive">
+                                            <table class="table tablaingresar ">
+                                                <tbody>
+                                                    <tr>
+                                                        <th class="table-dark" scope="row">id :</th>
+                                                        <td class="bg-info"><input type="text" name="idciudad"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="table-dark" scope="row">nombre:</th>
+                                                        <td class="bg-info"><input type="text" name="nombreciudad"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="table-dark" scope="row">pais :</th>
+                                                        <td class="bg-info"><input type="text" name="idpais"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="table-dark" scope="row">Activo:</td>
+                                                        <td class="bg-info"><input type="number" name="activo"></td>
+                                                    </tr>
+                                                    <input type="hidden" name="insertar" value='insertar'>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <button class="botoningresar" onclick="alert('Ciudad agregada')" type="submit"
+                                            value='insertar' class="btn btn-primary btn-sm">Crear Continente</button></p>
+                                        <button class="botoningresar" onclick="window.location.href='productos.php'"
+                                            class="btn btn-primary btn-sm" data-dismiss="modal">Volver</button></p>
+                                        <!-- <button href="usuarios.php" type="submit" >volver</button> -->
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+    
+    
+    
+    
+    
+    
     <script>
     $('#modalusuarios').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget) // Button that triggered the modal
@@ -139,6 +300,39 @@ if ($now > $_SESSION['expire']) {
             modal.find('.modal-body input').val(recipient)
         })
         </script>
+    <script>
+     $('#modalcontinentes').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var recipient = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text('New message to ' + recipient)
+            modal.find('.modal-body input').val(recipient)
+        })
+     </script>
+     <script>
+     $('#modalpaises').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var recipient = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text('New message to ' + recipient)
+            modal.find('.modal-body input').val(recipient)
+        })
+     </script>
+     <script>
+     $('#modalciudades').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var recipient = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text('New message to ' + recipient)
+            modal.find('.modal-body input').val(recipient)
+        })
+     </script>
 <?php
 require_once "../includes/footer.php";
 ?>
