@@ -5,7 +5,7 @@
 	$crud= new CrudComentario();
 	$comentario=new Comentario();
 	//busca el comentarios utilizando el idproducto, que es enviado por GET desde la vista mostrar.php
-	$comentario=$crud->obtenerComentario($_GET['ipcomentario']);
+	$comentario=$crud->obtenerComentario($_GET['idproducto']);
 ?>
 <html>
 <head>
@@ -14,13 +14,13 @@
 	<title>Actualizar Comentario</title>
 </head>
 <body>
-		<form method='post' action='administrar_comentario.php' >
+		<form method='post' action='administrar_comentarios.php' >
 			<div class="table-responsive">
 				<table class="table tablaingresar ">
 					<tr>
-						<input type='hidden' name='idcomentarios' value='<?php echo $comentario->getIdcomentarios()?>'>
+						<input type='hidden' name='idcomentarios' value='<?php echo $comentario->getIdproducto()?>'>
 						<td class="table-dark" scope="row">ID:</td>
-						<td class="bg-info"> <input type='number' name='idcomentario' value='<?php echo $comentario->getIdcomentario()?>'></td>
+						<td class="bg-info"> <input type='number' name='idproducto' value='<?php echo $comentario->getIdproducto()?>'></td>
 					</tr>
 					<tr>
 						<td class="table-dark" scope="row">IP:</td>
@@ -50,7 +50,7 @@
 				</table>
 			</div>
 			<input type='submit' value='Guardar'/>
-			<button type="button" class="back-button"><a href="usuarios.php">Volver</a></button>
+			<button type="button" class="back-button"><a href="../index.php">Volver</a></button>
 		</form>
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

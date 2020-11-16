@@ -11,7 +11,7 @@ $comentarios= new comentario();
 		// si el elemento insertar no viene nulo llama al crud e inserta un Rol
 		
 		if (isset($_POST['insertar'])) {
-			$comentarios->setIdcomentario(   $_POST['idcomentario']);
+			$comentarios->setIdproducto(   $_POST['idproducto']);
 			$comentarios->setIp(   $_POST['ip']);
 			$comentarios->setFecha(   $_POST['fecha']);
 			$comentarios->setComentario(   $_POST['comentario']);
@@ -24,7 +24,7 @@ $comentarios= new comentario();
 			echo '<script language="javascript">alert("Usuario agregado");</script>';
 		// si el elemento de la vista con nombre actualizar no viene nulo, llama al crud y actualiza el Rol
 		}elseif(isset($_POST['actualizar'])){
-			$comentarios->setIdcomentario(   $_POST['idcomentario']);
+			$comentarios->setIdproducto(   $_POST['idproducto']);
 			$comentarios->setIp(   $_POST['ip']);
 			$comentarios->setFecha(   $_POST['fecha']);
 			$comentarios->setComentario(   $_POST['comentario']);
