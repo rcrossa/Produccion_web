@@ -5,7 +5,8 @@
 
  .tablaingresar {
     width: 30px;
-    height: auto;
+    height: auto;        
+    margin-top: 20px; 
     
 }
 
@@ -31,7 +32,9 @@
     width: 30px;
     height: auto;
     color: #000082;
-    
+    border:1;
+    width:300;     
+    margin-top: 20px;   
 }
   .tablamostrar1 td a {
     position: absolute;
@@ -72,10 +75,25 @@
     box-shadow: 0 3px 0 #62ff00;
     top: 3px;
   }
-/*tablas con scrool*/
 
+  /* scroll vertical */
 
-.table2{
-  position: relative;
-  margin-left: 50px;
-}
+  .my-custom-scrollbar {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+    }
+
+    /*-----table1-------*/
+    .table1{
+      background: #4CAF50;
+      color: white;
+      padding: 15px;
+      width: 50%;
+      height: 100px;
+      overflow: scroll;
+      border: 1px solid #ccc;
+    }

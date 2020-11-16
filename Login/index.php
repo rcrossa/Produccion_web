@@ -6,7 +6,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="comentarios/style1.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Document</title>
@@ -34,21 +34,7 @@ session_start();
         exit;
         }
         
-        require_once 'conn.php';
-       $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-        // Variables
-        $hostDB =         $dbhost;
-        $nombreDB =       $dbname;
-        $usuarioDB =      $dbuser;
-        $contrasenyaDB =  $dbpass;
-      
-        $hostPDO = "mysql:host=$hostDB;dbname=$nombreDB;";
-        $miPDO = new PDO($hostPDO, $usuarioDB, $contrasenyaDB);
 
-        // Prepara SELECT
-        $miConsulta = $miPDO->prepare('SELECT nombre, apellido, edad, email FROM usuarios;');
-        // Ejecuta consulta
-        $miConsulta->execute();
 
 
 $page = 'index';
@@ -74,12 +60,12 @@ $page = 'index';
     </ul>
   </div>
 </nav>
-    
-<?php            $conn->close();
-            ?>
-        
-        <?require_once "includes/footer.php";
-        ?>
+<h1>Bienvenidos a la administracion de Comentarios</h1>
+<h2>Comentarios Aprobados</h2>
+<?php require_once ('comentarios/mostrar.php');?>
+<h2>Comentarios Pendientes de Aprobación</h2>
+<?php require_once ('comentarios/mostrar1.php');?>
+        <?require_once "includes/footer.php";        ?>
     
 </body>
 </html>

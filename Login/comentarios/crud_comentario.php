@@ -41,7 +41,28 @@
 			}
 			return $listarComentarios;
 		}
-		//metodo para eliminar un comentario, recibe como parametro el id del producto
+
+		//Mostrar los comentarios pedientes de aprobacion
+		public function mostrar1(){
+			$db=DB::conectar();
+			$listarComentarios=[];
+			$select=$db->query('SELECT * FROM comentarios WHERE activo=0');
+
+			foreach ($select->fetchAll() as $comentario) {
+				$myComentario = new Comentario();
+				$myComentario->setIdproducto($comentario['idproducto']);				
+				$myComentario->setIp($comentario['ip']);
+				$myComentario->setFecha($comentario['fecha']);
+				$myComentario->setComentario($comentario['comentario']);
+				$myComentario->setEstrellas($comentario['estrellas']);
+				$myComentario->setActivo($comentario['activo']);
+				$myComentario->setEmail($comentario['email']);
+				$listarComentarios[]=$myComentario;
+				# code...
+			}
+			return $listarComentarios;
+		}
+		//metodo para eliminar un comentario, recibe como parametro el id del comentario
 		public function eliminar($idproducto){
 			$db=DB::conectar();
 			$eliminar=$db->prepare('DELETE FROM comentarios where IDPRODUCTO=:idproducto');
@@ -49,14 +70,14 @@
 			$eliminar->execute();
 		}
 
-		//metodo para buscar un comentario, recibe como parametro el id del producto
-		public function obtenerUsuario($idproducto){
+		//metodo para buscar un comentario, recibe como parametro el id del comentario
+		public function obtenerComentario($idproducto){
 			$db=DB::conectar();
 			$select=$db->prepare('SELECT * FROM comentarios WHERE IDPRODUCTO=:idproducto');
 			$select->bindValue('idproducto',$idproducto);
 			$select->execute();
 			$comentario=$select->fetch();
-			$myComentario= new Usuario();
+			$myComentario= new Comentario();
 			$myComentario->setIdproducto($comentario['idproducto']);				
 				$myComentario->setIp($comentario['ip']);
 				$myComentario->setFecha($comentario['fecha']);
@@ -67,7 +88,7 @@
 			return $myComentario;
 		}
 
-		//metodo para actualizar un comentarios, recibe como parametro el id del producto
+		//metodo para actualizar un comentarios, recibe como parametro el id del comentario
 		public function actualizar($comentario){
 			$db=DB::conectar();
 			$actualizar=$db->prepare('UPDATE comentarios set idproducto=:idproducto,ip=:ip,fecha=:fecha,comentario=:comentario,estrellas=:estrellas,activo=:activo,email=:email

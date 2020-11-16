@@ -3,40 +3,48 @@
 	require_once ('crud_comentario.php');
 	require_once ('comentario.php');
 	$crud= new CrudComentario();
-	$comentario=new Comentarios();
+	$comentario=new Comentario();
 	//busca el comentarios utilizando el idproducto, que es enviado por GET desde la vista mostrar.php
-	$usuario=$crud->obtenerUsuario($_GET['ipproducto']);
+	$comentario=$crud->obtenerComentario($_GET['ipcomentario']);
 ?>
 <html>
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-	<title>Actualizar Usuario</title>
+	<title>Actualizar Comentario</title>
 </head>
 <body>
-		<form method='post' action='administrar_usuario.php' >
+		<form method='post' action='administrar_comentario.php' >
 			<div class="table-responsive">
 				<table class="table tablaingresar ">
 					<tr>
-						<input type='hidden' name='id' value='<?php echo $usuario->getId()?>'>
-						<td class="table-dark" scope="row">Nombre:</td>
-						<td class="bg-info"> <input type='text' name='nombre' value='<?php echo $usuario->getNombre()?>'></td>
+						<input type='hidden' name='idcomentarios' value='<?php echo $comentario->getIdcomentarios()?>'>
+						<td class="table-dark" scope="row">ID:</td>
+						<td class="bg-info"> <input type='number' name='idcomentario' value='<?php echo $comentario->getIdcomentario()?>'></td>
 					</tr>
 					<tr>
-						<td class="table-dark" scope="row">Apellido:</td>
-						<td class="bg-info"><input type='text' name='apellido' value='<?php echo $usuario->getApellido()?>' ></td>
+						<td class="table-dark" scope="row">IP:</td>
+						<td class="bg-info"><input type='text' name='ip' value='<?php echo $comentario->getIp()?>' ></td>
 					</tr>
 					<tr>
-						<td class="table-dark" scope="row">Edad:</td>
-						<td class="bg-info"><input type='text' name='edad' value='<?php echo $usuario->getEdad()?>' ></td>
+						<td class="table-dark" scope="row">Fecha:</td>
+						<td class="bg-info"><input type='number' name='fecha' value='<?php echo $comentario->getFecha()?>' ></td>
+					</tr>
+					<tr>
+						<td class="table-dark" scope="row">Comentario:</td>
+						<td class="bg-info"><input type='text' name='comentario' value='<?php echo $comentario->getComentario() ?>'></td>
+					</tr>
+					<tr>
+						<td class="table-dark" scope="row">Estrellas:</td>
+						<td class="bg-info"><input type='text' name='estrellas' value='<?php echo $comentario->getEstrellas() ?>'></td>
+					</tr>
+					<tr>
+						<td class="table-dark" scope="row">Activo:</td>
+						<td class="bg-info"><input type='number' name='activo' value='<?php  echo $comentario->getActivo()?>' ></td>
 					</tr>
 					<tr>
 						<td class="table-dark" scope="row">Email:</td>
-						<td class="bg-info"><input type='text' name='email' value='<?php echo $usuario->getEmail() ?>'></td>
-					</tr>
-					<tr>
-						<td class="table-dark" scope="row">Pass:</td>
-						<td class="bg-info"><input type='text' name='password' value='<?php  echo $usuario->getPassword()?>' ></td>
+						<td class="bg-info"><input type='text' name='email' value='<?php echo $comentario->getEmail() ?>'></td>
 					</tr>
 					<input type='hidden' name='actualizar' value='actualizar'>
 				</table>

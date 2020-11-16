@@ -17,7 +17,7 @@ $crud = new CrudComentario();
 $comentario= new Comentario();
 
 //obtiene todos los usuarios con el método mostrar de la clase crud
-$listarComentarios=$crud->mostrar();
+$listarComentarios=$crud->mostrar1();
 ?>
 <div class="container-fluid">
 	<div class="table-responsive">
