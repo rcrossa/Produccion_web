@@ -26,6 +26,7 @@ $producto= new Producto();
 			header('Location: productos.php');
 		// si el elemento de la vista con continente actualizar no viene nulo, llama al crud y actualiza el producto
 		}elseif(isset($_POST['actualizar'])){
+			$producto->setIdproducto($_POST['idproducto']);
 			$producto->setIdciudad($_POST['idciudad']);
 			$producto->setPrecio(    $_POST['precio']);
 			$producto->setDescripcion(   $_POST['descripcion']);
