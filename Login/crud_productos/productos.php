@@ -110,9 +110,13 @@ if ($now > $_SESSION['expire']) {
                             <div class="table-responsive">
                                 <table class="table tablaingresar ">
                                     <tbody>
+                                    <tr>
+                                            <th class="table-dark" scope="row">id producto:</th>
+                                            <td class="bg-info"><input type="number" name="idproducto"></td>
+                                        </tr>
                                         <tr>
                                             <th class="table-dark" scope="row">id ciudad:</th>
-                                            <td class="bg-info"><input type="text" name="precio"></td>
+                                            <td class="bg-info"><input type="text" name="idciudad"></td>
                                         </tr>
                                         <tr>
                                             <th class="table-dark" scope="row">Precio:</th>
@@ -295,7 +299,7 @@ if ($now > $_SESSION['expire']) {
 
 
         <script>
-        $('#modalusuarios').on('show.bs.modal', function(event) {
+        $('#modalproducto').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget) // Button that triggered the modal
             var recipient = button.data('whatever') // Extract info from data-* attributes
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).

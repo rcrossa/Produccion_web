@@ -12,11 +12,12 @@ $producto= new Producto();
 		// si el elemento insertar no viene nulo llama al crud e inserta un producto
 		
 		if (isset($_POST['insertar'])) {
+			$producto->setIdproducto(  $_POST['idproducto']);
 			$producto->setIdciudad(  $_POST['idciudad']);
 			$producto->setPrecio(    $_POST['precio']);
 			$producto->setDescripcion(   $_POST['descripcion']);
-			$producto->setDescripcion_details(    $_POST['detalle']);
-			$producto->setUrl(    $_POST['url']);
+			$producto->setDetalle(    $_POST['detalle']);
+			// $producto->setUrl(    $_POST['url']);
 			$producto->setDestacado(  $_POST['destacado']);
 			$producto->setActivo(  $_POST['activo']);
 			header("refresh:1;url=productos.php");
@@ -26,11 +27,11 @@ $producto= new Producto();
 			header('Location: productos.php');
 		// si el elemento de la vista con continente actualizar no viene nulo, llama al crud y actualiza el producto
 		}elseif(isset($_POST['actualizar'])){
-			$producto->setIdproducto(  $_POST['idproducto']);
+			$producto->setIdproducto($_POST['idproducto']);
 			$producto->setIdciudad($_POST['idciudad']);
 			$producto->setPrecio(    $_POST['precio']);
 			$producto->setDescripcion(   $_POST['descripcion']);
-			$producto->setDescripcion_details(    $_POST['detalle']);
+			$producto->setDetalle(    $_POST['detalle']);
 			$producto->setUrl(    $_POST['url']);
 			$producto->setDestacado(  $_POST['destacado']);
 			$producto->setActivo(  $_POST['activo']);

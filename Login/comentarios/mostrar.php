@@ -44,8 +44,8 @@ $listarComentarios=$crud->mostrar();
 							<td><?php echo $comentario->getEstrellas()?></td>
 							<td><?php echo $comentario->getActivo()?></td>
 							<td><?php echo $comentario->getEmail()?></td>
-						<td><a href="comentarios/actualizar_comentarios.php?idproducto=<?php echo $comentario->getIdproducto()?>&accion=a">Actualizar</a> </td>
-						<td><a href="comentarios/administrar_comentarios.php?idproducto=<?php echo $comentario->getIdproducto()?>&accion=e">Eliminar</a>   </td>
+							<td><a href="comentarios/actualizar_comentarios.php?idproducto=<?php echo $comentario->getIdproducto()?>&accion=a">Actualizar</a> </td>
+							<td><a href="comentarios/administrar_comentarios.php?idproducto=<?php echo $comentario->getIdproducto()?>&accion=e">Eliminar</a>   </td>
 					</tr>
 				<?php }?>
 			</tbody>

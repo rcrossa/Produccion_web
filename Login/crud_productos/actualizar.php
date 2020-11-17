@@ -6,7 +6,7 @@
 	$crud= new CrudProducto();
 	$producto=new Producto();
 	//busca el producto utilizando el id, que es enviado por GET desde la vista mostrar.php
-	$producto=$crud->obtenerProducto($_GET['idciudad']);
+	$producto=$crud->obtenerProducto($_GET['idproducto']);
 ?>
 <html>
 <head>
@@ -20,7 +20,11 @@
 	<div class="table-responsive">
 	<table class="table tablaingresar ">
 		<tr>
-			<input type='hidden' name='idciudad' value='<?php echo $producto->getIdciudad()?>'>
+			<input type='hidden' name='idproducto' value='<?php echo $producto->getIdproducto()?>'>
+			<td class="table-dark" scope="row">Id producto:</td>
+			<td class="bg-info"> <input type='number' name='idproducto' value='<?php echo $producto->getIdproducto()?>'></td>
+		</tr>
+		<tr>
 			<td class="table-dark" scope="row">Id ciudad:</td>
 			<td class="bg-info"> <input type='text' name='idciudad' value='<?php echo $producto->getIdciudad()?>'></td>
 		</tr>
@@ -51,8 +55,8 @@
 		<input type='hidden' name='actualizar' value='actualizar'>
 	</table>
 	</div>
-	<input type='submit' value='Guardar'>
-	<a href="productos.php">Volver</a>
+	<input type='submit' value='Guardar'/>
+	<button type="button" class="back-button"><a href="productos.php">Volver</a></button>
 </form>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
