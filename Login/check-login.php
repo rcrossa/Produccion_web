@@ -53,8 +53,8 @@ session_start();
                         // $hash = $password;                   
                                           
                         
-                            if (password_verify($password, $hash)){
-                                // if (isset($row['password'], $hash)){
+                            // if (password_verify($password, $hash)){
+                                if (isset($row['password'], $hash)){
                                 //valido que tipo de perfil, usuario o administrador. asigno datos.
                                                 if(isset($row['password'])){
                                                     $_SESSION['loggedin'] = true;

@@ -30,7 +30,7 @@ class CrudPermiso{
     //metodo para eliminar un permiso, recibe como parametro el id del permiso
     public function eliminar($email){
         $db=DB::conectar();
-        $eliminar=$db->prepare('DELETE FROM roles where email=:email');
+        $eliminar=$db->prepare('DELETE FROM roles where EMAIL=:email');
         $eliminar->bindvalue('email',$email);
         $eliminar->execute();
     }

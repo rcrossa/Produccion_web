@@ -128,7 +128,8 @@ $listarCiudades=$crud3->mostrar();
                 <thead class="table-dark">
                         <th>idciudad</th>
                         <th>nombreciudad</th>
-                        <th>idpais</th>                                           
+                        <th>idpais</th>    
+                        <th>activo</th>                                       
                         <th>Actualizar</th>
                         <th>Elimnar</th>
                 </thead>
@@ -138,6 +139,7 @@ $listarCiudades=$crud3->mostrar();
                         <td><?php echo $ciudad->getIdciudad() ?></td>
                         <td><?php echo $ciudad->getNombreciudad() ?></td>
                         <td><?php echo $ciudad->getIdpais() ?></td>
+                        <td><?php echo $ciudad->getActivo() ?></td>
                         <td><a href="actualizar_ciudad.php?idciudad=<?php echo $ciudad->getIdciudad()?>&accion=a">Actualizar</a> </td>
                         <td><a href="administrar_ciudad.php?idciudad=<?php echo $ciudad->getIdciudad()?>&accion=e">Eliminar</a>   </td>
                     </tr>

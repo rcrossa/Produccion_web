@@ -12,7 +12,7 @@ $usuario= new Usuario();
 		// si el elemento insertar no viene nulo llama al crud e inserta un usuario
 		if (isset($_POST['insertar'])) {
 			$usuario->setEmail(   $_POST['email']);
-			$usuario->setPassword(    $_POST['password']);
+			$usuario->setPassword( password_hash($_POST['password'], PASSWORD_BCRYPT));
 			$usuario->setNombre(  $_POST['nombre']);
 			$usuario->setApellido($_POST['apellido']);
 			$usuario->setEdad(    $_POST['edad']);
