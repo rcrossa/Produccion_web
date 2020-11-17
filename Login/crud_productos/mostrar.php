@@ -37,7 +37,6 @@ $listarCiudades=$crud3->mostrar();
 <div class="table1" style="width:auto; height:220px; overflow:auto;">
 <table class="table table-bordered tablamostrar1" >
 		<thead class="table-dark">
-            <th>Id Producto</th>
 			<th>Id Ciudad</th>
             <th>Precio</th>
             <th>Descripcion</th>
@@ -50,8 +49,7 @@ $listarCiudades=$crud3->mostrar();
 		</thead>
 		<tbody>
 			<?php foreach ($listarProductos as $producto) {?>
-			<tr class="table-info">
-                <td><?php echo $producto->getIdProducto()   ?></td>               
+			<tr class="table-info">               
                 <td><?php echo $producto->getIdciudad()   ?></td>
                 <td><?php echo $producto->getPrecio() ?></td>
                 <td><?php echo $producto->getDescripcion()     ?></td>

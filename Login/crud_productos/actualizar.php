@@ -19,8 +19,12 @@
 	<form method='post' action='administrar_producto.php' >
 	<div class="table-responsive">
 	<table class="table tablaingresar ">
+	<?php var_dump($producto);?>
 		<tr>
-			<input type='hidden' name='idproducto' value='<?php echo $producto->getIdproducto()?>'>
+			<td class="table-dark" scope="row">Id producto:</td>
+			<td class="bg-info"> <input type='number' name='idproducto' value='<?php echo $producto->getIdproducto()?>'></td>
+		</tr>
+		<tr>
 			<td class="table-dark" scope="row">Id ciudad:</td>
 			<td class="bg-info"> <input type='text' name='idciudad' value='<?php echo $producto->getIdciudad()?>'></td>
 		</tr>
@@ -52,7 +56,7 @@
 	</table>
 	</div>
 	<input type='submit' value='Guardar'/>
-	<button type="button" class="back-button"><a href="productos.php">Volver</a></button>
+	<button type="button"  class="back-button"><a href="productos.php">Volver</a></button>
 </form>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
