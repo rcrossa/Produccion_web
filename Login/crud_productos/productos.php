@@ -279,7 +279,7 @@ if ($now > $_SESSION['expire']) {
                                 </table>
                             </div>
                             <button class="botoningresar" onclick="alert('Ciudad agregada')" type="submit"
-                                value='insertar' class="btn btn-primary btn-sm">Crear Continente</button></p>
+                                value='insertar' class="btn btn-primary btn-sm">Crear Ciudad</button></p>
                             <button class="botoningresar" onclick="window.location.href='productos.php'"
                                 class="btn btn-primary btn-sm" data-dismiss="modal">Volver</button></p>
                             <!-- <button href="usuarios.php" type="submit" >volver</button> -->
