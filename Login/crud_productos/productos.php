@@ -110,10 +110,6 @@ if ($now > $_SESSION['expire']) {
                             <div class="table-responsive">
                                 <table class="table tablaingresar ">
                                     <tbody>
-                                    <tr>
-                                            <th class="table-dark" scope="row">id producto:</th>
-                                            <td class="bg-info"><input type="number" name="idproducto"></td>
-                                        </tr>
                                         <tr>
                                             <th class="table-dark" scope="row">id ciudad:</th>
                                             <td class="bg-info"><input type="text" name="idciudad"></td>
@@ -132,7 +128,7 @@ if ($now > $_SESSION['expire']) {
                                         </tr>
                                         <tr>
                                             <th class="table-dark" scope="row">Url:</td>
-                                            <td class="bg-info"><input type="text" name="ulr"></td>
+                                            <td class="bg-info"><input type="text" name="url"></td>
                                         </tr>
                                         <tr>
                                             <th class="table-dark" scope="row">Destacado:</td>

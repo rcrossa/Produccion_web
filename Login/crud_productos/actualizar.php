@@ -6,7 +6,7 @@
 	$crud= new CrudProducto();
 	$producto=new Producto();
 	//busca el producto utilizando el id, que es enviado por GET desde la vista mostrar.php
-	$producto=$crud->obtenerProducto($_GET['idproducto']);
+	$producto=$crud->obtenerProducto($_GET['idciudad']);
 ?>
 <html>
 <head>
@@ -20,11 +20,7 @@
 	<div class="table-responsive">
 	<table class="table tablaingresar ">
 		<tr>
-			<input type='hidden' name='idproducto' value='<?php echo $producto->getIdproducto()?>'>
-			<td class="table-dark" scope="row">Id producto:</td>
-			<td class="bg-info"> <input type='number' name='idproducto' value='<?php echo $producto->getIdproducto()?>'></td>
-		</tr>
-		<tr>
+			<input type='hidden' name='idciudad' value='<?php echo $producto->getIdciudad()?>'>
 			<td class="table-dark" scope="row">Id ciudad:</td>
 			<td class="bg-info"> <input type='text' name='idciudad' value='<?php echo $producto->getIdciudad()?>'></td>
 		</tr>
