@@ -77,11 +77,11 @@
 			$actualizar->bindValue('idproducto',$producto->getIdproducto());
 			$actualizar->bindValue('idciudad',$producto->getIdciudad());
 			$actualizar->bindValue('precio',$producto->getPrecio());
-			$actualizar->bindValue('description'    ,$producto->getDescripcion());
-			$actualizar->bindValue('detalle'   ,$producto->getDetalle());
-			$actualizar->bindValue('url' ,$producto->getUrl());
+			$actualizar->bindValue('description',$producto->getDescripcion());
+			$actualizar->bindValue('detalle',$producto->getDetalle());
+			$actualizar->bindValue('url',$producto->getUrl());
 			$actualizar->bindValue('destacado',$producto->getDestacado());
-			$actualizar->bindValue('activo'  ,$producto->getActivo());
+			$actualizar->bindValue('activo',$producto->getActivo());
 			$actualizar->execute();			
 		}
 	}

@@ -182,8 +182,6 @@ $page = 'usuarios';
                                     </tbody>
                                 </table>
                             </div>
-                            <!-- <button class="botoningresar" onclick="window.location.href='usuarios.php'" type="submit"
-                                value='insertar' class="btn btn-primary btn-sm">Crear Permiso</button></p> -->
                                 <button class="botoningresar" onclick="window.location.href='usuarios.php'" type="submit"
                                 value='insertar' class="btn btn-primary btn-sm">Crear Permiso</button></p>
                             <button class="botoningresar" onclick="window.location.href='usuarios.php'"

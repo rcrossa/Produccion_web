@@ -4,7 +4,7 @@ require_once ('crud_producto.php');
 require_once ('producto.php');
 
 
-$crud = new CrudProducto();
+$crud= new CrudProducto();
 $producto= new Producto();
 
 
@@ -24,7 +24,7 @@ $producto= new Producto();
 			$crud->insertar($producto);
 			echo '</a>Se registro correctamente.</a>.';
 			header('Location: productos.php');
-		// si el elemento de la vista con continente actualizar no viene nulo, llama al crud y actualiza el producto
+		// si el elemento de la vista con producto actualizar no viene nulo, llama al crud y actualiza el producto
 		}elseif(isset($_POST['actualizar'])){
 			$producto->setIdproducto($_POST['idproducto']);
 			$producto->setIdciudad($_POST['idciudad']);
@@ -35,7 +35,6 @@ $producto= new Producto();
 			$producto->setDestacado(  $_POST['destacado']);
 			$producto->setActivo(  $_POST['activo']);
 			$crud->actualizar($producto);	
-			echo '</a>Se registro correctamente.</a>.';		
 			header('Location: productos.php');
 		// si la variable accion enviada por GET es == 'e' llama al crud y elimina un producto
 		}elseif ($_GET['accion']=='e') {

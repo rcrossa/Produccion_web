@@ -69,11 +69,13 @@ session_start();
                                                                 echo "<div class='alert alert-success mt-4' role='alert'><strong>Bienvenido $row[tipo_rol] $row[apellido]</strong>			
                                                                 <p><a href='Panelusuario/index.php'>Ir al panel de usuarios</a></p>
                                                                 <p><a href='logout.php'>Logout</a></p></div>";
-                                                                }elseif($_SESSION['tipo_rol']=="admin" || $_SESSION['accion']== "editar"){
-                                                                   
-                                                                    
+                                                                }elseif($_SESSION['tipo_rol']=="admin" || $_SESSION['accion']== "editar"){                                                                    
                                                                 $_SESSION['loggedin'] = true;
                                                                 $_SESSION['nombre'] = $row['nombre'];
+                                                                $_SESSION['email'] = $row['email'];
+                                                                $_SESSION['password'] = $row['password'];
+                                                                $_SESSION['tipo_rol'] = $row['tipo_rol'];
+                                                                $_SESSION['accion'] = $row['accion'];
                                                                 $_SESSION['start'] = time();
                                                                 $_SESSION['expire'] = $_SESSION['start'] + (2 * 60) ;	
                                                                 
@@ -91,12 +93,13 @@ session_start();
                                                         } 
 
                                                 }else {
+                                                    var_dump($_SESSION);
                                                     echo "<div class='alert alert-danger mt-4' role='alert'>Email or Password are incorrects!
                                                     <p><a href='login.php'><strong>Please try again!</strong> </a></p></div>
                                                     
                                                     ";	
-                                                   
-                                                        session_destroy();
+                                                        
+                                                        
                                                       	
                                                     }	
 
