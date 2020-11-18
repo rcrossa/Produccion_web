@@ -65,7 +65,7 @@
 			$actualizar->bindValue('nombrepais',$pais->getNombrepais());
 			$actualizar->bindValue('idcontinente',$pais->getIdcontinente());
 			$actualizar->bindValue('activo',$pais->getActivo());
-			$actualizar->execute();			
+			$actualizar->execute();
 		}
 	}
 ?>
