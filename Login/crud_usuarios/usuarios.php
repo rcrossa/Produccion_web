@@ -15,7 +15,7 @@ session_start();
     <?php
  $page = '../crud_usuarios/usuarios';
  if (isset($_SESSION['loggedin'])) { 
-  $_SESSION['expire'] = $_SESSION['start'] + (2 * 60) ;
+    $_SESSION['loggedin'] = true;
   }
 else {
   echo "<div class='alert alert-danger mt-4' role='alert'>

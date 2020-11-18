@@ -20,7 +20,7 @@
 					<tr>
 						<input type='hidden' name='email' value='<?php echo $permiso->getEmail()?>'>
 						<td class="table-dark" scope="row">Email:</td>
-						<td class="bg-info"> <input type='text' name='Email' value='<?php echo $permiso->getEmail()?>'></td>
+						<td class="bg-info"> <input type='text' name='email' value='<?php echo $permiso->getEmail()?>'></td>
 					</tr>
 					<tr>
 						<td class="table-dark" scope="row">Rol:</td>
