@@ -34,6 +34,7 @@ $listarContinentes=$crud1->mostrar();
 $listarPaises=$crud2->mostrar();
 $listarCiudades=$crud3->mostrar();
 ?>
+<div class=""> 
 <div class="table1" style="width:auto; height:220px; overflow:auto;">
 <table class="table table-bordered tablamostrar1" >
 		<thead class="table-dark">
@@ -64,8 +65,9 @@ $listarCiudades=$crud3->mostrar();
 		</tbody>
 	</table>
 </div>
+</div>
 <h2> Continentes</h2>
-<div class="container-fluid">
+<div class="table-responsive">
 <div class="table1" style="width:auto; height:220px; overflow:auto; margin-top:20px">
     <table class="table table-bordered tablamostrar1 ">
 		<thead class="table-dark">
@@ -91,7 +93,7 @@ $listarCiudades=$crud3->mostrar();
 </div>
 
 
-<div class="container-fluid">
+<div class="table-responsive">
 
 <h2> Paises</h2>
 		<div class="table1" style="width:auto; height:220px; overflow:auto; margin-top:20px;position:left;">
@@ -120,7 +122,7 @@ $listarCiudades=$crud3->mostrar();
 		</div>
 	</div>
 
-    <div class="container-fluid">
+    <div class="table-responsive">
     
 <h2> Ciudades</h2>
         <div class="table1" style="width:auto; height:220px; overflow:auto;  margin-top:20px">

@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../../css/bootstrap.min.css">
-        <link rel="stylesheet" href="style1.css ">
+        <link rel="stylesheet" href="../crud_usuarios/style1.css ">
 	<title>Mostrar Usuarios</title>
 </head>
 <body>
@@ -30,10 +30,15 @@ $listarUsuarios=$crud->mostrar();
 $listarPermisos=$crud1->mostrar();
 $listarTiporol =$crud2->mostrar();
 ?>
-<div class="container-fluid">
-	<div class="table-responsive">
+
+<!-- <div class="table-responsive">
 	<div class="table1" style="width:auto; height:220px; overflow:auto;">
 		<table class="table table-bordered tablamostrar1 "  cellspacing="0" cellpadding="1">
+			<thead class="table-dark"> -->
+
+<div class="">
+	<div class="table1" style="width:auto; height:220px; overflow:auto;">
+		<table class="table-bordered tablamostrar1 " cellspacing="0" cellpadding="1">
 			<thead class="table-dark">
 				<th>Nombre</th>
 				<th>Apellido</th>
@@ -59,12 +64,12 @@ $listarTiporol =$crud2->mostrar();
 		</table>
 	</div>
 	</div>
-</div>
 
-<div class="container-fluid">
-<div class="table1" style="width:600px; height:220px; overflow:auto;">
-    <table class="table table-bordered tablamostrar1 " cellspacing="0" cellpadding="1">
-		<thead class="table-dark">
+<h2> Alta de permisos</h2>
+<div class="">
+	<div class="table1" style="width:auto; height:220px; overflow:auto;">
+		<table class="table table-bordered tablamostrar1 " cellspacing="0" cellpadding="1">
+			<thead class="table-dark">
 			<th>Email</th>
             <th>Rol</th>
             <th>Accion</th>
@@ -85,27 +90,7 @@ $listarTiporol =$crud2->mostrar();
 	</table>
 </div>
 </div>
-
-	<div class="container-fluid">
-		<div class="table1" style="width:300px; height:220px; overflow:auto;">
-			<table class="table table-bordered tablamostrar1 "  cellspacing="0" cellpadding="1">
-				<thead class="table-dark fixed">
-					<th>Roles</th>
-					<th>Actualizar</th>
-					<th>Eliminar</th>
-				</thead>
-				<tbody>
-					<?php foreach ($listarTiporol as $roles) {?>
-					<tr class="table-info">
-						<td><?php echo $roles->getIdrol() ?></td>
-						<td><a href="actualizarroles.php?idrol=<?php echo $roles->getIdrol()?>&accion=a">Actualizar</a> </td>
-						<td><a href="administrar_roles.php?idrol=<?php echo $roles->getIdrol()?>&accion=e">Eliminar</a>   </td>
-					</tr>
-					<?php }?>
-				</tbody>
-			</table>
-		</div>
-	</div>
+</div>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

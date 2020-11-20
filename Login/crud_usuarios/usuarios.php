@@ -65,7 +65,7 @@ $page = 'usuarios';
   ?>
     <h1>Bienvenidos a la administracion de usuarios</h1>
     <div class="table">
-        <table>
+        <table class="table-bordered">
             <thead>
                 <tr>
                     <th scope="col">Alta de usuarios</th>
@@ -90,10 +90,10 @@ $page = 'usuarios';
                 </tr>
             </tbody>
         </table>
-
+        <h2>Modificacion de usuarios</h2>
         <div class="table-responsive">
             <table class="table table-bordered">
-                <th>Modificacion de usuarios</th>
+                <th></th>
                 <tr>
                     <td><a> <?php  require_once "mostrar.php"?></a></td>
                 </tr>

@@ -19,10 +19,10 @@ $comentario= new Comentario();
 //obtiene todos los usuarios con el método mostrar de la clase crud
 $listarComentarios=$crud->mostrar();
 ?>
-<div class="container-fluid">
+
 	<div class="table-responsive">
 	<div class="table1" style="width:auto; height:220px; overflow:auto;">
-		<table class="table table-bordered tablamostrar1 "  cellspacing="0" cellpadding="1">
+		<table class="table table-bordered tablamostrar1 " cellspacing="0" cellpadding="1">
 			<thead class="table-dark">
 				<th>idproducto</th>
 				<th>ip</th>
@@ -52,7 +52,7 @@ $listarComentarios=$crud->mostrar();
 		</table>
 	</div>
 	</div>
-</div>
+
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
         </script>
