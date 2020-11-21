@@ -37,7 +37,7 @@ $producto= new Producto();
 			$crud->actualizar($producto);	
 			header('Location: productos.php');
 		// si la variable accion enviada por GET es == 'e' llama al crud y elimina un producto
-		}elseif ($_GET['accion']=='e') {
+		}elseif($_GET['accion']=='e') {
 			$crud->eliminar($_GET['idproducto']);
 			header('Location: productos.php');		
 		// si la variable accion enviada por GET es == 'a', envía a la página actualizar.php 
@@ -45,7 +45,8 @@ $producto= new Producto();
 			header('Location: actualizar.php');
 		}
   } catch (\Throwable $th) {
-	header("refresh:1;url=productos.php"); 
+	  var_dump($_POST['actualizar']);
+	// header("refresh:1;url=productos.php"); 
 	echo '<a>Debes completar todos los campos. Intentalo de nuevo.</a>.'; 
   }
 ?>

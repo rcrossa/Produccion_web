@@ -36,7 +36,7 @@ $listarTiporol =$crud2->mostrar();
 		<table class="table table-bordered tablamostrar1 "  cellspacing="0" cellpadding="1">
 			<thead class="table-dark"> -->
 
-<div class="">
+<div class="container-fluid">
 	<div class="table1" style="width:auto; height:220px; overflow:auto;">
 		<table class="table-bordered tablamostrar1 " cellspacing="0" cellpadding="1">
 			<thead class="table-dark">
@@ -66,9 +66,9 @@ $listarTiporol =$crud2->mostrar();
 	</div>
 
 <h2> Alta de permisos</h2>
-<div class="">
+<div class="container-fluid">
 	<div class="table1" style="width:auto; height:220px; overflow:auto;">
-		<table class="table table-bordered tablamostrar1 " cellspacing="0" cellpadding="1">
+		<table class=" tablamostrar1 " cellspacing="0" cellpadding="1">
 			<thead class="table-dark">
 			<th>Email</th>
             <th>Rol</th>

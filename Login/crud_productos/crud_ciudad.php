@@ -28,7 +28,6 @@
 					$myciudad->setIdciudad($ciudad['idciudad']);
 					$myciudad->setNombreciudad($ciudad['nombreciudad']);
 					$myciudad->setIdpais($ciudad['idpais']);
-					$myciudad->setActivo($ciudad['activo']);
 					$listarCiudades[]=$myciudad;
 					# code...
 				}
@@ -52,19 +51,17 @@
 			$myciudad= new ciudad();
 			$myciudad->setIdciudad($ciudad['idciudad']);
 			$myciudad->setNombreciudad($ciudad['nombreciudad']);
-			$myciudad->setIdpais($ciudad['idpais']);;
-			$myciudad->setActivo($ciudad['activo']);
+			$myciudad->setIdpais($ciudad['idpais']);
 			return $myciudad;
 		}
 
 		//metodo para actualizar un pais, recibe como parametro el pais
 		public function actualizar($ciudad){
 			$db=DB::conectar();
-			$actualizar=$db->prepare('UPDATE ciudades set idciudad=:idciudad,nombreciudad=:nombreciudad,idpais=:idpais,activo=:activo WHERE IDCIUDAD=:idciudad');
+			$actualizar=$db->prepare('UPDATE ciudades set idciudad=:idciudad,nombreciudad=:nombreciudad,idpais=:idpais WHERE IDCIUDAD=:idciudad');
 			$actualizar->bindValue('idciudad'  ,$ciudad->getIdciudad());
 			$actualizar->bindValue('nombreciudad',$ciudad->getNombreciudad());
 			$actualizar->bindValue('idpais',$ciudad->getidpais());
-			$actualizar->bindValue('activo',$ciudad->getActivo());
 			$actualizar->execute();			
 		}
 	}

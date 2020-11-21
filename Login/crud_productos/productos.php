@@ -270,10 +270,6 @@ if ($now > $_SESSION['expire']) {
                                             <th class="table-dark" scope="row">pais :</th>
                                             <td class="bg-info"><input type="text" name="idpais"></td>
                                         </tr>
-                                        <tr>
-                                            <th class="table-dark" scope="row">Activo:</td>
-                                            <td class="bg-info"><input type="number" name="activo"></td>
-                                        </tr>
                                         <input type="hidden" name="insertar" value='insertar'>
                                     </tbody>
                                 </table>

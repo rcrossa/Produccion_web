@@ -24,7 +24,6 @@ $usuario= new Usuario();
 			header('Location: usuarios.php');
 		// si el elemento de la vista con nombre actualizar no viene nulo, llama al crud y actualiza el usuario
 		}elseif(isset($_POST['actualizar'])){
-			// password_hash($_POST['password'], PASSWORD_BCRYPT),$usuario->getPassword()
 			$usuario->setEmail(   $_POST['email']);
 			$usuario->setPassword(    password_hash($_POST['password'], PASSWORD_BCRYPT));
 			$usuario->setNombre(  $_POST['nombre']);

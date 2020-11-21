@@ -32,10 +32,6 @@
 			<td class="table-dark" scope="row">Pais:</td>
 			<td class="bg-info"><input type='text' name='idpais' value='<?php echo $ciudad->getIdpais() ?>'></td>
 		</tr>
-		<tr>
-			<td class="table-dark" scope="row">Activo:</td>
-			<td class="bg-info"><input type='number' name='activo' value='<?php echo $ciudad->getActivo() ?>'></td>
-		</tr>
 		<input type='hidden' name='actualizar' value='actualizar'>
 	</table>
 	</div>

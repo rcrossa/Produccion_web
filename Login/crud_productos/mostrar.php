@@ -34,10 +34,12 @@ $listarContinentes=$crud1->mostrar();
 $listarPaises=$crud2->mostrar();
 $listarCiudades=$crud3->mostrar();
 ?>
-<div class=""> 
-<div class="table1" style="width:auto; height:220px; overflow:auto;">
-<table class="table table-bordered tablamostrar1" >
-		<thead class="table-dark">
+
+<div class="">
+	<div class="table1" style="width:auto; height:220px; overflow:auto;">
+		<table class="table table-bordered tablamostrar1 ">
+			<thead class="table-dark">
+            <th>Id Producto</th>
 			<th>Id Ciudad</th>
             <th>Precio</th>
             <th>Descripcion</th>
@@ -51,6 +53,7 @@ $listarCiudades=$crud3->mostrar();
 		<tbody>
 			<?php foreach ($listarProductos as $producto) {?>
 			<tr class="table-info">               
+                <td><?php echo $producto->getIdProducto()   ?></td>
                 <td><?php echo $producto->getIdciudad()   ?></td>
                 <td><?php echo $producto->getPrecio() ?></td>
                 <td><?php echo $producto->getDescripcion()     ?></td>
@@ -67,9 +70,9 @@ $listarCiudades=$crud3->mostrar();
 </div>
 </div>
 <h2> Continentes</h2>
-<div class="table-responsive">
+<div class="">
 <div class="table1" style="width:auto; height:220px; overflow:auto; margin-top:20px">
-    <table class="table table-bordered tablamostrar1 ">
+    <table class=" table-bordered tablamostrar1 ">
 		<thead class="table-dark">
 				<th>id</th>
 				<th>nombre</th>
@@ -130,8 +133,7 @@ $listarCiudades=$crud3->mostrar();
                 <thead class="table-dark">
                         <th>idciudad</th>
                         <th>nombreciudad</th>
-                        <th>idpais</th>    
-                        <th>activo</th>                                       
+                        <th>idpais</th>                                         
                         <th>Actualizar</th>
                         <th>Elimnar</th>
                 </thead>
@@ -141,7 +143,6 @@ $listarCiudades=$crud3->mostrar();
                         <td><?php echo $ciudad->getIdciudad() ?></td>
                         <td><?php echo $ciudad->getNombreciudad() ?></td>
                         <td><?php echo $ciudad->getIdpais() ?></td>
-                        <td><?php echo $ciudad->getActivo() ?></td>
                         <td><a href="actualizar_ciudad.php?idciudad=<?php echo $ciudad->getIdciudad()?>&accion=a">Actualizar</a> </td>
                         <td><a href="administrar_ciudad.php?idciudad=<?php echo $ciudad->getIdciudad()?>&accion=e">Eliminar</a>   </td>
                     </tr>

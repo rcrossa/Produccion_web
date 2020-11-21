@@ -38,7 +38,7 @@
 						<td class="table-dark" scope="row">Pass:</td>
 						<td class="bg-info"><input type='text' name='password' value='<?php  echo $usuario->getPassword()?>' ></td>
 					</tr>
-					<input type='hidden' name='actualizar' value='actualizar'>
+					<!-- <input type='hidden' name='actualizar' value='actualizar'> -->
 				</table>
 			</div>
 			<input type='submit' value='Guardar'/>

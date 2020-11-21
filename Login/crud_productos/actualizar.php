@@ -16,10 +16,10 @@
 	<title>Actualizar Producto</title>
 </head>
 <body>
-	<form method='post' action='administrar_producto.php' >
+	<form  action='administrar_producto.php' method='post' >
 	<div class="table-responsive">
 	<table class="table tablaingresar ">
-		<tr>
+		<tr>		
 		<input type='hidden' name='idproducto' value='<?php echo $producto->getIdproducto()?>'>
 		</tr>
 		<tr>
@@ -50,13 +50,14 @@
 			<td class="table-dark" scope="row">Activo:</td>
 			<td class="bg-info"><input type='number' name='activo' value='<?php echo $producto->getActivo()?>' ></td>
 		</tr>
-		<input type='hidden' name='actualizar' value='actualizar'>		
+		<input type='hidden' name='actualizar' value='actualizar'>	
 	</table>
 	</div>
-	<input type='submit' value='Guardar'/>
-	<button type="button"  class="back-button"><a href="productos.php">Volver</a></button>
+	<button type='submit'  value='actualizar'><a href="productos.php">actualizar</a></button>
+	<input type='submit' value='Actualizar'/>
+	<button type='button'  class='back-button'><a href="productos.php">Volver</a></button>
 </form>
-
+<?php var_dump($producto);?>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
