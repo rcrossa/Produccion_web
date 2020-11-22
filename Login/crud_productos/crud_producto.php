@@ -70,8 +70,8 @@
 		}
 		public function actualizar($producto){
 			$db=DB::conectar();
-			$actualizar=$db->prepare('UPDATE productos set idproducto=:idproducto idciudad=:idciudad,precio=:precio,descripcion=:descripcion,detalle=:detalle,url=:url,destacado=:destacado,activo=:activo WHERE IDPRODUCTO=:idproducto');
-			// $actualizar->bindValue('idproducto',$producto->getIdproducto());
+			$actualizar=$db->prepare('UPDATE productos set idproducto=:idproducto,idciudad=:idciudad,precio=:precio,descripcion=:descripcion,detalle=:detalle,url=:url,destacado=:destacado,activo=:activo WHERE IDPRODUCTO=:idproducto');
+			$actualizar->bindValue('idproducto',$producto->getIdproducto());
 			$actualizar->bindValue('idciudad',$producto->getIdciudad());
 			$actualizar->bindValue('precio',$producto->getPrecio());
 			$actualizar->bindValue('description',$producto->getDescripcion());
