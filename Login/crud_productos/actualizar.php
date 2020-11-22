@@ -16,11 +16,14 @@
 	<title>Actualizar Producto</title>
 </head>
 <body>
-	<form  action='administrar_producto.php' method='post' >
+	<form method='post' action='administrar_producto.php'  >
 	<div class="table-responsive">
 	<table class="table tablaingresar ">
-		<tr>		
+		<tr>
 		<input type='hidden' name='idproducto' value='<?php echo $producto->getIdproducto()?>'>
+		<td class="table-dark" scope="row">Estado:</td>
+		<td class="bg-info"><input type='hidden' name='actualizar' value='actualizar'>	</td>
+
 		</tr>
 		<tr>
 			<td class="table-dark" scope="row">Id ciudad:</td>
@@ -53,8 +56,8 @@
 		<input type='hidden' name='actualizar' value='actualizar'>	
 	</table>
 	</div>
-	<button type='submit'  value='actualizar'><a href="productos.php">actualizar</a></button>
-	<input type='submit' value='Actualizar'/>
+	<button type='submit'  value='guardar'><a href="productos.php">actualizar</a></button>
+	<input type='submit' value='actualizar'/>
 	<button type='button'  class='back-button'><a href="productos.php">Volver</a></button>
 </form>
 <?php var_dump($producto);?>

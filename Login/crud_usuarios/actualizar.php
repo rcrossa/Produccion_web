@@ -38,10 +38,10 @@
 						<td class="table-dark" scope="row">Pass:</td>
 						<td class="bg-info"><input type='text' name='password' value='<?php  echo $usuario->getPassword()?>' ></td>
 					</tr>
-					<!-- <input type='hidden' name='actualizar' value='actualizar'> -->
+					<input type='hidden' name='actualizar' value='actualizar'>
 				</table>
 			</div>
-			<input type='submit' value='Guardar'/>
+			<input type='submit' value='actualizar'/>
 			<button type="button" class="back-button"><a href="usuarios.php">Volver</a></button>
 		</form>
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
