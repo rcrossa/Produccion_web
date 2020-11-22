@@ -19,8 +19,12 @@
 <form method='post' action='administrar_producto.php' >
 			<div class="table-responsive">
 				<table class="table tablaingresar ">
-					<tr>
-						<input type='hidden' name='idproducto' value='<?php echo $producto->getIdproducto()?>'>
+				<!-- <input type='hidden' name='idproducto' value='<?php echo $producto->getIdproducto()?>'> -->
+				<tr>						
+						<td class="table-dark" scope="row">ID Producto:</td>
+						<td class="bg-info"> <input type='text' name='idproducto' value='<?php echo $producto->getIdproducto()?>'></td>
+					</tr>
+					<tr>						
 						<td class="table-dark" scope="row">ID ciudad:</td>
 						<td class="bg-info"> <input type='text' name='idciudad' value='<?php echo $producto->getIdciudad()?>'></td>
 					</tr>
@@ -46,7 +50,7 @@
 					</tr>
 					<tr>
 						<td class="table-dark" scope="row">Activo:</td>
-						<td class="bg-info"><input type='text' name='activo' value='<?php echo $producto->getActivo() ?>'></td>
+						<td class="bg-info"><input type='number' name='activo' value='<?php echo $producto->getActivo() ?>'></td>
 					</tr>
 					<input type='hidden' name='actualizar' value='actualizar'>
 				</table>

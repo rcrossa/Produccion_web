@@ -46,7 +46,7 @@ $producto= new Producto();
 		}
   } catch (\Throwable $th) {
 	  var_dump($_POST['actualizar']);
-	// header("refresh:1;url=productos.php"); 
+	header("refresh:1;url=productos.php"); 
 	echo '<a>Debes completar todos los campos. Intentalo de nuevo.</a>.'; 
   }
 ?>
