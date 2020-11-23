@@ -31,10 +31,7 @@ $listarPermisos=$crud1->mostrar();
 $listarTiporol =$crud2->mostrar();
 ?>
 
-<!-- <div class="table-responsive">
-	<div class="table1" style="width:auto; height:220px; overflow:auto;">
-		<table class="table table-bordered tablamostrar1 "  cellspacing="0" cellpadding="1">
-			<thead class="table-dark"> -->
+
 
 <div class="table-responsive">
 	<div class="table1" style="width:auto; height:220px; overflow:auto;">

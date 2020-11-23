@@ -44,10 +44,7 @@ if ($now > $_SESSION['expire']) {
   $hostPDO ="mysql:host=$hostDB;dbname=$nombreDB";
   $miPDO = new PDO($hostPDO, $usuarioDB, $contrasenyaDB);
 
-  // Prepara SELECT
-//   $miConsulta = $miPDO->prepare('SELECT  idciudad,precio, descripcion, detalle, url, destacado, activo FROM productos;');
-  // Ejecuta consulta
-//   $miConsulta->execute();
+
 
 
  ?>

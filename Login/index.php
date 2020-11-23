@@ -15,10 +15,9 @@ session_start();
 <?php
        $page = 'index';
 
-       if (isset($_SESSION['loggedin'])) { 
-        $_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;
-        }
-    else {
+       if ($_SESSION['loggedin'] == true && $_SESSION['tipo_rol']=="admin") { 
+        $_SESSION['loggedin'] = true;
+        }else {
         echo "<div class='alert alert-danger mt-4' role='alert'>
         <h4>Necesitas estar logueado para acceder a esta pagina.</h4>
         <p><a href='login.php'>Acceda haciendo click aqui!</a></p></div>";

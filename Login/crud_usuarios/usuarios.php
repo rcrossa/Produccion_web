@@ -218,13 +218,11 @@ $page = 'usuarios';
                                             </tbody>
                                         </table>
                                     </div>
-                                    <!-- <button class="botoningresar" onclick="window.location.href='usuarios.php'" type="submit"
-                                        value='insertar' class="btn btn-primary btn-sm">Crear Permiso</button></p> -->
                                         <button class="botoningresar" onclick="window.location.href='usuarios.php'" type="submit"
                                         value='insertar' class="btn btn-primary btn-sm">Crear Rol</button></p>
                                     <button class="botoningresar" onclick="window.location.href='usuarios.php'"
                                         class="btn btn-primary btn-sm" data-dismiss="modal">Volver</button></p>
-                                    <!-- <button href="usuarios.php" type="submit" >volver</button> -->
+                                    
                                 </form>
                             </div>
                         </div>

@@ -48,6 +48,7 @@
                         <hr>
                         
                         <p>¿Tienes que crear una cuenta? <button onclick="window.location.href='Formulariodealta.php'" type="button" class="btn btn-primary btn-sm">Click aqui!</button></p>
+                        <p><button onclick="window.location.href='../index.php'" type="button" class="btn btn-primary btn-sm">Volver al inicio</button></p>
                     </div><!-- /.loginBox -->
                 </div><!-- /.card -->
             </div><!-- /.col -->
