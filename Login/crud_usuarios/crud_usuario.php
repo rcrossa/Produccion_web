@@ -12,7 +12,7 @@
 			$db=DB::conectar();
 			$insert=$db->prepare('INSERT INTO usuarios values(:email,:password,:nombre,:apellido,:edad)');
 			$insert->bindValue('email',$usuario->getEmail());
-			$insert->bindValue('password',password_hash('password', PASSWORD_BCRYPT),$usuario->getPassword());
+			$insert->bindValue('password',$usuario->getPassword());
 			$insert->bindValue('nombre',$usuario->getNombre());
 			$insert->bindValue('apellido',$usuario->getApellido());
 			$insert->bindValue('edad',$usuario->getEdad());

@@ -1,34 +1,25 @@
 <?php
-//incluye la clase Usuario y CrudUsuario
-	require_once ('crud_permisos.php');
-	require_once ('permiso.php');
-	$crud= new CrudPermiso();
-	$permiso=new Permiso();
+	require_once ('crud_tiporoles.php');
+	require_once ('roles.php');
+	$crud= new CrudTiporol();
+	$roles=new Roles();
 	//busca el usuario utilizando el id, que es enviado por GET desde la vista mostrar.php
-	$permiso=$crud->obtenerPermiso($_GET['email']);
+	$roles=$crud->obtenerTiporol($_GET['idrol']);
 ?>
 <html>
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-	<title>Actualizar Permisos</title>
+	<title>Actualizar Roles</title>
 </head>
 <body>
-		<form method='post' action='administrar_permisos.php' >
+		<form method='post' action='administrar_roles.php' >
 			<div class="table-responsive">
 				<table class="table tablaingresar ">
 					<tr>
-						<input type='hidden' name='email' value='<?php echo $permiso->getEmail()?>'>
-						<td class="table-dark" scope="row">Email:</td>
-						<td class="bg-info"> <input type='text' name='email' value='<?php echo $permiso->getEmail()?>'></td>
-					</tr>
-					<tr>
+						<input type='hidden' name='idrol' value='<?php echo $roles->getIdrol()?>'>
 						<td class="table-dark" scope="row">Rol:</td>
-						<td class="bg-info"><input type='text' name='tipo_rol' value='<?php echo $permiso->getTipo_rol()?>' ></td>
-					</tr>
-					<tr>
-						<td class="table-dark" scope="row">Accion:</td>
-						<td class="bg-info"><input type='text' name='accion' value='<?php echo $permiso->getAccion()?>' ></td>
+						<td class="bg-info"> <input type='text' name='idrol' value='<?php echo $roles->getIdrol()?>'></td>
 					</tr>
 					<input type='hidden' name='actualizar' value='actualizar'>
 				</table>

@@ -11,8 +11,10 @@ $usuario= new Usuario();
   try {
 		// si el elemento insertar no viene nulo llama al crud e inserta un usuario
 		if (isset($_POST['insertar'])) {
+			$pass = $_POST['password'];
+			$passHash = password_hash($pass, PASSWORD_BCRYPT);
 			$usuario->setEmail(   $_POST['email']);
-			$usuario->setPassword(    $_POST['password']);
+			$usuario->setPassword( $passHash);
 			$usuario->setNombre(  $_POST['nombre']);
 			$usuario->setApellido($_POST['apellido']);
 			$usuario->setEdad(    $_POST['edad']);
@@ -22,7 +24,6 @@ $usuario= new Usuario();
 			header('Location: usuarios.php');
 		// si el elemento de la vista con nombre actualizar no viene nulo, llama al crud y actualiza el usuario
 		}elseif(isset($_POST['actualizar'])){
-			// password_hash($_POST['password'], PASSWORD_BCRYPT),$usuario->getPassword()
 			$usuario->setEmail(   $_POST['email']);
 			$usuario->setPassword(    password_hash($_POST['password'], PASSWORD_BCRYPT));
 			$usuario->setNombre(  $_POST['nombre']);
@@ -39,12 +40,6 @@ $usuario= new Usuario();
 			header('Location: actualizar.php');
 		}
   } catch (\Throwable $th) {
-	// $message = "wrong answer";
-	// 	// echo "<script type='text/javascript'>alert('$message');</script>";
-	// 	$url ="usuarios.php"; // aqui pones la url
-	// 	$tiempo_espera = 0.1; // Aquí se configura cuántos segundos hasta la actualización.
-	// 	// Declaramos la funcion apra la redirección
-	// 	header("echo '$message'; refresh: $tiempo_espera; url=$url");
 	header("refresh:1;url=usuarios.php"); 
 	echo 'Debes completar todos los campos. Intentalo de nuevo.</a>.'; 
   }

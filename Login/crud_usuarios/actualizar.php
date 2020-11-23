@@ -41,10 +41,8 @@
 					<input type='hidden' name='actualizar' value='actualizar'>
 				</table>
 			</div>
-			<!-- <button type="submit" value="actualizar" >actualizar</button> -->
-			<input type='submit' value='Guardar'/>
+			<input type='submit' value='actualizar'/>
 			<button type="button" class="back-button"><a href="usuarios.php">Volver</a></button>
-			<!-- <input type='submit'> <a href="usuarios.php">Volver</a> -->
 		</form>
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

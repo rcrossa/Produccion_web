@@ -1,5 +1,4 @@
 <?php
-//incluir la clase usuario y crudusuario
 require_once ('crud_permisos.php');
 require_once ('permiso.php');
 
