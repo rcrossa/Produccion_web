@@ -46,7 +46,7 @@ $apellido = $_POST['apellido'];
 $edad =$_POST['edad'];
 $email = $_POST['email'];
 $pass = $_POST['password'];
-$categoria = 'productos';
+$categoria = 'usuarios';
 $perfil= 'ver';
 
 // The password_hash() function convert the password in a hash before send it to the database

@@ -65,7 +65,7 @@ session_start();
                                                     $_SESSION['accion'] = $row['accion'];
                                                     $_SESSION['start'] = time();
                                                     $_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;						
-                                                            if($_SESSION['accion']=="ver" || $_SESSION['tipo_rol']=="usuarios"){
+                                                            if($_SESSION['tipo_rol']=="usuarios"){
                                                                 echo "<div class='alert alert-success mt-4' role='alert'><strong>Bienvenido $row[tipo_rol] $row[apellido]</strong>			
                                                                 <p><a href='Panelusuario/index.php'>Ir al panel de usuarios</a></p>
                                                                 <p><a href='logout.php'>Logout</a></p></div>";
