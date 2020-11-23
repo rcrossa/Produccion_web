@@ -71,7 +71,7 @@ $page = 'usuarios';
                 <tr>
                     <th scope="col">Alta de usuarios</th>
                     <th scope="col">Alta de Permisos</th>
-                    <th scope="col">Alta de Roles</th>
+                    <!-- <th scope="col">Alta de Roles</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -83,10 +83,10 @@ $page = 'usuarios';
                         <button type="button" class="btn btn-primary botoningresar" data-toggle="modal"
                             data-target="#modalpermisos">Nuevo permiso</button></a>
                     </td>
-                    <td>
+                    <!-- <td>
                         <button type="button" class="btn btn-primary botoningresar" data-toggle="modal"
                             data-target="#modalroles">Nuevo Rol</button></a>
-                    </td>
+                    </td> -->
 
                 </tr>
             </tbody>
@@ -195,7 +195,7 @@ $page = 'usuarios';
         </div>
         
                 <!-- Modal de alta de Tiporol -->
-                <div class="modal fade" id="modalroles" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                <!-- <div class="modal fade" id="modalroles" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -227,7 +227,7 @@ $page = 'usuarios';
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 
         <script>
         $('#modalusuarios').on('show.bs.modal', function(event) {
@@ -236,7 +236,7 @@ $page = 'usuarios';
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
             var modal = $(this)
-            modal.find('.modal-title').text('New message to ' + recipient)
+            modal.find('.modal-title').text('Agregar un usuario ' + recipient)
             modal.find('.modal-body input').val(recipient)
         })
         </script>
@@ -249,7 +249,7 @@ $page = 'usuarios';
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
             var modal = $(this)
-            modal.find('.modal-title').text('New message to ' + recipient)
+            modal.find('.modal-title').text('Agregar permiso ' + recipient)
             modal.find('.modal-body input').val(recipient)
         })
         
@@ -257,15 +257,15 @@ $page = 'usuarios';
                 <script>
                 // Modal Roles
 
-                $('#modalroles').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget) // Button that triggered the modal
-            var recipient = button.data('whatever') // Extract info from data-* attributes
-            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-            var modal = $(this)
-            modal.find('.modal-title').text('New message to ' + recipient)
-            modal.find('.modal-body input').val(recipient)
-        })
+        //         $('#modalroles').on('show.bs.modal', function(event) {
+        //     var button = $(event.relatedTarget) // Button that triggered the modal
+        //     var recipient = button.data('whatever') // Extract info from data-* attributes
+        //     // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        //     // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        //     var modal = $(this)
+        //     modal.find('.modal-title').text('Agregar rol ' + recipient)
+        //     modal.find('.modal-body input').val(recipient)
+        // })
         
         </script>
         <?php require_once "../includes/footer.php" ?>
