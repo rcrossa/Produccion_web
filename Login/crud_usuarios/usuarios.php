@@ -14,10 +14,10 @@ session_start();
 <body>
     <?php
  $page = '../crud_usuarios/usuarios';
- if (isset($_SESSION['loggedin'])) { 
+
+ if ($_SESSION['loggedin'] == true && $_SESSION['tipo_rol']=="admin") { 
     $_SESSION['loggedin'] = true;
-  }
-else {
+  }else {
   echo "<div class='alert alert-danger mt-4' role='alert'>
   <h4>Necesitas estar logueado para acceder a esta pagina.</h4>
   <p><a href='../login.php'>Acceda haciendo click aqui!</a></p></div>";
@@ -57,9 +57,10 @@ $page = 'usuarios';
     <?php 
     if (isset($_POST['cerrar_sesion']))
 	{
-		unset($_SESSION);
-        header("location:../login.php");
+        unset($_SESSION);
         $conn->close();
+        header("location:../../index.php");
+        
         
     }
   ?>

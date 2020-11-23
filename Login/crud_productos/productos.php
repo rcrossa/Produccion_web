@@ -14,8 +14,8 @@ session_start();
 <body>
     <?php
  $page = 'productos';
- if (isset($_SESSION['loggedin'])) { 
-  $_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;
+ if ($_SESSION['loggedin'] == true && $_SESSION['tipo_rol']=="admin") { 
+    $_SESSION['loggedin'] = true;
   }
 else {
   echo "<div class='alert alert-danger mt-4' role='alert'>

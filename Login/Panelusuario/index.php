@@ -60,7 +60,7 @@ session_start();
                     <a class="nav-link" href="index.php">Comentarios</a>
                 </li>
                 <form class="form-inline my-2 my-lg-0" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                    <button onclick="window.location.href='../login.php'" type="button"
+                    <button onclick="window.location.href='../../index.php'" type="button"
                         class="btn btn-dark my-2 my-sm-0" type="submit" value="cerrar_sesion">Logout</button>
                 </form>
             </ul>
