@@ -28,7 +28,7 @@
 					</tr>
 					<tr>
 						<td class="table-dark" scope="row">Fecha:</td>
-						<td class="bg-info"><input type='number' name='fecha' value='<?php echo $comentario->getFecha()?>' ></td>
+						<td class="bg-info"><input type='date' name='fecha' value='<?php echo $comentario->getFecha()?>' ></td>
 					</tr>
 					<tr>
 						<td class="table-dark" scope="row">Comentario:</td>
