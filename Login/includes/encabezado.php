@@ -19,7 +19,7 @@
                     <a class="nav-link" href="../crud_productos/productos.php">Catalogo de productos</a>
                 </li>
                 <form name="cerrar-sesion" class="form-inline my-2 my-lg-0">
-                    <button onclick="window.location.href='../login.php'" type="button"
+                    <button onclick="window.location.href='../../index.php'" type="button"
                         class="btn btn-dark my-2 my-sm-0" type="submit" value="cerrar_sesion">Logout</button>
                 </form>
             </ul>
