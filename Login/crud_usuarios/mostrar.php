@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../../css/bootstrap.min.css">
-        <link rel="stylesheet" href="../crud_usuarios/style1.css ">
+        <!-- <link rel="stylesheet" href="../crud_usuarios/style1.css "> -->
 	<title>Mostrar Usuarios</title>
 </head>
 <body>
@@ -36,9 +36,9 @@ $listarTiporol =$crud2->mostrar();
 		<table class="table table-bordered tablamostrar1 "  cellspacing="0" cellpadding="1">
 			<thead class="table-dark"> -->
 
-<div class="container-fluid">
+<div class="table-responsive">
 	<div class="table1" style="width:auto; height:220px; overflow:auto;">
-		<table class="table-bordered tablamostrar1 " cellspacing="0" cellpadding="1">
+		<table class="table table-bordered tablamostrar1 " cellspacing="0" cellpadding="1">
 			<thead class="table-dark">
 				<th>Nombre</th>
 				<th>Apellido</th>
@@ -66,7 +66,7 @@ $listarTiporol =$crud2->mostrar();
 	</div>
 
 <h2> Alta de permisos</h2>
-<div class="container-fluid">
+<div class="table-responsive">
 	<div class="table1" style="width:auto; height:220px; overflow:auto;">
 		<table class=" tablamostrar1 " cellspacing="0" cellpadding="1">
 			<thead class="table-dark">

@@ -10,7 +10,7 @@ session_start();
      <?php  require_once "../includes/head.php" ?>
     <title>Document</title>
 </head>
-
+<?php  require_once '../includes/head.php';?>
 <body>
     <?php
  $page = '../crud_usuarios/usuarios';

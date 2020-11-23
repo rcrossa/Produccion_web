@@ -49,7 +49,7 @@ $page = 'index';
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li <?php echo ($page == 'index') ? "class='nav-item active px-3 py-2'" : ""; ?> class="nav-item px-3 py-2">
-        <a class="nav-link" href="index.php">Home </span></a>
+        <a class="nav-link" href="index.php">Comentarios </span></a>
       </li>
       <li <?php echo ($page == 'usuarios') ? "class='nav-item active px-3 py-2'" : ""; ?> class="nav-item px-3 py-2">
         <a class="nav-link" href="crud_usuarios/usuarios.php">Usuarios</a>
