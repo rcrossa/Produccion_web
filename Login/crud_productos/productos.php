@@ -124,7 +124,7 @@ if ($now > $_SESSION['expire']) {
                                             <td class="bg-info"><input type="text" name="detalle"></td>
                                         </tr>
                                         <tr>
-                                            <th class="table-dark" scope="row">Url:</td>
+                                            <th class="table-dark" scope="row">Foto:</td>
                                             <td class="bg-info"><input type="text" name="url"></td>
                                         </tr>
                                         <tr>
