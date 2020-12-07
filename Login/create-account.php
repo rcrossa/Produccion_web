@@ -53,12 +53,13 @@ $perfil= 'ver';
 $passHash = password_hash($pass, PASSWORD_BCRYPT);
 
 // Query to send Name, Email and Password hash to the database
-$sql = "INSERT INTO usuarios (email, password, nombre, apellido, edad) VALUES ('$email',
-'$passHash','$nombre','$apellido','$edad')";
-$sql2 = "INSERT INTO `roles`(email, tipo_rol, accion) VALUES ('$email','$categoria','$perfil')";
+// $sql = "INSERT INTO usuarios (email, password, nombre, apellido, edad) VALUES ('$email',
+// '$passHash','$nombre','$apellido','$edad')";
+// $sql2 = "INSERT INTO `roles`(email, tipo_rol, accion) VALUES ('$email','$categoria','$perfil')";
+$sql="call altadecuenta('$email','$passHash','$nombre','$apellido','$edad','$categoria','$perfil')";
 
 if ($conn->query($sql) === TRUE) {
-    $conn->query($sql2);
+    //$conn->query($sql2);
     echo "<div class='alert alert-success mt-4' role='alert'><h3>Your account has been created.</h3>
     <a class='btn btn-outline-primary' href='login.php' role='button'>Login</a></div>";	
     

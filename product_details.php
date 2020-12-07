@@ -88,8 +88,9 @@
             $email = $_POST['email'];
             $activo = "0";
             $fecha= date('Y-m-d');
-            $sql = "INSERT INTO comentarios(idproducto, ip, fecha, comentario, estrellas, activo, email)
-            VALUES ('$id','$ip','$fecha','$comentario1','$estrellas','$activo','$email')";
+            // $sql = "INSERT INTO comentarios(idproducto, ip, fecha, comentario, estrellas, activo, email)
+            // VALUES ('$id','$ip','$fecha','$comentario1','$estrellas','$activo','$email')";
+            $sql="call Creacioncomentario('$id','$ip','$fecha','$comentario1','$estrellas','$activo','$email')";
         
             $db->exec($sql);
 
