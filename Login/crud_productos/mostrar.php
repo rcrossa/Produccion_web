@@ -13,6 +13,8 @@
 //incluye la clase Producto y CrudProducto
 require_once ('crud_producto.php');
 require_once ('producto.php');
+require_once ('campos_dinamicos/crud_campo.php');
+require_once ('campos_dinamicos/campo.php');
 require_once ('crud_continente.php');
 require_once ('continente.php');
 require_once ('crud_pais.php');
@@ -28,11 +30,14 @@ $crud2 = new CrudPais();
 $pais= new Pais();
 $crud3 = new CrudCiudad();
 $ciudad= new Ciudad();
+$crud4 = new CrudCampo();
+$campo= new Campo();
 //obtiene todos los productos con el método mostrar de la clase crud
 $listarProductos=$crud->mostrar();
 $listarContinentes=$crud1->mostrar();
 $listarPaises=$crud2->mostrar();
 $listarCiudades=$crud3->mostrar();
+$listarCampos=$crud4->mostrar();
 ?>
 
 <div class="">
@@ -62,7 +67,36 @@ $listarCiudades=$crud3->mostrar();
                 <td><?php echo $producto->getDestacado() ?></td>
                 <td><?php echo $producto->getActivo()   ?></td>
 				<td><a href="actualizar.php?idproducto=<?php echo $producto->getIdproducto()?>&accion=a">Actualizar</a> </td>
-				<td><a href="administrar_producto.php?idproducto=<?php echo $producto->getIdproducto()?>&accion=e">Eliminar</a>  </td>
+				<td><a href="administrar_campo.php?idproducto=<?php echo $producto->getIdproducto()?>&accion=e">Eliminar</a>  </td>
+			</tr>
+			<?php }?>
+		</tbody>
+	</table>
+</div>
+</div>
+<h2> Campos dinamicos</h2>
+<div class="">
+	<div class="table1" style="width:auto; height:220px; overflow:auto;">
+		<table class="table table-bordered tablamostrar1 ">
+			<thead class="table-dark">
+            <th>Id</th>
+			<th>Id Producto</th>
+            <th>Label</th>
+            <th>Activo</th>
+			<th>Data</th>
+			<th>Actualizar</th>
+			<th>Eliminar</th>
+		</thead>
+		<tbody>
+			<?php foreach ($listarCampos as $campo) {?>
+			<tr class="table-info">  
+                <td><?php echo $campo->getId()    ?></td>
+                <td><?php echo $campo->getId_producto()   ?></td>
+                <td><?php echo $campo->getLabel()   ?></td>
+                <td><?php echo $campo->getActivo() ?></td>
+                <td><?php echo $campo->getData()     ?></td>
+				<td><a href="campos_dinamicos/actualizar.php?id=<?php echo $campo->getId()?>&accion=a">Actualizar</a> </td>
+				<td><a href="campos_dinamicos/administrar_campo.php?id=<?php echo $campo->getId()?>&accion=e">Eliminar</a>  </td>
 			</tr>
 			<?php }?>
 		</tbody>

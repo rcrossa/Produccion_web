@@ -64,7 +64,9 @@ $page = 'index';
 <?php require_once ('comentarios/mostrar.php');?>
 <h2>Comentarios Pendientes de Aprobación</h2>
 <?php require_once ('comentarios/mostrar1.php');?>
-        <?require_once "includes/footer.php";        ?>
+<h2>Comentarios Campos dinamicos</h2>
+<?php require_once ('comentarios/mostrar2.php');?>
+        <?php require_once "includes/footer.php";        ?>
     
 </body>
 </html>

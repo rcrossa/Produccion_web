@@ -62,6 +62,8 @@ if ($now > $_SESSION['expire']) {
                     <th scope="col">Alta Continentes</th>
                     <th scope="col">Alta Paises</th>
                     <th scope="col">Alta Ciudades</th>
+                    <th scope="col">Alta Campo Dinamico</th>
+                    <th scope="col">Alta Campo Dinamico Comentarios</th>
                 </tr>
             </thead>
             <tbody>
@@ -70,20 +72,27 @@ if ($now > $_SESSION['expire']) {
                             data-target="#modalproductos">Nuevo Producto</button></a>
                     </td>
                     <td> <button type="button" class="btn btn-primary botoningresar" data-toggle="modal"
+                            data-target="#modalproductos">Nuevo Campo</button></a>
+                    </td>
+                    <td> <button type="button" class="btn btn-primary botoningresar" data-toggle="modal"
                             data-target="#modalcontinentes">Nuevo Continente</button></a>
                     </td>
                     <td> <button type="button" class="btn btn-primary botoningresar" data-toggle="modal"
                             data-target="#modalpaises">Nuevo Pais</button></a>
                     </td>
                     <td> <button type="button" class="btn btn-primary botoningresar" data-toggle="modal"
-                            data-target="#modalciudades">Nueva Ciudad</button></a>
+                            data-target="#modalcampos">Nuevo Campo Dinamico</button></a>
+                    </td>
+                    <td> <button type="button" class="btn btn-primary botoningresar" data-toggle="modal"
+                            data-target="#modalcomentariosdinamicos">Nuevo Campo Dinamico Comentarios</button></a>
                     </td>
                 </tr>
             </tbody>
         </table>
+        
+        <h2>Administrar Producto</h2>
         <div class="table-responsive">
             <table class="table table-bordered">
-                <th>Administrar Producto</th>
                 <tbody>
                     <tr>
                         <td><a> <?php  require_once "mostrar.php"?></a></td>
@@ -142,6 +151,94 @@ if ($now > $_SESSION['expire']) {
                             <button class="botoningresar" onclick="alert('Producto agregado')" type="submit"
                                 value='insertar' class="btn btn-primary btn-sm">Crear Producto</button></p>
                             <button class="botoningresar" onclick="window.location.href='productos.php'"
+                                class="btn btn-primary btn-sm" data-dismiss="modal">Volver</button></p>
+                            <!-- <button href="usuarios.php" type="submit" >volver</button> -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Modal alta de Campos -->
+                <div class="modal fade" id="modalcampos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Nuevo Campo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method='post' action='campos_dinamicos/administrar_campo.php'>
+                            <div class="table-responsive">
+                                <table class="table tablaingresar ">
+                                    <tbody>
+                                        <tr>
+                                            <th class="table-dark" scope="row">Id Producto:</th>
+                                            <td class="bg-info"><input type="number" name="id_producto"></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="table-dark" scope="row">Label:</th>
+                                            <td class="bg-info"><input type="text" name="label"></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="table-dark" scope="row">Activo:</th>
+                                            <td class="bg-info"><input type="number" name="activo"></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="table-dark" scope="row">Data:</th>
+                                            <td class="bg-info"><input type="text" name="data"></td>
+                                        </tr>
+                                        <input type="hidden" name="insertar" value='insertar'>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button class="botoningresar" onclick="alert('Campo agregado')" type="submit"
+                                value='insertar' class="btn btn-primary btn-sm">Crear Campo</button></p>
+                            <button class="botoningresar" onclick="window.location.href='../productos.php'"
+                                class="btn btn-primary btn-sm" data-dismiss="modal">Volver</button></p>
+                            <!-- <button href="usuarios.php" type="submit" >volver</button> -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+ <!-- Modal alta de Comentarios dinamicos -->
+      <div class="modal fade" id="modalcomentariosdinamicos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Nuevo Campo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method='post' action='../comentarios/administrar_comentarios_campo_dinamico.php'>
+                            <div class="table-responsive">
+                                <table class="table tablaingresar ">
+                                    <tbody>
+                                        <tr>
+                                            <th class="table-dark" scope="row">Id Producto:</th>
+                                            <td class="bg-info"><input type="number" name="producto_id"></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="table-dark" scope="row">Label:</th>
+                                            <td class="bg-info"><input type="text" name="label"></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="table-dark" scope="row">Activo:</th>
+                                            <td class="bg-info"><input type="number" name="activo"></td>
+                                        </tr>
+                                        <input type="hidden" name="insertar" value='insertar'>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button class="botoningresar" onclick="alert('Campo agregado')" type="submit"
+                                value='insertar' class="btn btn-primary btn-sm">Crear Campo</button></p>
+                            <button class="botoningresar" onclick="window.location.href='../crud_productos/productos.php'"
                                 class="btn btn-primary btn-sm" data-dismiss="modal">Volver</button></p>
                             <!-- <button href="usuarios.php" type="submit" >volver</button> -->
                         </form>
@@ -328,6 +425,28 @@ if ($now > $_SESSION['expire']) {
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
             var modal = $(this)
             modal.find('.modal-title').text('Agregar una ciudad ' + recipient)
+            modal.find('.modal-body input').val(recipient)
+        })
+        </script>
+     <script>
+        $('#modalcampos').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var recipient = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text('Agregar una campo ' + recipient)
+            modal.find('.modal-body input').val(recipient)
+        })
+        </script>
+             <script>
+        $('#modalcomentariosdinamicos').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var recipient = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text('Agregar una campo ' + recipient)
             modal.find('.modal-body input').val(recipient)
         })
         </script>
