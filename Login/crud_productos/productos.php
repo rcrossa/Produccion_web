@@ -238,7 +238,7 @@ if ($now > $_SESSION['expire']) {
                             </div>
                             <button class="botoningresar" onclick="alert('Campo agregado')" type="submit"
                                 value='insertar' class="btn btn-primary btn-sm">Crear Campo</button></p>
-                            <button class="botoningresar" onclick="window.location.href='../crud_productos/productos.php'"
+                            <button class="botoningresar" onclick="window.location.href='../index.php'"
                                 class="btn btn-primary btn-sm" data-dismiss="modal">Volver</button></p>
                             <!-- <button href="usuarios.php" type="submit" >volver</button> -->
                         </form>

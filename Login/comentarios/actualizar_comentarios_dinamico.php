@@ -3,9 +3,9 @@
 require_once ('crud_comentario_dinamico.php');
 require_once ('comentario_dinamico.php');
 $crud= new CrudComentarioDinamico();
-$comentariosdinamicos= new ComentarioDinamico();
+$comentariodinamico= new ComentarioDinamico();
 	//busca el comentarios utilizando el idproducto, que es enviado por GET desde la vista mostrar.php
-	$comentariosdinamicos=$crud->obtenerComentarioDinamico($_GET['id']);
+	$comentariodinamico=$crud->obtenerComentarioDinamico($_GET['id']);
 ?>
 <html>
 <head>
@@ -18,17 +18,17 @@ $comentariosdinamicos= new ComentarioDinamico();
 			<div class="table-responsive">
 				<table class="table tablaingresar ">
 					<tr>
-						<input type='hidden' name='id' value='<?php echo $comentariosdinamicos->getId()?>'>
+						<input type='hidden' name='id' value='<?php echo $comentariodinamico->getId()?>'>
 						<td class="table-dark" scope="row">ID Producto:</td>
-						<td class="bg-info"> <input type='number' name='producto_id' value='<?php echo $comentariosdinamicos->getProducto_id()?>'></td>
+						<td class="bg-info"> <input type='number' name='producto_id' value='<?php echo $comentariodinamico->getProducto_id()?>'></td>
 					</tr>
 					<tr>
 						<td class="table-dark" scope="row">Label:</td>
-						<td class="bg-info"><input type='text' name='label' value='<?php echo $comentariosdinamicos->getLabel()?>' ></td>
+						<td class="bg-info"><input type='text' name='label' value='<?php echo $comentariodinamico->getLabel()?>' ></td>
 					</tr>
 					<tr>
 						<td class="table-dark" scope="row">Activo:</td>
-						<td class="bg-info"><input type='number' name='activo' value='<?php  echo $comentariosdinamicos->getActivo()?>' ></td>
+						<td class="bg-info"><input type='number' name='activo' value='<?php  echo $comentariodinamico->getActivo()?>' ></td>
 					</tr>
 					<input type='hidden' name='actualizar' value='actualizar'>
 				</table>

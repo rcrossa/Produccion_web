@@ -4,28 +4,27 @@ require_once ('comentario_dinamico.php');
 
 
 $crud= new CrudComentarioDinamico();
-$comentariosdinamicos= new ComentarioDinamico();
+$comentariodinamico= new ComentarioDinamico();
 
 
   try {
 		// si el elemento insertar no viene nulo llama al crud e inserta un Rol
 		
 		if (isset($_POST['insertar'])) {
-			// $comentariosdinamicos->setId(   $_POST['id']);
-			$comentariosdinamicos->setProducto_id(   $_POST['producto_id']);
-			$comentariosdinamicos->setLabel(   $_POST['label']);
-			$comentariosdinamicos->setActivo(   $_POST['activo']);
+			$comentariodinamico->setProducto_id(   $_POST['producto_id']);
+			$comentariodinamico->setLabel(   $_POST['label']);
+			$comentariodinamico->setActivo(   $_POST['activo']);
 			//llama a la función insertar definida en el crud
-			$crud->insertar($comentariosdinamicos);
+			$crud->insertar($comentariodinamico);
 			header('Location: ../index.php');
 			echo '<script language="javascript">alert("comentario dinamico agregado");</script>';
 		// si el elemento de la vista con nombre actualizar no viene nulo, llama al crud y actualiza el Rol
 		}elseif(isset($_POST['actualizar'])){
-			$comentariosdinamicos->setId(   $_POST['id']);
-			$comentariosdinamicos->setProducto_id(   $_POST['producto_id']);
-			$comentariosdinamicos->setLabel(   $_POST['label']);
-			$comentariosdinamicos->setActivo(   $_POST['activo']);	
-			$crud->actualizar($comentariosdinamicos);
+			$comentariodinamico->setId(   $_POST['id']);
+			$comentariodinamico->setProducto_id(   $_POST['producto_id']);
+			$comentariodinamico->setLabel(   $_POST['label']);
+			$comentariodinamico->setActivo(   $_POST['activo']);	
+			$crud->actualizar($comentariodinamico);
 			header('Location: ../index.php');
 		// si la variable accion enviada por GET es == 'e' llama al crud y elimina un Rol
 		}elseif ($_GET['accion']=='e') {
@@ -38,5 +37,6 @@ $comentariosdinamicos= new ComentarioDinamico();
   } catch (\Throwable $th) {
 	header("refresh:1;url=../index.php"); 
 	echo 'Debes completar todos los campos. Intentalo de nuevo.</a>.'; 
+	var_dump($comentariodinamico);
   }
 ?>
