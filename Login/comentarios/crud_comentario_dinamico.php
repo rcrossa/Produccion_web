@@ -10,8 +10,8 @@
 
 		public function insertar($comentariodinamico){
 			$db=DB::conectar();
-			$insert=$db->prepare("INSERT INTO comentarios_campo_dinamic values(idproducto,:label,:activo)");
-			$insert->bindValue('Producto_id',$comentariodinamico->getProducto_id());
+			$insert=$db->prepare("INSERT INTO comentarios_campo_dinamic values(producto_id,:label,:activo)");
+			$insert->bindValue('producto_id',$comentariodinamico->getProducto_id());
 			$insert->bindValue('label',$comentariodinamico->getLabel());
 			$insert->bindValue('activo',$comentariodinamico->getActivo());
 			$insert->execute();

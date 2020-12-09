@@ -35,7 +35,7 @@ $comentariodinamico= new ComentarioDinamico();
 			header('Location: comentarios/actualizar_comentarios_dinamico.php');
 		}
   } catch (\Throwable $th) {
-	header("refresh:1;url=../index.php"); 
+	// header("refresh:1;url=../index.php"); 
 	echo 'Debes completar todos los campos. Intentalo de nuevo.</a>.'; 
 	var_dump($comentariodinamico);
   }
