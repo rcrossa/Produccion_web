@@ -10,8 +10,8 @@
 
 		public function insertar($comentariodinamico){
 			$db=DB::conectar();
-			$insert=$db->prepare('INSERT INTO comentarios_campo_dinamic values( :id,:idproducto,:label,:activo)');
-			$insert->bindValue('id',$comentariodinamico->getId());
+			$insert=$db->prepare('INSERT INTO comentarios_campo_dinamic values( :idproducto,:label,:activo)');
+			// $insert->bindValue('id',$comentariodinamico->getId());
 			$insert->bindValue('Producto_id',$comentariodinamico->getProducto_id());
 			$insert->bindValue('label',$comentariodinamico->getLabel());
 			$insert->bindValue('activo',$comentariodinamico->getActivo());
@@ -27,7 +27,7 @@
 			foreach ($select->fetchAll() as $comentariodinamico) {
 				$myComentarioDinamico = new ComentarioDinamico();
 				$myComentarioDinamico->setId($comentariodinamico['id']);
-				$myComentarioDinamico->setProducto_id($comentariodinamico['idproducto']);				
+				$myComentarioDinamico->setProducto_id($comentariodinamico['producto_id']);				
 				$myComentarioDinamico->setLabel($comentariodinamico['label']);
 				$myComentarioDinamico->setActivo($comentariodinamico['activo']);
 				$listarComentariosDinamicos[]=$myComentarioDinamico;
@@ -36,23 +36,7 @@
 			return $listarComentariosDinamicos;
 		}
 
-		//Mostrar los comentarios pedientes de aprobacion
-		public function mostrar1(){
-			$db=DB::conectar();
-			$listarComentariosDinamicos1=[];
-			$select=$db->query('SELECT * FROM comentarios_campo_dinamic WHERE activo=0');
-
-			foreach ($select->fetchAll() as $comentariodinamico) {
-				$myComentarioDinamico = new ComentarioDinamico();
-				$myComentarioDinamico->setId($comentariodinamico['id']);			
-				$myComentarioDinamico->setProducto_id($comentariodinamico['producto_id']);	
-				$myComentarioDinamico->setLabel($comentariodinamico['label']);
-				$myComentarioDinamico->setActivo($comentariodinamico['activo']);
-				$listarComentariosDinamicos1[]=$myComentarioDinamico;
-				# code...
-			}
-			return $listarComentariosDinamicos1;
-		}
+		
 		//metodo para eliminar un comentario, recibe como parametro el id del comentario
 		public function eliminar($id){
 			$db=DB::conectar();
@@ -64,13 +48,14 @@
 		//metodo para buscar un comentario, recibe como parametro el id del comentario
 		public function obtenerComentarioDinamico($id){
 			$db=DB::conectar();
-			$select=$db->prepare('SELECT * FROM comentarios_campo_dinamic WHERE ID=:id');
+			$select=$db->prepare('SELECT * FROM comentarios_campo_dinamic where ID=:id');
 			$select->bindValue('id',$id);
 			$select->execute();
-			$comentario=$select->fetch();
+			$comentariodinamico=$select->fetch();
 			$myComentarioDinamico= new ComentarioDinamico();
 			$myComentarioDinamico->setId($comentariodinamico['id']);	
 			$myComentarioDinamico->setProducto_id($comentariodinamico['producto_id']);
+			$myComentarioDinamico->setLabel($comentariodinamico['label']);
 			$myComentarioDinamico->setActivo($comentariodinamico['activo']);
 			return $myComentarioDinamico;
 		}

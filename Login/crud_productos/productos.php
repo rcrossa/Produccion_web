@@ -216,7 +216,7 @@ if ($now > $_SESSION['expire']) {
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form method='post' action='../comentarios/administrar_comentarios_campo_dinamico.php'>
+                        <form method='post' action='../comentarios/administrar_comentarios_dinamico.php'>
                             <div class="table-responsive">
                                 <table class="table tablaingresar ">
                                     <tbody>
