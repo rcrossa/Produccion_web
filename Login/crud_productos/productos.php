@@ -112,7 +112,7 @@ if ($now > $_SESSION['expire']) {
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form method='post' action='administrar_producto.php'>
+                        <form method='post' action='administrar_producto.php' enctype="multipart/form-data">
                             <div class="table-responsive">
                                 <table class="table tablaingresar ">
                                     <tbody>
@@ -143,6 +143,10 @@ if ($now > $_SESSION['expire']) {
                                         <tr>
                                             <th class="table-dark" scope="row">Activo:</td>
                                             <td class="bg-info"><input type="number" name="activo"></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="table-dark" scope="row">Archivo:</td>
+                                            <td class="bg-info"><input type="file" name="imagen"></td>
                                         </tr>
                                         <input type="hidden" name="insertar" value='insertar'>
                                     </tbody>

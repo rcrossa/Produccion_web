@@ -67,7 +67,7 @@ $listarCampos=$crud4->mostrar();
                 <td><?php echo $producto->getDestacado() ?></td>
                 <td><?php echo $producto->getActivo()   ?></td>
 				<td><a href="actualizar.php?idproducto=<?php echo $producto->getIdproducto()?>&accion=a">Actualizar</a> </td>
-				<td><a href="administrar_campo.php?idproducto=<?php echo $producto->getIdproducto()?>&accion=e">Eliminar</a>  </td>
+				<td><a href="administrar_producto.php?idproducto=<?php echo $producto->getIdproducto()?>&accion=e">Eliminar</a>  </td>
 			</tr>
 			<?php }?>
 		</tbody>

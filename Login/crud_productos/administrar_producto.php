@@ -11,7 +11,19 @@ $producto= new Producto();
   try {
 		// si el elemento insertar no viene nulo llama al crud e inserta un producto
 		
+
+
 		if (isset($_POST['insertar'])) {
+
+			if(isset($_FILES['imagen'])){
+				$nombre_archivo = $_FILES['userfile']['name'];
+				$directorio_definitivo = "C:\xampp\htdocs";
+				if (move_uploaded_file($_FILES['userfile']['tmp_name'], $directorio_definitivo.$nombre_archivo)){
+					echo "El archivo ha sido cargado correctamente.";
+					}else{
+					echo "Ocurrió algún error al subir el fichero. No pudo guardarse.";
+					}
+							}
 			// $producto->setIdproducto(  $_POST['idproducto']);
 			$producto->setIdciudad(  $_POST['idciudad']);
 			$producto->setPrecio(    $_POST['precio']);
