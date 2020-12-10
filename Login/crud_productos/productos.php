@@ -146,7 +146,7 @@ if ($now > $_SESSION['expire']) {
                                         </tr>
                                         <tr>
                                             <th class="table-dark" scope="row">Archivo:</td>
-                                            <td class="bg-info"><input type="file" name="imagen"></td>
+                                            <td class="bg-info"><input type="file" name="userfile" id="userfile"></td>
                                         </tr>
                                         <input type="hidden" name="insertar" value='insertar'>
                                     </tbody>
