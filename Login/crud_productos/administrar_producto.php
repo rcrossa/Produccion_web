@@ -10,36 +10,43 @@ $producto= new Producto();
 
   try {
 		// si el elemento insertar no viene nulo llama al crud e inserta un producto
-		if(isset($_FILES['userfile'])){
-				$tipo_archivo = $_FILES['userfile']['type'];
-				$tamano_archivo = $_FILES['userfile']['size'];
-				$destino = _DIR_ . "/campos_dinamicos/".$nombre_archivo;
-				move_uploaded_file($_FILES['userfile']['tmp_name'],  $destino)
-				if (!(($_FILES['userfile']['type'] == "application/msword" ||  strpos($tipo_archivo, "jpeg") || strpos($tipo_archivo, "png")) && ($tamano_archivo < 500000))) {
-
-				echo 'El tamaño o el  tipo de archivo es incorrecto';
-				
-				}elseif(!move_uploaded_file($_FILES['userfile']['tmp_name'],  $destino)){
-				// move_uploaded_file se utiliza para mover el archivo a la posición definitiva
-       
-            		echo 'Ocurrió algún error al subir el fichero. No pudo guardarse.' ;
-					}
-				}
-
 		if (isset($_POST['insertar'])) {
+			$nombre_archivo= uniqid().'.'.pathinfo($_FILES['userfile']['name'], PATHINFO_EXTENSION);
+			// $tipo_archivo = $_FILES['userfile']['type'];
+			// $tamano_archivo = $_FILES['userfile']['size'];
+			// $uploaddir = '/img/';
+			// $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
+			// move_uploaded_file($_FILES['userfile']['tmp_name'],'/img/'.'.'. $uploadfile);
 
-			// if(isset($_FILES['userfile'])){
-			// 	$nombre_archivo = $_FILES['userfile']['name'];
-			// $nombre_archivo= uniqid().'.'.pathinfo($_FILES['userfile']['name'], PATHINFO_EXTENSION);
-			// 	$directorio_definitivo = "C:\xampp\htdocs";
-			// 	if (move_uploaded_file($_FILES['userfile']['tmp_name'], $directorio_definitivo.$nombre_archivo)){
-			// 		echo "El archivo ha sido cargado correctamente.";
-			// 		}else{
-			// 		echo "Ocurrió algún error al subir el fichero. No pudo guardarse.";
-			// 		}
-			// // 				}
+			$dir = "/img";
+				if(isset($_FILES["userfile"]) && $_FILES["userfile"] != null){
+					// move_uploaded_file($_FILES["userfile"]["tmp_name"],$dir.'.'.basename($_FILES["userfile"]["name"]));
+						if(move_uploaded_file($_FILES["userfile"]["tmp_name"], basename($_FILES["userfile"]["name"]))){
+							
+							$tmp_name = $_FILES["userfile"]["tmp_name"];
+							$name = $_FILES["userfile"]["name"];
+							// move_uploaded_file($tmp_name, "$dir/$name");
+							// move_uploaded_file(basename($_FILES["userfile"]["name"]),"img");
+							echo "Subido correctamente";
+						}else{
+							echo "Error al intentar subir";
+						}
+					}
 				
-				// }
+			// if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
+			// 	echo "File is valid, and was successfully uploaded.\n";
+			// } else {
+			// 	echo "Possible file upload attack!\n";
+			// }
+			// $destino = _DIR_ . "/img/".$nombre_archivo;
+			// $destino = _DIR_ . "/img/".$nombre_archivo;
+			// if (!(($_FILES['userfile']['type'] == "application/msword" ||  strpos($tipo_archivo, "jpeg") || strpos($tipo_archivo, "png")) && ($tamano_archivo < 500000))) {
+			// echo 'El tamaño o el  tipo de archivo es incorrecto';    
+			// }elseif(!move_uploaded_file($_FILES['userfile']['tmp_name'], $nombre_archivo)){
+			// // move_uploaded_file se utiliza para mover el archivo a la posición definitiva
+			// 	echo 'Ocurrió algún error al subir el fichero. No pudo guardarse.' ;
+			// }
+			// move_uploaded_file($_FILES['userfile']['tmp_name'], '/img/.'.'.$nombre_archivo');
 			// $producto->setIdproducto(  $_POST['idproducto']);
 			$producto->setIdciudad(  $_POST['idciudad']);
 			$producto->setPrecio(    $_POST['precio']);
@@ -51,7 +58,7 @@ $producto= new Producto();
 			//llama a la función insertar definida en el crud
 			$crud->insertar($producto);
 			echo '</a>Se registro correctamente.</a>.';
-			header('Location: productos.php');
+			// header('Location: productos.php');
 		// si el elemento de la vista con producto actualizar no viene nulo, llama al crud y actualiza el producto
 		}elseif(isset($_POST['actualizar'])){
 			$producto->setIdproducto($_POST['idproducto']);
