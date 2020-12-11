@@ -19,20 +19,22 @@
     $id = (isset($_GET["id"]) ? $_GET['id'] : null);
 
     $queryProductos = "SELECT pr.idproducto as id, 
-                                ci.nombreciudad as nombre, 
-                                pa.nombrepais as pais, 
-                                co.nombrecontinente as continente,
-                                ci.nombreciudad as ciudades,
-                                pr.precio as precio,
-                                pr.descripcion as descripcion,
-                                pr.detalle as descripcion_details,
-                                pr.url as url,
-                                pr.destacado as destacado
-                                FROM productos pr, ciudades ci, paises pa, continentes co
-                                WHERE pr.idciudad = ci.idciudad 
-                                AND ci.idpais = pa.idpais
-                                AND pa.idcontinente = co.idcontinente 
-                                AND pr.idproducto=$id";
+    ci.nombreciudad as nombre, 
+    pa.nombrepais as pais, 
+    co.nombrecontinente as continente,
+    ci.nombreciudad as ciudades,
+    pr.precio as precio,
+    pr.descripcion as descripcion,
+    pr.detalle as descripcion_details,
+    pr.url as url,
+    pr.destacado as destacado,
+    prdin.label as label, prdin.data as data
+    FROM productos pr, ciudades ci, paises pa, continentes co, productos_campo_dinamico prdin
+    WHERE pr.idciudad = ci.idciudad 
+    AND ci.idpais = pa.idpais
+    AND pa.idcontinente = co.idcontinente 
+    AND pr.idproducto=prdin.id_producto
+    AND pr.idproducto=$id";
 
     $queryComentarios = "SELECT c.email as email, 
                                 c.comentario as comentario, 
@@ -160,6 +162,11 @@
                             echo '<tr><td>Pais: </td><td>' . $value['pais'] . '</td></tr>';
                             echo '<tr><td>Viaje: </td><td>' . $value['continente'] . '</td></tr>';
                             echo '<tr><td>Precio: </td><td> ' . $value['precio'] . '</td></tr>';
+                            foreach ($dataProductos as $key => $value) {
+                                echo '<tr><td>' . $value['label'] . ' </td><td> ' . $value['data'] . '</td></tr>';
+                            }
+                           
+                            // echo $dataProductos;
                             ?>
                         </tbody>
                     </table>
