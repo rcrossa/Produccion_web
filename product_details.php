@@ -163,7 +163,7 @@
                             echo '<tr><td>Viaje: </td><td>' . $value['continente'] . '</td></tr>';
                             echo '<tr><td>Precio: </td><td> ' . $value['precio'] . '</td></tr>';
                             foreach ($dataProductos as $key => $value) {
-                                echo '<tr><td>' . $value['label'] . ' </td><td> ' . $value['data'] . '</td></tr>';
+                                echo '<tr><td>' . $value['label'] . ': </td><td> ' . $value['data'] . '</td></tr>';
                             }
                            
                             // echo $dataProductos;
