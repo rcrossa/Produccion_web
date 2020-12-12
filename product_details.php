@@ -32,8 +32,7 @@
     FROM productos pr, ciudades ci, paises pa, continentes co, productos_campo_dinamico prdin
     WHERE pr.idciudad = ci.idciudad 
     AND ci.idpais = pa.idpais
-    AND pa.idcontinente = co.idcontinente 
-    AND pr.idproducto=prdin.id_producto
+    AND pa.idcontinente = co.idcontinente
     AND pr.idproducto=$id";
 
     $queryComentarios = "SELECT c.email as email, 
@@ -46,6 +45,8 @@
                                 AND c.idproducto =$id
                                 ORDER BY fecha DESC";
 
+    $queryCamposdinamicos = "SELECT id_producto, label, data,activo FROM productos_campo_dinamico WHERE id_producto=$id"; 
+    $queryComentarioscampos = "SELECT label FROM comentarios_campo_dinamic WHERE producto_id=$id";
     $stmt1 = $db->prepare($queryProductos);
     $stmt1->execute();
     $dataProductos = array();
@@ -54,6 +55,13 @@
     $stmt2->execute();
     $dataComentarios = array();
 
+    $stmt3 = $db->prepare($queryComentarioscampos);
+    $stmt3->execute();
+    $dataComentarioscampos = array();
+
+    $stmt4 = $db->prepare($queryCamposdinamicos);
+    $stmt4->execute();
+    $dataProductoscampos = array();
 
     while($row=$stmt1->fetch(PDO::FETCH_ASSOC)){
         $dataProductos[] = $row;
@@ -62,7 +70,12 @@
     while($row=$stmt2->fetch(PDO::FETCH_ASSOC)){
         $dataComentarios[] = $row;
     }
-
+    while($row=$stmt3->fetch(PDO::FETCH_ASSOC)){
+        $dataComentarioscampos[] = $row;
+    }
+    while($row=$stmt4->fetch(PDO::FETCH_ASSOC)){
+        $dataProductoscampos[] = $row;
+    }
     $client = @$_SERVER['HTTP_CLIENT_IP']; 
     $forward = @$_SERVER['HTTP_X_FORWARDED_FOR']; 
     $remote = $_SERVER['REMOTE_ADDR']; 
@@ -95,7 +108,6 @@
             $sql="call Creacioncomentario('$id','$ip','$fecha','$comentario1','$estrellas','$activo','$email')";
         
             $db->exec($sql);
-
             echo '<script language="javascript">alert("Se ha registrado el comentario");</script>';
 
         } catch (\Throwable $th) {
@@ -120,8 +132,10 @@
             <div class="row justify-content-center align-items-center">
                 <div class="col-5">
                     <div class="imagen1">
-                        <a href="<?php echo $value['url']; ?>" data-fancybox="gallery" data-caption="Caption for single image">
-                            <img height="auto" width="100%" src="<?php echo $value['url']; ?>" alt="imagen de <?php echo $value['nombre']; ?>">
+                        <a href="<?php echo $value['url']; ?>" data-fancybox="gallery"
+                            data-caption="Caption for single image">
+                            <img height="auto" width="100%" src="<?php echo $value['url']; ?>"
+                                alt="imagen de <?php echo $value['nombre']; ?>">
                         </a>
                     </div>
                 </div>
@@ -132,8 +146,8 @@
                     <h5 class="pl-3">
                         <?php echo $value['continente']; ?> <br>
                         Precio: <?php echo $value['precio']; ?>
-                    </h3>
-                    <?php echo '<p class="col-9 pt-4">' . $value['descripcion'] . '</p>' ?>
+                        </h3>
+                        <?php echo '<p class="col-9 pt-4">' . $value['descripcion'] . '</p>' ?>
                 </div>
             </div>
         </div>
@@ -162,7 +176,8 @@
                             echo '<tr><td>Pais: </td><td>' . $value['pais'] . '</td></tr>';
                             echo '<tr><td>Viaje: </td><td>' . $value['continente'] . '</td></tr>';
                             echo '<tr><td>Precio: </td><td> ' . $value['precio'] . '</td></tr>';
-                            foreach ($dataProductos as $key => $value) {
+                            //campos dinamicos
+                            foreach ($dataProductoscampos as $key => $value) {
                                 echo '<tr><td>' . $value['label'] . ': </td><td> ' . $value['data'] . '</td></tr>';
                             }
                            
@@ -199,12 +214,24 @@
                                 <div class="col-sm-12 col-md-6">
                                     <label for="email">Email *</label>
                                     <input type="email" id="email" name="email" required class="form-control">
+                                    <!-- <?php $pila =array();?> -->
+                                    <?php   foreach ($dataComentarioscampos as $key => $value) {?>
+
+                                    <label for="" name="label" id="label"><?php echo $value['label']. '<br />'?></label>
+                                    <input type="text" id="data" name="pila[]" required class="form-control">
+                                    <?php foreach($pila as $key => $values){?>
+                                    <?php $query="INSERT INTO comentarios_campos_dinamicos_data NULL, 21, $email,$values[data] , '1' "?>
+                                    <?php $db->exec($query);?>
+                                    <?php }?>
+                                    <?php }?>
+                                    <!-- <?php array_push($pila,); ?> -->
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-12 form-group">
                                     <label>Mensaje *</label>
-                                    <textarea class="form-control comentario-textarea" name="comentario" required rows="3"></textarea>
+                                    <textarea class="form-control comentario-textarea" name="comentario" required
+                                        rows="3"></textarea>
                                 </div>
                             </div>
                             <div class="row">
@@ -225,10 +252,12 @@
                                     </div>
                                 </div>
 
-                                <input type="hidden" class="input-xlarge" name="producto_id" value="<?php echo $_GET['id'] ?>" />
+                                <input type="hidden" class="input-xlarge" name="producto_id"
+                                    value="<?php echo $_GET['id'] ?>" />
 
                                 <div class="col-sm-6 col-md-2">
-                                    <input class="text-white btn btn-md btn-block text-center newsletter-btn" type="submit" value="Enviar" name="submit">
+                                    <input class="text-white btn btn-md btn-block text-center newsletter-btn"
+                                        type="submit" value="Enviar" name="submit">
                                 </div>
                             </div>
                         </div>
@@ -263,16 +292,16 @@
                                 $cantidad++;
                                 if ($cantidad == 11) break;
                     ?>
-                                <div class="row justify-content-center align-items-center">
-                                    <div class="border p-4 shadow col-8 single_testmonial">
-                                        <p> <?php echo $comentario['comentario']; ?> </p>
+                    <div class="row justify-content-center align-items-center">
+                        <div class="border p-4 shadow col-8 single_testmonial">
+                            <p> <?php echo $comentario['comentario']; ?> </p>
 
-                                        <div class="testmonial_author">
-                                            <h3><?php echo $comentario['email']; ?> </h3>
-                                        </div>
+                            <div class="testmonial_author">
+                                <h3><?php echo $comentario['email']; ?> </h3>
+                            </div>
 
-                                        <h3 class="text-warning">
-                                            <?php
+                            <h3 class="text-warning">
+                                <?php
                                             if ($comentario['estrellas'] == '1') {
                                                 echo '★';
                                             } elseif ($comentario['estrellas'] == '2') {
@@ -286,13 +315,13 @@
                                             }
                                             
                                             ?>
-                                        </h3>
-                                        <small>
-                                            <i> <?php echo $comentario['fecha']; ?> </i>
-                                        </small>
-                                    </div>
-                                </div>
-                             <?php
+                            </h3>
+                            <small>
+                                <i> <?php echo $comentario['fecha']; ?> </i>
+                            </small>
+                        </div>
+                    </div>
+                    <?php
                             }
                         }
                    // }
@@ -301,6 +330,13 @@
             </div>
         </div>
     </div>
+    <!-- <?php foreach($pila as $valor){?> -->
+    <?php var_dump($valor);
+       ?>
+    <!-- <?php }?> -->
+
+
+
 
     <?php
     require_once "./includes/linkinteresesyherramientas.php";

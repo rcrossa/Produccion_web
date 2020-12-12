@@ -35,7 +35,7 @@ $comentarios= new comentario();
 			header('Location: ../index.php');
 		// si la variable accion enviada por GET es == 'e' llama al crud y elimina un Rol
 		}elseif ($_GET['accion']=='e') {
-			$crud->eliminar($_GET['idcomentario']);
+			$crud->eliminar($_GET['idproducto']);
 			header('Location: ../index.php');		
 		// si la variable accion enviada por GET es == 'a', envía a la página actualizar.php 
 		}elseif($_GET['accion']=='a'){
