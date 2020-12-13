@@ -35,7 +35,7 @@ $continente= new Continente();
 		}elseif($_GET['accion']=='a'){
 			header("Location: actualizar_continente.php");
 		}
-  } catch (\Throwable $th) {
+  } catch (Throwable $th) {
 	header("refresh:1;url=productos.php"); 
 	echo '<a>Debes completar todos los campos. Intentalo de nuevo.</a>.'; 
   }

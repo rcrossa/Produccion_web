@@ -29,7 +29,7 @@ $roles= new Roles();
 		}elseif($_GET['accion']=='a'){
 			header('Location: actualizar_roles.php');
 		}
-  } catch (\Throwable $th) {
+  } catch (Throwable $th) {
 	header("refresh:1;url=usuarios.php"); 
 	echo 'Debes completar todos los campos. Intentalo de nuevo.</a>.'; 
   }

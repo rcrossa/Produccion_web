@@ -94,8 +94,24 @@
     } 
   
 
-    // Si $_POST submit esta setteado, guarda los datos del comentario en comentarios.json
-    
+    // Si $_POST submit esta setteado, recorrere el array del input
+    if(isset($_POST['submit'])){
+        try{
+            $email = $_POST['email'];
+            $query = array();
+            foreach($_POST['pila'] as $key => $value){  $query[] = "('$key','$value')";
+                $dat= "INSERT INTO comentarios_campos_dinamicos_data VALUES('',$id,'$email','$value' , '0') ";
+                $db->exec($dat);
+            }
+            foreach($query as $key => $datos){ echo $datos;}
+            
+            // $dat.=implode(",$query")
+           
+        } catch (Throwable $th) {
+            echo '<script language="javascript">alert("Usted ya ha emitido un comentario para este producto");</script>';            
+        }
+
+    }
     if (isset($_POST['submit'])) {
         try {
             $comentario1 = $_POST['comentario'];
@@ -106,11 +122,11 @@
             // $sql = "INSERT INTO comentarios(idproducto, ip, fecha, comentario, estrellas, activo, email)
             // VALUES ('$id','$ip','$fecha','$comentario1','$estrellas','$activo','$email')";
             $sql="call Creacioncomentario('$id','$ip','$fecha','$comentario1','$estrellas','$activo','$email')";
-        
+            
             $db->exec($sql);
             echo '<script language="javascript">alert("Se ha registrado el comentario");</script>';
 
-        } catch (\Throwable $th) {
+        } catch (Throwable $th) {
             echo '<script language="javascript">alert("Usted ya ha emitido un comentario para este producto");</script>';            
         }
         }
@@ -218,13 +234,10 @@
                                     <?php   foreach ($dataComentarioscampos as $key => $value) {?>
 
                                     <label for="" name="label" id="label"><?php echo $value['label']. '<br />'?></label>
-                                    <input type="text" id="data" name="pila[]" required class="form-control">
-                                    <?php foreach($pila as $key => $values){?>
-                                    <?php $query="INSERT INTO comentarios_campos_dinamicos_data NULL, 21, $email,$values[data] , '1' "?>
-                                    <?php $db->exec($query);?>
+                                    <input type="text" id="data"  name="pila[]" required class="form-control">
+                                                                        <?php array_push($pila,$value); ?>
                                     <?php }?>
-                                    <?php }?>
-                                    <!-- <?php array_push($pila,); ?> -->
+
                                 </div>
                             </div>
                             <div class="row">
@@ -330,10 +343,9 @@
             </div>
         </div>
     </div>
-    <!-- <?php foreach($pila as $valor){?> -->
-    <?php var_dump($valor);
-       ?>
-    <!-- <?php }?> -->
+    <!-- <?php foreach($pila as $valor){?>
+    <?php echo $valor;?>
+    <?php }?> -->
 
 
 

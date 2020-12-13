@@ -37,7 +37,7 @@ $pais= new Pais();
 		}elseif($_GET['accion']=='a'){
 			header('Location: actualizar_pais.php');
 		}
-  } catch (\Throwable $th) { 
+  } catch (Throwable $th) { 
 	echo '<a>Debes completar todos los campos. Intentalo de nuevo.</a>.'; 
 	header("refresh:1;url=productos.php");
   }

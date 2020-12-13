@@ -33,7 +33,7 @@ $permiso= new Permiso();
 		}elseif($_GET['accion']=='a'){
 			header('Location: actualizar_permisos.php');
 		}
-  } catch (\Throwable $th) {
+  } catch (Throwable $th) {
 	header("refresh:1;url=usuarios.php"); 
 	echo 'Debes completar todos los campos. Intentalo de nuevo.</a>.'; 
   }
