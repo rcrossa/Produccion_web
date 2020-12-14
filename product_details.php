@@ -99,8 +99,9 @@
         try{
             $email = $_POST['email'];
             $query = array();
+            $fecha= date('Y-m-d');
             foreach($_POST['pila'] as $key => $value){  $query[] = "('$key','$value')";
-                $dat= "INSERT INTO comentarios_campos_dinamicos_data VALUES('',$id,'$email','$value' , '0') ";
+                $dat= "INSERT INTO comentarios_campos_dinamicos_data VALUES('',$id,'$email','$value' , '0','$fecha') ";
                 $db->exec($dat);
             }
             foreach($query as $key => $datos){ echo $datos;}
@@ -336,6 +337,7 @@
                     </div>
                     <?php
                             }
+                            
                         }
                    // }
                     ?>
