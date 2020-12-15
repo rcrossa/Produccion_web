@@ -194,13 +194,11 @@
                             echo '<tr><td>Precio: </td><td> ' . $value['precio'] . '</td></tr>';
                             //campos dinamicos
                             foreach ($dataProductoscampos as $key => $value) {
-                               
                                 echo '<tr><td>' . $value['label'] . ': </td><td> ' . $value['data'] . '</td></tr>';
                             
-                            
+                                
                         }
                            
-                            // echo $dataProductos;
                             ?>
                         </tbody>
                     </table>
