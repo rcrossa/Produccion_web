@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-11-2020 a las 23:22:04
--- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.4.10
+-- Tiempo de generación: 15-12-2020 a las 02:03:12
+-- Versión del servidor: 10.4.17-MariaDB
+-- Versión de PHP: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `produccion_web5`
 --
+
+DELIMITER $$
+--
+-- Procedimientos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `altadecuenta` (IN `email` VARCHAR(100), IN `password` VARCHAR(1000), IN `nombre` VARCHAR(100), IN `apellido` VARCHAR(100), IN `edad` INT(3) UNSIGNED, IN `tipo_rol` VARCHAR(20), IN `accion` VARCHAR(20))  NO SQL
+BEGIN
+INSERT INTO usuarios (email, password, nombre, apellido, edad) VALUES (email,
+password,nombre,apellido,edad);
+INSERT INTO roles(email, tipo_rol, accion) VALUES (email,tipo_rol,accion);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CO_din_productos` (IN `ID` INT(11))  NO SQL
+SELECT co.idproducto as idproducto,co.fecha AS fecha, codin.label as campo_extra,codin.data as data
+from comentarios co, comentarios_campo_dinamic codin
+WHERE co.idproducto=ID AND codin.producto_id=ID AND co.activo =1 AND codin.activo=1$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CP_din_productos` (IN `ID` INT(11))  NO SQL
+SELECT pr.idciudad as ciudades, prdin.label as campo, prdin.data as data FROM productos pr, productos_campo_dinamico prdin
+WHERE pr.idproducto=ID AND prdin.id_producto=ID AND pr.activo=1 AND prdin.activo=1$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Creacioncomentario` (IN `idproducto` INT(11), IN `ip` VARCHAR(16), IN `fecha` DATE, IN `comentario` VARCHAR(160), IN `estrellas` INT, IN `activo` INT, IN `email` VARCHAR(100))  NO SQL
+INSERT INTO comentarios(idproducto, ip, fecha, comentario, estrellas, activo, email)VALUES (idproducto,ip,fecha,comentario,estrellas,activo,email)$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -422,24 +447,58 @@ CREATE TABLE `comentarios` (
   `comentario` varchar(160) NOT NULL,
   `estrellas` tinyint(1) NOT NULL,
   `activo` tinyint(1) NOT NULL,
-  `email` varchar(100) NOT NULL
+  `email` varchar(100) NOT NULL,
+  `idcomentario` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `comentarios`
 --
 
-INSERT INTO `comentarios` (`idproducto`, `ip`, `fecha`, `comentario`, `estrellas`, `activo`, `email`) VALUES
-(1, '10101020', '2020-11-15', 'asdasdasdasd', 4, 1, 'd.spinozzi@gmail.com'),
-(4, '192.168.1.19', '2020-11-15', 'akjsdnkjadskj', 2, 1, 'david.spinozzi.ext@bunge.com'),
-(6, '13131313', '2020-09-07', 'muy buenooooo!!!', 5, 1, 'roberto.rosa@gmail.com'),
-(8, '101', '2020-11-15', 'Mas o menos', 3, 1, 'd.spinozzi@gmail.com'),
-(9, '10101010', '2020-09-02', 'no me gustó mucho!', 3, 1, 'davidspinozzi@gmail.com'),
-(9, '192168', '2020-11-15', 'mas o menos!!', 4, 1, 'davidspinozzi@gmail.com'),
-(10, '10201005', '2020-11-15', 'excelentee!!', 5, 0, 'davidspinozzi@gmail.com'),
-(14, '12121212', '2020-09-02', 'muy buen destino!', 5, 1, 'nicolas.ceijas@gmail.com'),
-(15, '10101010', '2020-09-01', 'excelente destino!!', 5, 1, 'davidspinozzi@gmail.com'),
-(15, '111111', '2020-09-04', 'me gustó mucho!!', 4, 1, 'elisa.leiva@gmail.com');
+INSERT INTO `comentarios` (`idproducto`, `ip`, `fecha`, `comentario`, `estrellas`, `activo`, `email`, `idcomentario`) VALUES
+(8, '::1', '2020-12-14', 'test', 4, 1, 'prueba@gmail.com', 13);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentarios_campos_dinamicos_data`
+--
+
+CREATE TABLE `comentarios_campos_dinamicos_data` (
+  `id` int(2) NOT NULL,
+  `id_producto` int(2) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `detalle` varchar(300) NOT NULL,
+  `activo` tinyint(1) NOT NULL,
+  `fecha` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `comentarios_campos_dinamicos_data`
+--
+
+INSERT INTO `comentarios_campos_dinamicos_data` (`id`, `id_producto`, `email`, `detalle`, `activo`, `fecha`) VALUES
+(20, 8, 'prueba@gmail.com', '123123', 0, '2020-12-14');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentarios_campo_dinamic`
+--
+
+CREATE TABLE `comentarios_campo_dinamic` (
+  `id` int(3) NOT NULL,
+  `producto_id` int(11) NOT NULL,
+  `label` varchar(100) NOT NULL,
+  `activo` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `comentarios_campo_dinamic`
+--
+
+INSERT INTO `comentarios_campo_dinamic` (`id`, `producto_id`, `label`, `activo`) VALUES
+(25, 8, 'Celular', 1);
 
 -- --------------------------------------------------------
 
@@ -713,8 +772,28 @@ INSERT INTO `productos` (`idproducto`, `idciudad`, `precio`, `descripcion`, `det
 (13, 'SYD', 360630, 'VISITANDO: Australia/ Hope / Kelowna / Revelstoke / Golden / Columbia Ice Field / Canmore /  Banff / Calgar. Incluye: vuelo por American Airlines (Clase turista).', 'Australia Aéreos ES/FE/ES. 04 Noches de alojamiento con régimen según elección. Traslados In / Out, City Tour. Notas: AÉREOS NETOS NO COMISONABLES. Consulte a su ejecutivo de ventas por asistencia al viajero.', './images/australia-sydney.jpeg', 1, 1),
 (14, 'BCN', 45010, 'VISITANDO: España MADRID, SANTIAGO DE COMPOSTELA -RINLO - CABO VIDIO - LA MANJOYA - COVADONGA - CUEVAS DEL SOPLAO - SANTANDER - BILBAO - SAN SEBASTIAN.', ' España Aéreos ES/FE/ES. 04 Noches de alojamiento con régimen según elección. Traslados In / Out,  City Tour. Notas: AÉREOS NETOS NO COMISONABLES. Consulte a su ejecutivo de ventas por asistencia al viajero.', './images/españa-barcelona.jpeg', 1, 1),
 (15, 'MAD', 45010, 'VISITANDO: España MADRID, SANTIAGO DE COMPOSTELA -RINLO - CABO VIDIO - LA MANJOYA - COVADONGA - CUEVAS DEL SOPLAO - SANTANDER - BILBAO - SAN SEBASTIAN.', ' España Aéreos ES/FE/ES. 04 Noches de alojamiento con régimen según elección. Traslados In / Out,  City Tour. Notas: AÉREOS NETOS NO COMISONABLES. Consulte a su ejecutivo de ventas por asistencia al viajero.', './images/españa-madrid.jpeg', 1, 1),
-(16, 'ATL', 10000, 'TOUR ATLANTA', '7 días The Ritz-Carlton, Atlanta', './images/eeuu-losangeles.jpeg', 1, 1),
-(17, 'sxb', 260000, 'VISITANDO: ESTRASBURGO, FRACIA ', 'Francia Aéreos ES/FE/ES, 04 Noches de alojamiento', './images/francia-estrasburgo.jpeg', 1, 1);
+(161, 'PAR', 25, 'Esto es una prueba', 'Esto es una prueba1', './images/img/viaje.jpg', 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productos_campo_dinamico`
+--
+
+CREATE TABLE `productos_campo_dinamico` (
+  `id` int(3) NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  `label` varchar(100) NOT NULL,
+  `activo` int(1) NOT NULL,
+  `data` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `productos_campo_dinamico`
+--
+
+INSERT INTO `productos_campo_dinamico` (`id`, `id_producto`, `label`, `activo`, `data`) VALUES
+(17, 8, 'Traslados', 1, 'Traslados incluidos');
 
 -- --------------------------------------------------------
 
@@ -734,11 +813,8 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`email`, `tipo_rol`, `accion`) VALUES
 ('admin@gmail.com', 'admin', 'editar'),
-('davidspinozzi@gmail.com', 'productos', 'borrar'),
-('davidspinozzi@gmail.com', 'productos', 'editar'),
-('davidspinozzi@gmail.com', 'productos', 'ver'),
-('dspinozzi@gmail.com', 'comentarios', 'ver'),
-('prueba23@gmail.com', 'productos', 'editar');
+('administrator@gmail.com', 'admin', 'ver'),
+('prueba@gmail.com', 'usuarios', 'ver');
 
 -- --------------------------------------------------------
 
@@ -755,13 +831,7 @@ CREATE TABLE `tipo_rol` (
 --
 
 INSERT INTO `tipo_rol` (`idrol`) VALUES
-('acciones'),
 ('admin'),
-('ciudades'),
-('comentarios'),
-('continentes'),
-('paises'),
-('productos'),
 ('usuarios');
 
 -- --------------------------------------------------------
@@ -783,15 +853,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`email`, `password`, `nombre`, `apellido`, `edad`) VALUES
-('admin@gmail.com', '$2y$10$4boIyFdO4FWr3D5RRs5tCeVPBc1668HYTmOAoYib.O0OcIprOkcHy', 'admin', 'admin', 33),
-('coco@gmail.com', '$2y$10$68XhGHyutOYi3QPU.JQHFuk6d0PAca.FP2D22L2fPamMzIoNELio.', 'coco', 'loco', 33),
-('davidspinozzi@gmail.com', '$2y$10$PJjcMtrzQlsdhNMgBhbGV.P59wru9lNvQ/ZR2000WnKf8Sdhg3dou', 'David', 'Spinozzi', 31),
-('dspinozzi@gmail.com', '$2y$10$nUzX8RrTUG6naifAzTjxOuVFlq0oxvgNGaIqfME6A8j5iWdpc2fx2', 'David', 'Spinozzi', 31),
-('elisa.leiva@gmail.com', '$2y$10$bgWq3ZOhdSEY37gy7T4Q2OX8hH5zMfa3qtIHCNZ68cQQfBtsSMeJS', 'Elisa', 'Leiva', 25),
-('nicolas.ceijas@gmail.com', '$2y$10$OoF9u06gRuWt3EjHWhPCFeCQHdDQWRoGfeb0OkvgBfAthGDjH2/9.', 'Nicolas', 'Ceijas', 25),
-('pepelopez@gmail.com', '$2y$10$68XhGHyutOYi3QPU.JQHFuk6d0PAca.FP2D22L2fPamMzIoNELio.', 'pepe', 'lopez', 25),
-('prueba23@gmail.com', '$2y$10$gK2o0v3wsZ/kpi7555HKa.x9aluljWimlfj2lTZwHozKXfnjicqWi', 'prueba', 'test1', 26),
-('roberto.rosa@gmail.com', '$2y$10$iB8I5xTpn1dBoEiSdpskNuT8vf8m58WWCCcM7lTBoZyDMR3vXIUKi', 'Roberto', 'Rosa', 30);
+('admin@gmail.com', '$2y$10$nwsHAeaMJrx26G4ddlOf/.6bgIwKxeli884/CzXm7KbX8uSKbjbmm', 'admin', 'admin', 34),
+('administrator@gmail.com', '$2y$10$vCUN5mD4AacQHtnCLugZYuwAzRDcyBcUO62AxGOkfcOHjWxxoI6sC', 'admin', 'admin', 33),
+('prueba@gmail.com', '$2y$10$hNf3SNshXYesF3dL8ccqduiVTIzEa7XbQ0zJCwvxJgm.KtGpdkG96', 'prueba', 'test', 34);
 
 --
 -- Índices para tablas volcadas
@@ -815,7 +879,22 @@ ALTER TABLE `ciudades`
 --
 ALTER TABLE `comentarios`
   ADD PRIMARY KEY (`idproducto`,`ip`,`fecha`),
+  ADD UNIQUE KEY `idcomentario` (`idcomentario`),
   ADD KEY `email` (`email`);
+
+--
+-- Indices de la tabla `comentarios_campos_dinamicos_data`
+--
+ALTER TABLE `comentarios_campos_dinamicos_data`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_producto` (`id_producto`) USING BTREE;
+
+--
+-- Indices de la tabla `comentarios_campo_dinamic`
+--
+ALTER TABLE `comentarios_campo_dinamic`
+  ADD PRIMARY KEY (`id`) USING BTREE,
+  ADD KEY `producto_id` (`producto_id`);
 
 --
 -- Indices de la tabla `continentes`
@@ -836,7 +915,14 @@ ALTER TABLE `paises`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`idproducto`) USING BTREE,
-  ADD KEY `productos_ibfk_1` (`idciudad`);
+  ADD KEY `productos_ibfk_1` (`idciudad`) USING BTREE;
+
+--
+-- Indices de la tabla `productos_campo_dinamico`
+--
+ALTER TABLE `productos_campo_dinamico`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `productoid` (`id_producto`);
 
 --
 -- Indices de la tabla `roles`
@@ -864,10 +950,34 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  MODIFY `idcomentario` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de la tabla `comentarios_campos_dinamicos_data`
+--
+ALTER TABLE `comentarios_campos_dinamicos_data`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT de la tabla `comentarios_campo_dinamic`
+--
+ALTER TABLE `comentarios_campo_dinamic`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
+
+--
+-- AUTO_INCREMENT de la tabla `productos_campo_dinamico`
+--
+ALTER TABLE `productos_campo_dinamico`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Restricciones para tablas volcadas
@@ -886,6 +996,18 @@ ALTER TABLE `comentarios`
   ADD CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`idproducto`) REFERENCES `productos` (`idproducto`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Filtros para la tabla `comentarios_campos_dinamicos_data`
+--
+ALTER TABLE `comentarios_campos_dinamicos_data`
+  ADD CONSTRAINT `comentarios_campos_dinamicos_data_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `comentarios_campo_dinamic` (`producto_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `comentarios_campo_dinamic`
+--
+ALTER TABLE `comentarios_campo_dinamic`
+  ADD CONSTRAINT `comentarios_campo_dinamic_ibfk_1` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`idproducto`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Filtros para la tabla `paises`
 --
 ALTER TABLE `paises`
@@ -896,6 +1018,12 @@ ALTER TABLE `paises`
 --
 ALTER TABLE `productos`
   ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`idciudad`) REFERENCES `ciudades` (`idciudad`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `productos_campo_dinamico`
+--
+ALTER TABLE `productos_campo_dinamico`
+  ADD CONSTRAINT `product_campos_din` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`idproducto`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `roles`
