@@ -27,12 +27,11 @@
     pr.descripcion as descripcion,
     pr.detalle as descripcion_details,
     pr.url as url,
-    pr.destacado as destacado,
-    prdin.label as label, prdin.data as data
-    FROM productos pr, ciudades ci, paises pa, continentes co, productos_campo_dinamico prdin
+    pr.destacado as destacado
+    FROM productos pr, ciudades ci, paises pa, continentes co
     WHERE pr.idciudad = ci.idciudad 
     AND ci.idpais = pa.idpais
-    AND pa.idcontinente = co.idcontinente
+    AND pa.idcontinente = co.idcontinente 
     AND pr.idproducto=$id";
 
     $queryComentarios = "SELECT c.email as email, 
@@ -45,7 +44,7 @@
                                 AND c.idproducto =$id
                                 ORDER BY fecha DESC";
 
-    $queryCamposdinamicos = "SELECT id_producto, label, data,activo FROM productos_campo_dinamico WHERE id_producto=$id"; 
+    $queryCamposdinamicos = "SELECT id_producto, label, data,activo FROM productos_campo_dinamico WHERE id_producto=$id AND activo=1" ; 
     $queryComentarioscampos = "SELECT label FROM comentarios_campo_dinamic WHERE producto_id=$id";
     $stmt1 = $db->prepare($queryProductos);
     $stmt1->execute();
@@ -195,8 +194,11 @@
                             echo '<tr><td>Precio: </td><td> ' . $value['precio'] . '</td></tr>';
                             //campos dinamicos
                             foreach ($dataProductoscampos as $key => $value) {
+                               
                                 echo '<tr><td>' . $value['label'] . ': </td><td> ' . $value['data'] . '</td></tr>';
-                            }
+                            
+                            
+                        }
                            
                             // echo $dataProductos;
                             ?>

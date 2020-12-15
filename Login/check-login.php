@@ -64,7 +64,7 @@ session_start();
                                                     $_SESSION['tipo_rol'] = $row['tipo_rol'];
                                                     $_SESSION['accion'] = $row['accion'];
                                                     $_SESSION['start'] = time();
-                                                    $_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;						
+                                                    $_SESSION['expire'] = $_SESSION['start'] + (7 * 60) ;						
                                                             if($_SESSION['tipo_rol']=="usuarios"){
                                                                 echo "<div class='alert alert-success mt-4' role='alert'><strong>Bienvenido $row[tipo_rol] $row[apellido]</strong>			
                                                                 <p><a href='Panelusuario/index.php'>Ir al panel de usuarios</a></p>
@@ -77,7 +77,7 @@ session_start();
                                                                 $_SESSION['tipo_rol'] = $row['tipo_rol'];
                                                                 $_SESSION['accion'] = $row['accion'];
                                                                 $_SESSION['start'] = time();
-                                                                $_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;	
+                                                                $_SESSION['expire'] = $_SESSION['start'] + (7 * 60) ;	
                                                                 
                                                                 echo "<div class='alert alert-success mt-4' role='alert'>
                                                                 <strong>Bienvenido $row[tipo_rol]</strong> $row[nombre]			
